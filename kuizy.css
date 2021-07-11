@@ -1,0 +1,26 @@
+h2{
+    position:relative;
+}
+
+h2::after {
+  content: '';
+  margin-top: 10px;
+  display: block;
+  width: 120px;/*線の長さ*/
+  height: 2px;/*線の太さ*/
+  background-color: #00ab36;/*線の色*/
+}
+
+
+.box1 li{
+    display: block;
+    width: 592px;
+    border: 1px solid #ebebeb;
+    padding: 13px;
+    margin: 10px 0;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 3px 2px -2px rgb(0 0 0 / 13%);
+    -webkit-box-shadow: 0 3px 2px -2px rgb(0 0 0 / 13%);
+    -moz-box-shadow: 0 3px 2px -2px rgba(0,0,0,.13);
+}
