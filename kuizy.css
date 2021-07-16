@@ -1,8 +1,19 @@
-h2{
-    position:relative;
+body{
+  width: 100%;
+  margin: 0 auto;
+  max-width: 650px;
 }
 
-h2::after {
+img{
+  width: 100%;
+}
+
+h1{
+    position:relative;
+    font-size: 17px;
+}
+
+h1::after {
   content: '';
   margin-top: 10px;
   display: block;
@@ -13,8 +24,8 @@ h2::after {
 
 
 .box1 li{
+  font-size: 16px;
     display: block;
-    width: 592px;
     border: 1px solid #ebebeb;
     padding: 13px;
     margin: 10px 0;
