@@ -47,8 +47,6 @@ function shuffle(arr) {
 
 //本体
 for(let i = 0; i < 10; i++) {
-    
-
     let question_box =
         `<h1>`+ `${i+1}.この地名はなんて読む？` + `</h1>`+
 
@@ -57,62 +55,82 @@ for(let i = 0; i < 10; i++) {
         `</div>`+
         
         `<div class="box1">`+
-            `<ul id="choices">`+
-                `<li id='${i}-0'>`+quizeSet[i][0] +`</li>`+
-                `<li id='${i}-1'>`+quizeSet[i][1]+`</li>`+
-                `<li id='${i}-2'>`+quizeSet[i][2]+`</li>`+
+            `<ul id="choices">`;
+            for(let x =0; x < 3; x++){
+                question_box = question_box+
+                `<li id='${i}-${x}' onclick="onclickFunction(${i},${x})">`+quizeSet[i][x] +`</li>`
+            };
+            question_box = question_box+
             `</ul>`+
             `</div>`+    
         `<div class="quiz-result" id="ans-${i}-a">`+
             `<p class ="quiz-result-title quiz-result-title-succeeded" >正解！</p>`+
-            `<p class ="quiz-result-explanation">正解は「`+true_answers [i]+`」です！</p>`+
+            `<p class ="quiz-result-explanation">正解は「`+true_answers[i]+`」です！</p>`+
         `</div>`+
         `<div class="quiz-result" id="ans-${i}-b">`+
             `<p class ="quiz-result-title quiz-result-title-failed" >不正解！</p>`+
             `<p class ="quiz-result-explanation">正解は「`+true_answers[i]+`」です！</p>`+
         `</div>`;
-
-
     document.getElementById('quiz-box').insertAdjacentHTML('beforeend',question_box);
 
-    let clicked_option_true = document.getElementById( i + "-0")
-    let clicked_option_false_1st = document.getElementById( i + "-1")
-    let clicked_option_false_2nd = document.getElementById( i + "-2")
-    let true_explanation = document.getElementById("ans-" + i + "-a")
-    let false_explanation = document.getElementById("ans-" + i  + "-b")
+var onclickFunction = function (question_number,clicked_number){
+
+    let clicked_option = document.getElementById(question_number+"-"+clicked_number)
+    clicked_option.classList.add("failed");
+
+    // let choice0 = document.getElementById(question_number+"-0");
+    // let choice1 = document.getElementById(question_number+"-1");
+    // let choice2 = document.getElementById(question_number+"-2");
     
-
-    //ここにif文を追加
-    let num = 0;
-
-    if (num === 0){
-         //正解を選択した際の動き
-        clicked_option_true.addEventListener('click',function() {
-            clicked_option_true.classList.add("succeeded"); //文字を白に、背景を青にする
-            true_explanation.style.display ="block"; //解説ボックスを表示する
-            clicked_option_false_1st.style.pointerEvents="none"; //不正解１をクリック無効にする
-            clicked_option_false_2nd.style.pointerEvents="none"; //不正解２をクリック無効にする
-        });
-    } else if (num === 1){
-        //不正解⑴を選択した際の動き  
-        clicked_option_false_1st.addEventListener('click',function() {
-            clicked_option_false_1st.classList.add("failed"); //文字を白に、背景を赤にする
-            clicked_option_true.classList.add("succeeded"); //正解のボックスの色を変更
-            false_explanation.style.display ="block"; //解説ボックスを表示する
-            clicked_option_true.style.pointerEvents="none"; //正解をクリック無効にする
-            clicked_option_false_2nd.style.pointerEvents="none"; //不正解２をクリック無効にする
-        });
-    } else if (num === 2){
-        //不正解⑵を選択した際の動き
-        clicked_option_false_2nd.addEventListener('click',function() {
-            clicked_option_false_2nd.classList.add("failed"); //文字を白に、背景を赤にする
-            clicked_option_true.classList.add("succeeded"); //正解のボックスの色を変更
-            false_explanation.style.display ="block"; //解説ボックスを表示する
-            clicked_option_true.style.pointerEvents="none"; //正解をクリック無効にする
-            clicked_option_false_1st.style.pointerEvents="none"; //不正解１をクリック無効にする
-        });
+    for ( let t = 0; t < 3; t++){
+        if (quizeSet[question_number][t] == true_answers[question_number]){
+            let true_choice = document.getElementById(question_number+"-"+t);
+            true_choice.classList.remove("failed");
+            true_choice.classList.add("succeeded");
+            
+        }
     }
 
+
+    
+}
+
+
+
+
+
+    // let true_explanation = document.getElementById("ans-" + i + "-a")
+    // let false_explanation = document.getElementById("ans-" + i  + "-b")
+    
+
+
+
+        //  //正解を選択した際の動き
+        // clicked_option_true.addEventListener('click',function() {
+        //     clicked_option_true.classList.add("succeeded"); //文字を白に、背景を青にする
+        //     true_explanation.style.display ="block"; //解説ボックスを表示する
+        //     clicked_option_false_1st.style.pointerEvents="none"; //不正解１をクリック無効にする
+        //     clicked_option_false_2nd.style.pointerEvents="none"; //不正解２をクリック無効にする
+        // });
+
+        // //不正解⑴を選択した際の動き  
+        // clicked_option_false_1st.addEventListener('click',function() {
+        //     clicked_option_false_1st.classList.add("failed"); //文字を白に、背景を赤にする
+        //     clicked_option_true.classList.add("succeeded"); //正解のボックスの色を変更
+        //     false_explanation.style.display ="block"; //解説ボックスを表示する
+        //     clicked_option_true.style.pointerEvents="none"; //正解をクリック無効にする
+        //     clicked_option_false_2nd.style.pointerEvents="none"; //不正解２をクリック無効にする
+        // });
+   
+        // //不正解⑵を選択した際の動き
+        // clicked_option_false_2nd.addEventListener('click',function() {
+        //     clicked_option_false_2nd.classList.add("failed"); //文字を白に、背景を赤にする
+        //     clicked_option_true.classList.add("succeeded"); //正解のボックスの色を変更
+        //     false_explanation.style.display ="block"; //解説ボックスを表示する
+        //     clicked_option_true.style.pointerEvents="none"; //正解をクリック無効にする
+        //     clicked_option_false_1st.style.pointerEvents="none"; //不正解１をクリック無効にする
+        // });
+  
 
 };
 
