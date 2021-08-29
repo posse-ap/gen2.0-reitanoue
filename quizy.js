@@ -82,20 +82,19 @@ for(let i = 0; i < 10; i++) {
     let false_explanation = document.getElementById("ans-" + i  + "-b")
     
 
-    
+    //ここにif文を追加
+    let num = 0;
 
-        //正解を選択した際の動き
+    if (num === 0){
+         //正解を選択した際の動き
         clicked_option_true.addEventListener('click',function() {
             clicked_option_true.classList.add("succeeded"); //文字を白に、背景を青にする
             true_explanation.style.display ="block"; //解説ボックスを表示する
             clicked_option_false_1st.style.pointerEvents="none"; //不正解１をクリック無効にする
             clicked_option_false_2nd.style.pointerEvents="none"; //不正解２をクリック無効にする
         });
-    
-
-   
-        
-    //不正解⑴を選択した際の動き  
+    } else if (num === 1){
+        //不正解⑴を選択した際の動き  
         clicked_option_false_1st.addEventListener('click',function() {
             clicked_option_false_1st.classList.add("failed"); //文字を白に、背景を赤にする
             clicked_option_true.classList.add("succeeded"); //正解のボックスの色を変更
@@ -103,10 +102,8 @@ for(let i = 0; i < 10; i++) {
             clicked_option_true.style.pointerEvents="none"; //正解をクリック無効にする
             clicked_option_false_2nd.style.pointerEvents="none"; //不正解２をクリック無効にする
         });
-    
-
- 
-    //不正解⑵を選択した際の動き
+    } else if (num === 2){
+        //不正解⑵を選択した際の動き
         clicked_option_false_2nd.addEventListener('click',function() {
             clicked_option_false_2nd.classList.add("failed"); //文字を白に、背景を赤にする
             clicked_option_true.classList.add("succeeded"); //正解のボックスの色を変更
@@ -114,7 +111,8 @@ for(let i = 0; i < 10; i++) {
             clicked_option_true.style.pointerEvents="none"; //正解をクリック無効にする
             clicked_option_false_1st.style.pointerEvents="none"; //不正解１をクリック無効にする
         });
-    
+    }
+
 
 };
 
