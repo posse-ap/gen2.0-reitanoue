@@ -55,7 +55,7 @@ for(let i = 0; i < quizSet.length; i++) {
             `<ul id="ul-${i}" >`;
             for(let x = 0; x < 3; x++){
             question_box = question_box+
-                `<li id='${i}-${x}' onclick="onclickFunction(${i},${x})">`+quizSet[i][x] +`</li>`
+                `<li id='${i}-${x}' onclick="onclickFunction(${i},${x})" >`+quizSet[i][x] +`</li>`
             };
             question_box = question_box+
             `</ul>`+
@@ -72,9 +72,10 @@ for(let i = 0; i < quizSet.length; i++) {
     //html内に入れる    
     document.getElementById('quiz-box').insertAdjacentHTML('beforeend',question_box);
             
-
     
-　　var onclickFunction = (question_number,clicked_number) => {
+    
+    
+    var onclickFunction = (question_number,clicked_number) => {
 
         //クリックした際に全て赤に変更
         let clicked_option = document.getElementById(question_number+"-"+clicked_number)
@@ -102,18 +103,14 @@ for(let i = 0; i < quizSet.length; i++) {
             //正解を選択したときの解説ブロックを表示         
             if (quizSet[question_number][clicked_number] == true_answers[question_number]){
                 document.getElementById('ans-t-'+question_number).style.display="block";
+                document.getElementById('ans-t-'+question_number).scrollIntoView({behavior:'smooth',block:'center'});
             //不正解を選択したときの解説ブロックを表示
             }else{          
                 document.getElementById('ans-f-'+question_number).style.display="block";
+                document.getElementById('ans-f-'+question_number).scrollIntoView({behavior:'smooth',block:'center'});
             }    
     
 }
 };
-
-
-
-
-
-
 
 

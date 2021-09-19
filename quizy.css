@@ -114,10 +114,70 @@ header .content-wrapper {
 }
 
 
+
+.header-spacer{
+  height: 40px;
+}
+
+.clearfix{
+  clear: both;
+}
+
+
+.tabber{
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 9px;
+    text-align: center;
+    margin: 0 auto;
+    border-bottom: 1px solid #eee;
+    background: #f6f6f6;
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 2%), 0 1px 2px 0 rgb(0 0 0 / 8%);
+    overflow: hidden;
+}
+
+.tabber a{
+    color: #161616;
+    text-decoration: none;
+    display: block;
+    padding-top: 8px;
+    height: 42px;
+}
+
+.tabber li {
+  display: block;
+  width: 25%;
+  position: relative;
+}
+
+.tabber li:after{
+  position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: 0;
+    z-index: 1;
+    width: 1px;
+    background-color: #eee;
+    content: '';
+    pointer-events: none;
+}
+
+.tabbar svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  margin: 0 auto;
+  color: #031831;
+}
+
+
 .content-wrapper {
   width: 100%;
   margin: 0 auto;
   max-width: 650px;
+
 }
 
 
@@ -227,3 +287,26 @@ h1::after {
   list-style: none;
 }
 
+html {
+  scroll-behavior: smooth;
+  
+}
+
+
+body {
+  line-height: 24px;
+  letter-spacing: .04em;
+  color: rgb(3, 24, 49);
+  font-family: "Hiragino Kaku Gothic ProN", -apple-system, BlinkMacSystemFont, "Hiragino Sans", "游ゴシック Medium", meiryo, sans-serif;
+}
+
+.tabber li a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tabber svg {
+  margin: 0 4vw;
+
+}
