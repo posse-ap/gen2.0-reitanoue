@@ -103,11 +103,11 @@ for(let i = 0; i < quizSet.length; i++) {
             //正解を選択したときの解説ブロックを表示         
             if (quizSet[question_number][clicked_number] == true_answers[question_number]){
                 document.getElementById('ans-t-'+question_number).style.display="block";
-                document.getElementById('ans-t-'+question_number).scrollIntoView({behavior:'smooth',block:'center'});
+                document.getElementById('ul-'+question_number).scrollIntoView({behavior:'smooth',block:'start'});
             //不正解を選択したときの解説ブロックを表示
             }else{          
                 document.getElementById('ans-f-'+question_number).style.display="block";
-                document.getElementById('ans-f-'+question_number).scrollIntoView({behavior:'smooth',block:'center'});
+                document.getElementById('ul-'+question_number).scrollIntoView({behavior:'smooth',block:'start'});
             }    
     
 }
