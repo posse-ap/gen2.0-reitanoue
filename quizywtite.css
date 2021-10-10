@@ -1,0 +1,111 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: "Hiragino Kaku Gothic ProN", -apple-system, BlinkMacSystemFont, "Hiragino Sans", "游ゴシック Medium", meiryo, sans-serif;;
+}
+
+.header-wrapper{
+    display: flex;
+    width: 100%;
+    position: fixed;
+    height: 40px;
+    box-shadow: 0 0 0 1px rgb(0 0 0 / 2%), 0 1px 2px 0 rgb(0 0 0 / 8%);
+    z-index: 999999;
+    top: 0;
+    padding: 0%;
+    background: #fff;
+    align-items: center;
+}
+
+h4::after{
+    content: '';
+  margin-top: 10px;
+  display: block;
+  width: 120px;/*線の長さ*/
+  height: 2px;/*線の太さ*/
+  background-color:green;/*線の色*/
+}
+
+.body-wrapper{
+    display: flex;
+    margin-top: 40px;   
+}
+
+.content-wrapper{
+    margin: 0 auto;
+    max-width: 650px;
+    width: 100%;
+}
+
+.quiz-title{
+    font-size: 14px;
+    width: auto;
+    margin: 15px;
+}
+
+.box-container{
+    width: auto;
+    margin: 15px;
+}
+
+.selection{
+    width: 650px;
+}
+
+#quiz-box{
+    width: auto;
+}
+
+
+.list{
+    width: 650px;
+    height: auto;
+    align-items: center;
+    margin: 10px 0;
+    padding: 13px;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid rgb(236, 236, 236);
+    display: block;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+
+
+.answer-box{
+    display: none;
+    width: 650px;
+    background:rgb(236, 236, 236);
+    height:auto;
+    padding: 13px;
+    margin: 10px 0;
+}
+
+.fail{
+    background: orangered;
+    color: white;
+    list-style: none;
+}
+#failText{
+    font-weight: bolder;
+    border-bottom: 3px solid orangered;
+    display: inline-block;
+    margin:10px 0;
+
+}
+
+.succeed{
+    background: rgb(63, 63, 255);
+    color: white;
+    list-style: none;
+}
+#successText {
+    font-weight: bolder;
+    border-bottom: 3px solid rgb(63,63,255);
+    display: inline-block;
+    margin: 10px 0;
+    
+}
