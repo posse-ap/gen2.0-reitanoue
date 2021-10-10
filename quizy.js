@@ -49,8 +49,7 @@ for(let i = 0; i < quizSet.length; i++) {
 
         `<div class="quiz-image-container">`+
             `<img class="quiz-image" src="` + images [i] + `" alt="問題の写真">`+
-        `</div>`+
-        
+        `</div>`+      
         `<div class="box1">`+
             `<ul id="ul-${i}" >`;
             for(let x = 0; x < 3; x++){
@@ -91,7 +90,6 @@ for(let i = 0; i < quizSet.length; i++) {
             }
         }
 
-
         //全ての選択肢のクリック無効
         let choice0 = document.getElementById(question_number+"-0");
         let choice1 = document.getElementById(question_number+"-1");
@@ -108,7 +106,7 @@ for(let i = 0; i < quizSet.length; i++) {
             }else{          
                 document.getElementById('ans-f-'+question_number).style.display="block";
                 document.getElementById('ul-'+question_number).scrollIntoView({behavior:'smooth',block:'start'});
-            }    
+            }  
     
 }
 };
