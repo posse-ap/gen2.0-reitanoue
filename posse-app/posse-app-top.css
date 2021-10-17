@@ -1,0 +1,62 @@
+.header{
+  background: white;
+  width: 100%;
+  height: 64px;
+  position: fixed;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.header__inner{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  height: 64px;
+  
+}
+
+.header__inner__logo img{
+  float: left;
+  margin-left: 20px;
+  height: 44px;
+}
+
+.header__inner__time h2{
+  color:#97B9D1;
+  font-weight: 100;
+  margin-left: 20px;
+}
+
+.header__inner__right{
+  margin-left: 900px;
+}
+.header__inner__button {
+  
+  background: linear-gradient(to right , blue , skyblue);
+  color: #fff; /* 文字色 */
+  padding: 16px 58px; /* 上下の余白、左右の余白 */
+  text-decoration: none; /* デフォルトで入る下線を消す */
+  border-radius: 30px; /* 角を丸くする */
+  margin: 12px 20px;
+  height: 58px;
+  
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* main */
+html{
+  background:#F5F5F8;
+}
