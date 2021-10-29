@@ -20,7 +20,7 @@
         <h2>4th week</h2>
       </div>
       <div class="header__inner__right">
-        <a class="header__inner__button">記録・投稿</a>
+        <a href="#modal-button" class="header__inner__button">記録・投稿</a>
       </div>
     </div>
   </header>
@@ -46,86 +46,94 @@
         </ul>
         <div class="main__inner__left__timeglaph section__box"></div>
       </section>
+
       <section class="main__inner__right">
         <div class="main__inner__right__box section__box"></div>
         <div class="main__inner__right__box section__box"></div>
       </section>
   </section>  
-    <h1 class="date">2020年10月</h1>  
+    <h1 class="main__date">2020年10月</h1>  
   </div>
 </div>
 
-<div class="modal-wrapper" id="modal__01">
+<div class="modal-wrapper" id="modal-button">
   <a href="#!" class="modal-overlay"></a>
   <div class="modal-window">
     <div class="modal-content">
       <div class="modal-content-left">
+
         <h3 class="modal-content-title">学習日</h3>
-        <input type="date" name="study-date" autocomplete="date">
+        <input type="date" name="study-date" autocomplete="date" class="modal-study-date">
 
         <h3 class="modal-content-title">学習コンテンツ（複数選択可）</h3>
-        <div>
-          <input type="checkbox" name="study-contents" value=".install">
-          <label for=".install">ドットインストール</label>
+        <div class="modal-checkbox">
+          <div>
+            <label for="nyobi"><input type="checkbox" name="study-contents" value="nyobi">N予備校</label>
+          </div>
+          <div>
+            <label for=".install"> <input type="checkbox" name="study-contents" value=".install">ドットインストール</label>
+          </div>
+          <div>
+            <label for="posse-task"><input type="checkbox" name="study-contents" value="posse-task">POSSE課題</label>
+          </div>
         </div>
-        <div>
-          <input type="checkbox" name="study-contents" value="posse-task">
-          <label for="posse-task">POSSE課題</label>
-        </div>
+        
 
         <h3 class="modal-content-title">学習言語（複数選択可）</h3>
-        <div>
-          <input type="checkbox" name="study-language" value="html">
-          <label for="html">HTML</label>
+        <div class="modal-checkbox">
+          <div>
+          
+          <label for="html"><input type="checkbox" name="study-language" value="html">HTML</label>
         </div>
         <div>
-          <input type="checkbox" name="study-language" value="css">
-          <label for="css">css</label>
+          
+          <label for="css"><input type="checkbox" name="study-language" value="css">css</label>
         </div>
         <div>
-          <input type="checkbox" name="study-language" value="JavaScript">
-          <label for="JavaScript">JavaScript</label>
+          
+          <label for="JavaScript"><input type="checkbox" name="study-language" value="JavaScript">JavaScript</label>
         </div>
         <div>
-          <input type="checkbox" name="study-language" value="php">
-          <label for="php">PHP</label>
+          
+          <label for="php"><input type="checkbox" name="study-language" value="php">PHP</label>
         </div>
         <div>
-          <input type="checkbox" name="study-language" value="Laravel">
-          <label for="Laravel">Laravel</label>
+          
+          <label for="Laravel"><input type="checkbox" name="study-language" value="Laravel">Laravel</label>
         </div>
         <div>
-          <input type="checkbox" name="study-language" value="sql">
-          <label for="sql">SQL</label>
+          
+          <label for="sql"><input type="checkbox" name="study-language" value="sql">SQL</label>
         </div>
         <div>
-          <input type="checkbox" name="study-language" value="shell">
-          <label for="shell">SHELL</label>
+          
+          <label for="shell"><input type="checkbox" name="study-language" value="shell">SHELL</label>
         </div>
         <div>
-          <input type="checkbox" name="study-language" value="basic-knowledge">
-          <label for="basic-knowledge">情報システム基礎知識（その他）</label>
-        </div>
+          
+          <label for="basic-knowledge"><input type="checkbox" name="study-language" value="basic-knowledge">情報システム基礎知識（その他）</label>
+        </div></div>
+        
       </div>
 
       <div class="modal-content-right">
         <h3 class="modal-content-title"> 学習時間</h3>
-        <input type="time" name="study-time" autocomplete="time">
+        <input type="time" name="study-time" autocomplete="time" class="modal-study-time">
 
         <h3 class="modal-content-title">Twitter用コメント</h3>
         <input type="text" name="twitter-comment" autocomplete="text">
+        <textarea name="content"></textarea>
         <input type="checkbox" name="share-box" value="true">
         <label for="true">Twitterにシェアする</label>
       </div>
-
-
-      <div>
-        <a class="modal-button">記録・投稿</a>
-      </div>
-      
     </div>
-  </div>
-
+    
+    <div>
+      <a class="modal-button">記録・投稿</a>
+    </div> 
+    <a href="#!" class="modal-close">✕</a></div>
+</div>
+    
 
 </div>
 
