@@ -1,0 +1,40 @@
+/* スマホ用（iPhoneX）のCSSを記載 */
+@media screen and (max-width:414px){
+
+
+
+
+
+
+.header__inner__button{
+  display: none; 
+  }
+
+
+.responsive__inner__button{
+  background: linear-gradient(to right , rgb(32, 91, 255) , skyblue);
+  color: #fff; /* 文字色 */
+  padding: 12px 58px; /* 上下の余白、左右の余白 */
+  text-decoration: none; /* デフォルトで入る下線を消す */
+  border-radius: 30px; /* 角を丸くする */
+  box-shadow: 0 0 5px rgb(19, 129, 255);
+  box-sizing: content-box;  
+  z-index: 1000;
+  text-align: center;
+  align-items: center;
+  width: 80px;
+  position: absolute;
+  bottom: 0;
+  display: block;
+}
+
+.main__inner{
+  display: block;
+}
+
+.main__inner__1__timeglaph{
+  width: auto;
+  height: 300px;
+
+}
+}

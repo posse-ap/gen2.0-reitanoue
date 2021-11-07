@@ -6,12 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="posse-app-top.css">
+  <link rel="stylesheet" href="responsive.css">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" type="text/javascript"></script>
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   
   <title>PosseApp</title>
 </head>
 <body>
 <div class="toppage">
- <header class="header">
+<header class="header">
     <div class="header__inner">
       <div class="header__inner__logo">
         <img src="https://posse.anti-pattern.co.jp/img/posseLogo.png" alt="POSSEのロゴ">
@@ -19,62 +23,97 @@
       <div class="header__inner__time">
         <h2>4th week</h2>
       </div>
-      <div class="header__inner__right">
-        <a href="#modal-button" class="header__inner__button">記録・投稿</a>
-      </div>
+      
     </div>
+    <a href="#modal-button" class="header__inner__button">記録・投稿</a>
   </header>
+  
+
+
   <div class="main">
     <section class="main__inner">
-      <section class="main__inner__left">
-        <ul class="main__inner__left__time">
-          <li class="main__inner__left__time__box section__box">
+      <section class="main__inner__1">
+        <ul class="main__inner__1__time">
+          <li class="main__inner__1__time__box section__box">
             <p class="time__title">Today</p>
             <p class="time__result">3</p>
             <p class="time__unit">hour</p>
           </li>
-          <li class="main__inner__left__time__box section__box">
+          <li class="main__inner__1__time__box section__box">
             <p class="time__title">Month</p>
             <p class="time__result">120</p>
             <p class="time__unit">hour</p>
           </li>
-          <li class="main__inner__left__time__box section__box">
+          <li class="main__inner__1__time__box section__box">
             <p class="time__title">Total</p>
             <p class="time__result">1348</p>
             <p class="time__unit">hour</p>
           </li>
         </ul>
-        <div class="main__inner__left__timeglaph section__box"></div>
+        <div class="main__inner__1__timeglaph section__box">
+          <canvas id="graph-area" style="width: 624px; height: 410px;"></canvas>
+          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
+        </div>
       </section>
-
-      <section class="main__inner__right">
-        <div class="main__inner__right__box section__box"></div>
-        <div class="main__inner__right__box section__box"></div>
+      <section class="main__inner__2">
+        
+        <div class="main__inner__2__box section__box"  >
+          <h2>学習言語</h2>
+          <canvas id="language-graph"></canvas>
+        </div>
+        <div class="main__inner__2__box section__box" >
+          <h2>学習コンテンツ</h2>
+          <canvas id="content-graph"></canvas>
+        </div>
       </section>
-  </section>  
-    <h1 class="main__date">2020年10月</h1>  
+    </section>  
+    <h1 class="main__date"><i class="fal fa-angle-left"></i>2020年10月<i class="fal fa-angle-right"></i></h1>  
   </div>
+  <a href="#modal-button" class="responsive__inner__button">記録・投稿</a>
 </div>
 
+
+
+<!-- モーダル -->
 <div class="modal-wrapper" id="modal-button">
   <a href="#!" class="modal-overlay"></a>
   <div class="modal-window">
     <div class="modal-content">
-      <div class="modal-content-left">
-
+      <div class="modal-content-1">
         <h3 class="modal-content-title">学習日</h3>
         <input type="date" name="study-date" autocomplete="date" class="modal-study-date">
+
+
+
+        
+      <div class="calender__wrapper">
+          <!-- xxxx年xx月を表示 -->
+          <h1 id="header"></h1>
+      
+          <!-- ボタンクリックで月移動 -->
+          <div id="next-prev-button">
+              <button id="prev" onclick="prev()">‹</button>
+              <button id="next" onclick="next()">›</button>
+          </div>
+      
+          <!-- カレンダー -->
+          <div id="calendar"></div>
+      </div>
+
+
+
+
 
         <h3 class="modal-content-title">学習コンテンツ（複数選択可）</h3>
         <div class="modal-checkbox">
           <div>
-            <label for="nyobi"><input type="checkbox" name="study-contents" value="nyobi">N予備校</label>
+            <label for="nyobi"><input type="checkbox" name="study-contents" value="nyobi"><i class="fas fa-check-circle fa-fw"></i>N予備校</label>
           </div>
           <div>
-            <label for=".install"> <input type="checkbox" name="study-contents" value=".install">ドットインストール</label>
+            <label for=".install"> <input type="checkbox" name="study-contents" value=".install"><i class="fas fa-check-circle fa-fw"></i>ドットインストール</label>
           </div>
           <div>
-            <label for="posse-task"><input type="checkbox" name="study-contents" value="posse-task">POSSE課題</label>
+            <label for="posse-task"><input type="checkbox" name="study-contents" value="posse-task"><i class="fas fa-check-circle fa-fw"></i>POSSE課題</label>
           </div>
         </div>
         
@@ -83,40 +122,40 @@
         <div class="modal-checkbox">
           <div>
           
-          <label for="html"><input type="checkbox" name="study-language" value="html">HTML</label>
+          <label for="HTML"><input type="checkbox" name="study-language" value="HTML"><i class="fas fa-check-circle fa-fw"></i>HTML</label>
         </div>
         <div>
           
-          <label for="css"><input type="checkbox" name="study-language" value="css">css</label>
+          <label for="css"><input type="checkbox" name="study-language" value="css"><i class="fas fa-check-circle fa-fw"></i>css</label>
         </div>
         <div>
           
-          <label for="JavaScript"><input type="checkbox" name="study-language" value="JavaScript">JavaScript</label>
+          <label for="JavaScript"><input type="checkbox" name="study-language" value="JavaScript"><i class="fas fa-check-circle fa-fw"></i>JavaScript</label>
         </div>
         <div>
           
-          <label for="php"><input type="checkbox" name="study-language" value="php">PHP</label>
+          <label for="PHP"><input type="checkbox" name="study-language" value="PHP"><i class="fas fa-check-circle fa-fw"></i>PHP</label>
         </div>
         <div>
           
-          <label for="Laravel"><input type="checkbox" name="study-language" value="Laravel">Laravel</label>
+          <label for="Laravel"><input type="checkbox" name="study-language" value="Laravel"><i class="fas fa-check-circle fa-fw"></i>Laravel</label>
         </div>
         <div>
           
-          <label for="sql"><input type="checkbox" name="study-language" value="sql">SQL</label>
+          <label for="SQL"><input type="checkbox" name="study-language" value="SQL"><i class="fas fa-check-circle fa-fw"></i>SQL</label>
         </div>
         <div>
           
-          <label for="shell"><input type="checkbox" name="study-language" value="shell">SHELL</label>
+          <label for="SHELL"><input type="checkbox" name="study-language" value="SHELL"><i class="fas fa-check-circle fa-fw"></i>SHELL</label>
         </div>
         <div>
           
-          <label for="basic-knowledge"><input type="checkbox" name="study-language" value="basic-knowledge">情報システム基礎知識（その他）</label>
+          <label for="basic-knowledge"><input type="checkbox" name="study-language" value="basic-knowledge"><i class="fas fa-check-circle fa-fw"></i>情報システム基礎知識（その他）</label>
         </div></div>
         
       </div>
 
-      <div class="modal-content-right">
+      <div class="modal-content-2">
         <h3 class="modal-content-title"> 学習時間</h3>
         <input type="time" name="study-time" autocomplete="time" class="modal-study-time">
 
@@ -124,19 +163,50 @@
         <input type="text" name="twitter-comment" autocomplete="text">
         <textarea name="content"></textarea>
         <input type="checkbox" name="share-box" value="true">
-        <label for="true">Twitterにシェアする</label>
+        <label for="true"><i class="fas fa-check-circle"></i>Twitterにシェアする</label>
       </div>
     </div>
     
-    <div>
-      <a class="modal-button">記録・投稿</a>
+    <div class="modal-button">
+      <a  id="modal-inner-button" href="#modal-done">記録・投稿</a>
     </div> 
     <a href="#!" class="modal-close">✕</a></div>
 </div>
-    
+
+
+
+<!-- 完了画面 -->
+<div class="modal-wrapper-d" id="modal-done">
+  <a href="#!" class="modal-overlay-d"></a>
+  <div class="modal-window-d">
+    <div class="modal-content-d">
+      
+      <div class="modal-done" id="modal-done">
+        <span class="circle">
+          <div class="check"></div>
+        </span>
+        <div class="modal-done-text">
+          <h4> AWESOME!</h4>
+          <h3>記録・投稿<br>完了しました</h3>
+        </div>
+        
+      </div>
+    </div>
+    <a href="#!" class="modal-close">✕</a></div>
+  </div>
+  
+</div>
+
+
+<!-- ローディング画面 -->
+
+<div id="loading" class="loader"></div>
 
 </div>
 
   <script src="posse-app-top.js"></script>
+
+  
+  <canvas id="myChart"></canvas>
 </body>
 </html>
