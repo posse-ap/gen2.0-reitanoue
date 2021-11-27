@@ -1,3 +1,11 @@
+/* 全体 */
+.toppage{
+  display: block;
+}
+
+
+
+
 /* ヘッダー */
 
 .header{
@@ -254,18 +262,20 @@ html{
 
 
 
-
-
-
-.main__date{
-  font-family: 'arial',sans-serif;
-  font-weight: bold;
-  position: absolute;
-  bottom: 20%;
-  left: 50%;
-  text-align: center;
+footer {
+    width:100%;
+    height: 80px;
 }
 
+.footer-wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.foot-nav {
+    display:flex;
+    justify-content: center;
+}
 
 /* モーダル */
 
