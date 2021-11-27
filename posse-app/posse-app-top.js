@@ -6,7 +6,31 @@
 
 
 // 学習時間棒グラフ
-  var ctx = document.getElementById("graph-area");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////////////////////
+
+
+
+
+  var ctx = document.getElementById("bargraph-area");
   var myBarChart = new Chart(ctx, {
     type: 'bar',
     data: {
@@ -26,8 +50,9 @@
       },
 
       scales: {
-
         xAxes: [{
+          categoryPercentage: 0.5, // ┐省略時の値
+          barPercentage: 0.8,
           display: true,
           stacked: false,
           gridLines: {
@@ -37,9 +62,14 @@
         yAxes: [{
           gridLines: {
             drawBorder: false,
-            display:false
+            display: false,
+            title: '',
+            format: "#.#h",
+
+
           },
           ticks: {
+            stepSize: 2,
             // 目盛に記号を入れる
             callback: function(value) {
                 return value + 'h';
@@ -90,7 +120,8 @@
   // 学習言語グラフ
 
   var ctx = document.getElementById("language-graph");
-  var myDoughnutChart= new Chart(ctx, {
+var myDoughnutChart = new Chart(ctx, {
+
     type: 'doughnut',
     data: {
       labels: ["JavaScript", "CSS", "PHP", "HTML","Laravel","SQL","SHELL","情報システム基礎知識（その他）"], //データ項目のラベル
@@ -156,13 +187,35 @@
 
 
   // チェックボックスの動き
-for (let i = 0; i < 11; i++){
+for (let i = 0; i < 12; i++){
   let clicked_checkbox = document.getElementById('clicked_checkbox_' + i);
   let clicked_content = document.getElementById("content-checkbox-" + i);
   clicked_checkbox.addEventListener('click', function () {
-    clicked_checkbox.classList.toggle("modal-checkbox-checked");
-    clicked_content.classList.toggle("content-checkbox-checked")
-    clicked_checkbox.classList.toggle("modal-checkbox__checkbox");
+    clicked_checkbox.classList.toggle("modal-checkbox__circle-checked");//チェックボックスを青くする
+    clicked_checkbox.classList.toggle("modal-checkbox__circle");//もとのチェックボックスの色を取り除く
+    clicked_content.classList.toggle("modal-checkbox-checked");//チェックボックス全体の背景を変える
+  })
+}
+
+document.getElementById("tweet").addEventListener('click', function () {
+  document.getElementById("tweet__checked").classList.toggle("modal-checkbox__circle-checked");//チェックボックスを青くする
+})
 
 
-})}
+function post() {
+  tweet();
+}
+
+
+
+
+
+
+//ツイート投稿
+let tweet_content = document.getElementById("tweet");
+function tweet() {
+  let twitter_text = document.getElementById('twitter_com').value
+  if (tweet_content.checked) {
+    window.open("https://twitter.com/intent/tweet?text=" + twitter_text);
+  }
+};
