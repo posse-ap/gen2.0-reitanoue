@@ -30,8 +30,8 @@
 
 
 
-  var ctx = document.getElementById("bargraph-area");
-  var myBarChart = new Chart(ctx, {
+  var ctx0 = document.getElementById("bargraph-area");
+  var myBarChart = new Chart(ctx0, {
     type: 'bar',
     data: {
      //凡例のラベル
@@ -119,8 +119,8 @@
 
   // 学習言語グラフ
 
-  var ctx = document.getElementById("language-graph");
-var myDoughnutChart = new Chart(ctx, {
+var ctx1 = document.getElementById("language-graph");
+var myDoughnutChart = new Chart(ctx1, {
 
     type: 'doughnut',
     data: {
@@ -144,7 +144,7 @@ var myDoughnutChart = new Chart(ctx, {
 
       legend:false,
       responsive: false,
-      maintainAspectRatio: false,
+      // maintainAspectRatio: false,
       title: {
         display: true,
         //グラフタイトル
@@ -157,8 +157,8 @@ var myDoughnutChart = new Chart(ctx, {
 
 
   // 学習コンテンツ
-  var ctx = document.getElementById("content-graph");
-  var myDoughnutChart= new Chart(ctx, {
+  var ctx2 = document.getElementById("content-graph");
+  var myDoughnutChart= new Chart(ctx2, {
     type: 'doughnut',
     data: {
       labels: ["ドットインストール","N予備校","POSSE課題"], //データ項目のラベル
@@ -175,7 +175,7 @@ var myDoughnutChart = new Chart(ctx, {
     options: {
       legend:false,
       responsive: false,
-      maintainAspectRatio: false,
+      // maintainAspectRatio: false,
       title: {
         display: true,
         //グラフタイトル
@@ -197,8 +197,8 @@ for (let i = 0; i < 12; i++){
   })
 }
 
-document.getElementById("tweet").addEventListener('click', function () {
-  document.getElementById("tweet__checked").classList.toggle("modal-checkbox__circle-checked");//チェックボックスを青くする
+document.getElementById("clicked_checkbox_tweet").addEventListener('click', function () {
+  document.getElementById("clicked_checkbox_tweet").classList.toggle("modal-checkbox__circle-checked");//チェックボックスを青くする
 })
 
 
