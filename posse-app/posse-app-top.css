@@ -381,6 +381,7 @@ footer {
     box-sizing: content-box;
     align-items: center;
     text-align: center;
+    display: block;
 }
 
 .modal-content{
@@ -462,7 +463,17 @@ height: 500px;
     text-align: center;
     vertical-align: text-top;
     margin-right: 5px;
+    display: block;
+
 }
+
+
+.stretched-link::after{
+  position:absolute;top:0;right:0;bottom:0;left:0;z-index:1;pointer-events:auto;content:"";background-color:rgba(0,0,0,0)
+}
+
+
+
 /* チェックボックスのチェック */
 .modal-checkbox__checkbox__check{
   content: '';
@@ -475,6 +486,7 @@ height: 500px;
   top: 30%;
   left: 30%;
   border-radius: 1px;
+  z-index: 100;
 }
 
 /* チェックしたときにボックスの背景が変わるCSS */
@@ -484,7 +496,7 @@ height: 500px;
 
 /* クリックした後のチェックボックスのcss */
 .modal-checkbox__circle-checked{
-  background-color: #0F71BD;
+    background-color: #0F71BD;
     border-radius: 50%;
     height: 20px;
     width: 20px;
@@ -493,6 +505,7 @@ height: 500px;
     text-align: center;
     vertical-align: text-top;
     margin-right: 5px;
+    display: block;
 }
 
 
@@ -515,7 +528,7 @@ input[type=checkbox]{
 
   height: 10px;
   width: 10px;
-  visibility: hidden;
+  display: none;
 }
 
 

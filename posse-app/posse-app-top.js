@@ -8,28 +8,6 @@
 // 学習時間棒グラフ
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-////////////////////
-
-
-
-
   var ctx0 = document.getElementById("bargraph-area");
   var myBarChart = new Chart(ctx0, {
     type: 'bar',
@@ -187,7 +165,7 @@ var myDoughnutChart = new Chart(ctx1, {
 
 
   // チェックボックスの動き
-for (let i = 0; i < 12; i++){
+for (let i = 0; i < 11; i++){
   let clicked_checkbox = document.getElementById('clicked_checkbox_' + i);
   let clicked_content = document.getElementById("content-checkbox-" + i);
   clicked_checkbox.addEventListener('click', function () {
