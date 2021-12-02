@@ -175,8 +175,9 @@ for (let i = 0; i < 11; i++){
   })
 }
 
-document.getElementById("clicked_checkbox_tweet").addEventListener('click', function () {
+document.getElementById("tweet").addEventListener('click', function () {
   document.getElementById("clicked_checkbox_tweet").classList.toggle("modal-checkbox__circle-checked");//チェックボックスを青くする
+  document.getElementById("clicked_checkbox_tweet").classList.toggle("modal-checkbox__circle");
 })
 
 
