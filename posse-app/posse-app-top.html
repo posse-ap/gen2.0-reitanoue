@@ -10,6 +10,7 @@
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js" type="text/javascript"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/imagesloaded@4.1.4/imagesloaded.pkgd.min.js"></script>
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
   <title>PosseApp</title>
@@ -66,7 +67,10 @@
         <!-- 学習言語 -->
         <div class="main__inner__2__box section__box">
           <h2>学習言語</h2>
-          <canvas id="language-graph"></canvas>
+          <div class="main__inner__2__box__graph">
+            <canvas id="language-graph"></canvas>
+          </div>
+
           <div style="display: block;">
             <div class="float flex main__inner__2__box__language" style="align-items: center;">
               <span class="main__inner__2__box__language-circle" style="background: #0345EC";></span>
@@ -105,7 +109,10 @@
         <!-- 学習コンテンツ -->
         <div class="main__inner__2__box section__box" >
           <h2>学習コンテンツ</h2>
-          <canvas id="content-graph"></canvas>
+          <div class="main__inner__2__box__graph">
+            <canvas id="content-graph"></canvas>
+          </div>
+
           <div class="flex main__inner__2__box__content" style="align-items: center;">
             <span class="main__inner__2__box__content-circle" style="background: #0345EC;"></span>
             <h4>ドットインストール</h4>
@@ -243,7 +250,7 @@
         <input type="text" name="twitter-comment" autocomplete="text">
         <textarea id="twitter_com" name="content"></textarea>
         <label for="tweet">
-          <div style="display:flex; text-align: center; align-items: flex-end;">
+          <div style="display:flex; text-align: center; align-items: flex-end; padding: 10px;">
             <div class="modal-checkbox__circle " id="clicked_checkbox_tweet">
               <input type="checkbox" name="share-box" value="true" id="tweet" class="stretched-link">
               <span class="modal-checkbox__checkbox__check"></span>
@@ -254,7 +261,7 @@
       </div>
     </div>
     <div class="modal-button">
-      <a id="modal-inner-button" href="#modal-done" onclick="post()" style="display: block;">記録・投稿</a>
+      <a id="modal-inner-button" href="#modal-done" onclick="post()" style="display: block;" class="btn">記録・投稿</a>
     </div>
     <a href="#!" class="modal-close">✕</a></div>
 
@@ -274,6 +281,9 @@
             <h4> AWESOME!</h4>
             <h3>記録・投稿<br>完了しました</h3>
           </div>
+
+
+
         </div>
       </div>
       <a href="#!" class="modal-close">✕</a></div>
@@ -282,16 +292,26 @@
 
 
 
+
+
+
+
 <!-- ローディング画面 -->
+
+<div id="loading" class="before_loading">
+  <div id="loading-main"></div>
+</div>
 
 
 </div>
 
-  <script src="posse-app-top.js"></script>
+<script src="posse-app-top.js"></script>
+<script src="posse-app-chart.js"></script>
   <!-- datalabelsプラグインを呼び出す -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-  <canvas id="myChart"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
