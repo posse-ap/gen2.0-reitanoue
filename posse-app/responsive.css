@@ -31,9 +31,11 @@
   font-family: "Font Awesome 5 Free";
   margin-left:20px;
   margin-right: 20px;
+  left: 0%;
 }
 
 .main{
+  margin-top:12px;
   margin-left: 20px;
   margin-right: 20px;
   box-sizing: border-box;
@@ -41,28 +43,61 @@
 
 .main__inner{
   display: block;
-  margin: 0 auto;
   max-width: 100%;
   align-items: stretch;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .main__inner__1{
   display: block;
   width: 100%;
   margin-left: 0;
-  margin-top: 20px;
 }
 
 
 .main__inner__1__time__box__time__result{
   letter-spacing: 0.0em;
+}
+.main__inner__1__time__box{
+  height:50%;
+}
+
+
+
+.main__inner__1__time__box__time__title{
+  text-align: center;
+  align-items: center;
+  font-size: 50%;
+  font-weight: bold;
+  font-style: inherit;
+  color: rgb(19, 91, 185);
+  margin: 0px;
+}
+
+.main__inner__1__time__box__time__result{
+  text-align: center;
+  align-items: center;
+  font-size: 200%;
+  font-weight: bold;
+  font-family: 'arial',sans-serif;
+  margin: 0px;
+  letter-spacing: 0.0em;
 
 }
 
+.main__inner__1__time__box__time__unit{
+  text-align: center;
+  align-items: center;
+  font-size: 50%;
+  font-weight:inherit;
+  font-style: normal;
+  color:#97B9D1;
+  margin: 0px;
+}
+
 .main__inner__1__timeGraph{
-  height: 410px;
+  height: 40%;
 }
 
 
@@ -71,9 +106,39 @@
   margin-right:0;
   width:100%;
 }
+.main__inner__2__box h2{
+  font-weight: 600;
+  font-family: "Font Awesome 5 Free";
+  font-size: 1em;
+  padding:5%;
+}
 
 
+.main__inner__2__box__language h4{
+  font-family: Google Sans;
+  font-size: 1em;
+}
 .section__box{
-  margin: 16px;
+  margin: 8px;
+}
+
+.foot-wrapper {
+   margin-left: 0px;
+   margin-right: 0px;
+   width:100%;
+}
+}
+
+
+@media screen and (max-width: 376px)
+{
+.main__inner__2__box__language h4{
+  font-family: Google Sans;
+  font-size: 0.5em;
+}
+
+.main__inner__2__box__content h4{
+  font-family: Google Sans;
+  font-size: 0.5em;
 }
 }

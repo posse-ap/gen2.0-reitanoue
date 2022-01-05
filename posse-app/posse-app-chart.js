@@ -2,75 +2,83 @@
 
 // 学習時間棒グラフ
 
-var ctx0 = document.getElementById("bargraph-area");
-var myBarChart = new Chart(ctx0, {
-  type: "bar",
-  //凡例のラベル
-  data: {
-    labels: [
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-      22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
-    ],
-    datasets: [
-      {
-        label: "学習時間",
-        data: [
-          2, 1, 4, 3, 1, 5, 3, 2, 6, 3, 3, 2, 2, 1, 2, 5, 3, 4, 3, 2, 4, 2, 1,
-          4, 0, 7, 3, 4, 1, 1, 3,
-        ],
-        backgroundColor: "#1985CA",
-        borderWidth: 1,
-      },
-    ],
-  },
-  options: {
-    legend: {
-      display: false,
-    },
-    maintainAspectRatio: false,
 
-    scales: {
-      xAxes: [
+  var ctx0 = document.getElementById("bargraph-area").getContext("2d");
+  var myBarChart = new Chart(ctx0, {
+    type: "bar",
+    //凡例のラベル
+    data: {
+      labels: [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+        21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
+      ],
+      datasets: [
         {
-          categoryPercentage: 0.5, // ┐省略時の値
-          barPercentage: 0.5,
-          display: true,
-          stacked: false,
-          gridLines: {
-            display: false,
-          },
-          ticks: {
-            autoSkip: true,
-            maxTicksLimit: 20,
-            maxRotation: 0,
-            minRotation: 0,
-            autoSkip: true,
-            min: 0,
-            max: 31,
-            stepSize: 2
-          },
+          label: "学習時間",
+          data: [
+            2, 1, 4, 3, 1, 5, 3, 2, 6, 3, 3, 2, 2, 1, 2, 5, 3, 4, 3, 2, 4, 2, 1,
+            4, 0, 7, 3, 4, 1, 1, 3,
+          ],
+          backgroundColor:"blue",
+          borderWidth: 1,
         },
       ],
-      yAxes: [
-        {
-          gridLines: {
-            drawBorder: false,
-            display: false,
-            title: "",
-            format: "#.#h",
-          },
-          ticks: {
-            stepSize: 2,
-            // 目盛に記号を入れる
-            callback: function (value) {
-              return value + "h";
+    },
+    options: {
+      legend: {
+        display: false,
+      },
+      maintainAspectRatio: false,
+
+      scales: {
+        xAxes: [
+          {
+            categoryPercentage: 0.5, // ┐省略時の値
+            barPercentage: 0.5,
+            display: true,
+            stacked: false,
+            gridLines: {
+              display: false,
+            },
+            ticks: {
+              autoSkip: true,
+              maxTicksLimit: 20,
+              maxRotation: 0,
+              minRotation: 0,
+              autoSkip: true,
+              min: 0,
+              max: 31,
+              stepSize: 2,
             },
           },
-        },
-      ],
+        ],
+        yAxes: [
+          {
+            gridLines: {
+              drawBorder: false,
+              display: false,
+              title: "",
+              format: "#.#h",
+            },
+            ticks: {
+              stepSize: 2,
+              // 目盛に記号を入れる
+              callback: function (value) {
+                return value + "h";
+              },
+            },
+          },
+        ],
+      },
     },
-  },
-});
+  });
+
+
+
+
+
+
+
 
 // 学習言語グラフ
 
