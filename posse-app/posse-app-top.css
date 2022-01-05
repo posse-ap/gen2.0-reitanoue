@@ -1,7 +1,6 @@
 /* 全体 */
 .toppage{
   text-align: center;
-  display: flex;
 }
 
 
@@ -120,15 +119,13 @@ html{
   overflow-x:hidden ;
   overflow-y: hidden;
   text-align: center;
+  box-sizing : border-box;
 }
 
 .main{
   display:inline-block;
-  margin-top:84px;
-  width:100%;
+  margin-top:74px;
   display: flex;
-  display: -webkit-box;
-  display: -ms-flexbox;
   justify-content: center;
   align-items: center;
   max-width: 100%;
@@ -147,7 +144,7 @@ html{
   display: inline-block;
   width: 50%;
   table-layout:fixed;
-
+  margin-left:5%
 }
 
 .main__inner__1__time{
@@ -167,7 +164,7 @@ html{
 .main__inner__1__time__box__time__title{
   text-align: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 120%;
   font-weight: bold;
   font-style: inherit;
   color: rgb(19, 91, 185);
@@ -177,7 +174,7 @@ html{
 .main__inner__1__time__box__time__result{
   text-align: center;
   align-items: center;
-  font-size: 40px;
+  font-size: 200%;
   font-weight: bold;
   font-family: 'arial',sans-serif;
   margin: 10px;
@@ -188,7 +185,7 @@ html{
 .main__inner__1__time__box__time__unit{
   text-align: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 120%;
   font-weight:inherit;
   font-style: normal;
   color:#97B9D1;
@@ -211,6 +208,7 @@ html{
 .main__inner__2{
   display: flex;
   width:50%;
+  margin-right:5%;
 }
 
 .main__inner__2__box{
@@ -251,6 +249,10 @@ html{
 
 .main__inner__2__box__language{
   margin: 10px;
+}
+
+.main__inner__2__box__language h4{
+  font-family: Google Sans;
 }
 
 

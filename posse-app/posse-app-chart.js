@@ -32,8 +32,8 @@ var myBarChart = new Chart(ctx0, {
     scales: {
       xAxes: [
         {
-          categoryPercentage: 0.6, // ┐省略時の値
-          barPercentage: 0.6,
+          categoryPercentage: 0.5, // ┐省略時の値
+          barPercentage: 0.5,
           display: true,
           stacked: false,
           gridLines: {
@@ -45,8 +45,9 @@ var myBarChart = new Chart(ctx0, {
             maxRotation: 0,
             minRotation: 0,
             autoSkip: true,
-            min: 2,
-            max:30,
+            min: 0,
+            max: 31,
+            stepSize: 2
           },
         },
       ],

@@ -1,0 +1,79 @@
+
+@media screen and (max-width: 915px) {
+
+  html{
+  box-sizing: border-box;
+  width: 100%;
+}
+
+  .header__inner__logo img{
+  float: left;
+  margin-left: 22px;
+  height: 22px;
+}
+  .header__inner__button {
+  display:none;
+}
+  .responsive__inner__button{
+  background: linear-gradient(to right , rgb(32, 91, 255) , skyblue);
+  color: #fff; /* 文字色 */
+  padding: 12px 58px; /* 上下の余白、左右の余白 */
+  text-decoration: none; /* デフォルトで入る下線を消す */
+  border-radius: 30px; /* 角を丸くする */
+  box-shadow: 0 0 5px rgb(19, 129, 255);
+  box-sizing: content-box;
+  z-index: 1000;
+  text-align: center;
+  align-items: center;
+  width: 80%;
+  position: absolute;
+  display: block;
+  font-family: "Font Awesome 5 Free";
+  margin-left:20px;
+  margin-right: 20px;
+}
+
+.main{
+  margin-left: 20px;
+  margin-right: 20px;
+  box-sizing: border-box;
+}
+
+.main__inner{
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  align-items: stretch;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.main__inner__1{
+  display: block;
+  width: 100%;
+  margin-left: 0;
+  margin-top: 20px;
+}
+
+
+.main__inner__1__time__box__time__result{
+  letter-spacing: 0.0em;
+
+}
+
+.main__inner__1__timeGraph{
+  height: 410px;
+}
+
+
+.main__inner__2{
+  display: flex;
+  margin-right:0;
+  width:100%;
+}
+
+
+.section__box{
+  margin: 16px;
+}
+}
