@@ -14,27 +14,13 @@ for (let i = 0; i < 11; i++) {
 
 //tweetのチェックボックス
 document.getElementById("tweet").addEventListener("click", function () {
-  document
-    .getElementById("clicked_checkbox_tweet")
-    .classList.toggle("modal-checkbox__circle-checked"); //チェックボックスを青くする
-  document
-    .getElementById("clicked_checkbox_tweet")
-    .classList.toggle("modal-checkbox__circle");
+  document.getElementById("clicked_checkbox_tweet").classList.toggle("modal-checkbox__circle-checked"); //チェックボックスを青くする
+  document.getElementById("clicked_checkbox_tweet").classList.toggle("modal-checkbox__circle");
+  const loader = document.getElementById("loading-wrapper");
+  loader.classList.add("completed");
 });
 
 function post() {
-  // ローディング画面
-  ///DOM構造やCSS、画像など、サイト表示に必要なものをすべて読み込んだタイミングで実行
-  $('.modal-button').on('click', function() {
-        $('.modal-button').hide();
-        $('.loading').show();
-
-        // 3秒後に元に戻す
-        setTimeout(function() {
-            $('.modal-button').show();
-            $('.loading').hide();
-        }, 3000);
-    });
   tweet();
 }
 
@@ -46,3 +32,6 @@ function tweet() {
     window.open("https://twitter.com/intent/tweet?text=" + twitter_text);
   }
 }
+
+
+

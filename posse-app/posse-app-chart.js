@@ -32,12 +32,21 @@ var myBarChart = new Chart(ctx0, {
     scales: {
       xAxes: [
         {
-          categoryPercentage: 0.8, // ┐省略時の値
-          barPercentage: 0.8,
+          categoryPercentage: 0.6, // ┐省略時の値
+          barPercentage: 0.6,
           display: true,
           stacked: false,
           gridLines: {
             display: false,
+          },
+          ticks: {
+            autoSkip: true,
+            maxTicksLimit: 20,
+            maxRotation: 0,
+            minRotation: 0,
+            autoSkip: true,
+            min: 2,
+            max:30,
           },
         },
       ],
@@ -64,54 +73,136 @@ var myBarChart = new Chart(ctx0, {
 
 // 学習言語グラフ
 
-var ctx1 = document.getElementById("language-graph");
-var myDoughnutChart0 = new Chart(ctx1, {
-  type: "doughnut",
-  data: {
-    labels: [
-      "JavaScript",
-      "CSS",
-      "PHP",
-      "HTML",
-      "Laravel",
-      "SQL",
-      "SHELL",
-      "情報システム基礎知識（その他）",
-    ], //データ項目のラベル
-    datasets: [
-      {
-        borderWidth: 0,
-        backgroundColor: [
-          "#0345EC",
-          "#0F71BD",
-          "#20BDDE",
-          "#3CCEFE",
-          "#20BDDE",
-          "#6D46EC",
-          "#4A17EF",
-          "#3105C0",
-        ],
-        data: [42, 18, 10, 10, 7, 6, 4, 3], //グラフのデータ
-      },
-    ],
-  },
-  options: {
-    maintainAspectRatio: false,
-    legend: false,
-    responsive: false,
-    cutoutPercentage: 50,
-    maintainAspectRatio: false,
-    title: {
-      display: false,
-      //グラフタイトル
-      text: "",
-    },
-  },
 
-});
+var languageGraphPlugin = {
+    afterDatasetsDraw: function(chart) {
+        var ctx = chart.ctx;
+        chart.data.datasets.forEach(function(dataset, 系列) {
+            var meta = chart.getDatasetMeta(系列);
+            if (!meta.hidden) {
+                meta.data.forEach(function(element, 要素) {
+                                                   // ステップ１　数値を文字列に変換
+                    var 要素値 = dataset.data[要素];
+                    var dataString = 要素値.toString();
+                    var 百分率 = "(" + 100/500*要素値.toFixed(1).toString() + "%)";
+                                                   // ステップ２　文字列の書体
+                    ctx.fillStyle = "white";            // 色　
+                    var fontSize = 14;                  // サイズ
+                    var fontStyle = "bold";           // 書体 "bold", "italic"
+                    var fontFamily = "sans-serif";           // フォントの種類 "sans-serif", "ＭＳ 明朝"
+                    ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
+                                                   // ステップ３　文字列の位置の基準点
+                    ctx.textAlign = 'center';           // 文字列　start, end, left, right, center
+                    ctx.textBaseline = 'middle';        // 文字高　middle, top, bottom
+                                                   // ステップ４　文字列のグラフでの位置
+                    var padding = 5;                   // 点と文字列の距離
+                    var position = element.tooltipPosition();
+                                                       //文字列の表示　 fillText(文字列, Ｘ位置, Ｙ位置)
+                    ctx.fillText(dataString, position.x, position.y - fontSize/2 - padding);    // 人数の表示
+                    ctx.fillText(百分率, position.x, position.y + fontSize/2);        //
+
+                });
+            }
+        });
+    }
+}
+
+
+
+
+
+  var ctx1 = document.getElementById("language-graph").getContext("2d");
+  var myDoughnutChart0 = new Chart(ctx1, {
+    type: "doughnut", // グラフの種類 pie 円グラフ, doughnut ドーナッツチャート, polarArea 鶏頭図
+    data: {
+      labels: [
+        "JavaScript",
+        "CSS",
+        "PHP",
+        "HTML",
+        "Laravel",
+        "SQL",
+        "SHELL",
+        "情報システム基礎知識（その他）",
+      ], // 軸のラベル
+      datasets: [
+        {
+          borderWidth: 0,
+          backgroundColor: [
+            "#0345EC",
+            "#0F71BD",
+            "#20BDDE",
+            "#3CCEFE",
+            "#20BDDE",
+            "#6D46EC",
+            "#4A17EF",
+            "#3105C0",
+          ],
+          data: [42, 18, 10, 10, 7, 6, 4, 3], //グラフのデータ
+        },
+      ],
+    },
+    options: {
+      responsive: false,
+      title: {
+        // 図のタイトル表示
+        display: false,
+        text: "",
+      },
+      legend: false,
+    },
+    plugins: [languageGraphPlugin],
+  });
+
+
+// var ctx1 = document.getElementById("language-graph").getContext("2d");
+// var myDoughnutChart0 = new Chart(ctx1, {
+//   type: "doughnut",
+//   data: {
+//     labels: [
+//       "JavaScript",
+//       "CSS",
+//       "PHP",
+//       "HTML",
+//       "Laravel",
+//       "SQL",
+//       "SHELL",
+//       "情報システム基礎知識（その他）",
+//     ], //データ項目のラベル
+//     datasets: [
+//       {
+//         borderWidth: 0,
+//         backgroundColor: [
+//           "#0345EC",
+//           "#0F71BD",
+//           "#20BDDE",
+//           "#3CCEFE",
+//           "#20BDDE",
+//           "#6D46EC",
+//           "#4A17EF",
+//           "#3105C0",
+//         ],
+//         data: [42, 18, 10, 10, 7, 6, 4, 3], //グラフのデータ
+//       },
+//     ],
+//   },
+//   options: {
+//     maintainAspectRatio: false,
+//     legend: false,
+//     responsive: false,
+//     cutoutPercentage: 50,
+//     maintainAspectRatio: false,
+//     title: {
+//       display: false,
+//       //グラフタイトル
+//       text: "",
+//     },
+//   },
+//   plugins: [languageGraphPlugin]
+// });
 
 // 学習コンテンツ
-var ctx2 = document.getElementById("content-graph");
+var ctx2 = document.getElementById("content-graph").getContext("2d");
 var myDoughnutChart1 = new Chart(ctx2, {
   type: "doughnut",
   data: {
