@@ -100,6 +100,17 @@
 }
 
 
+
+/* ブロック */
+.block{
+  display: block;
+}
+
+
+/* グリッド */
+.grid{
+  display:grid;
+}
 /* フレックス */
 .flex{
   display: flex;
@@ -444,12 +455,14 @@ footer {
 
 
 .modal-content-1{
+  width: 50%;
   height: 500px;
   margin: 20px;
 float: inline-start;
 }
 
 .modal-content-2{
+  width: 50%;
 float: inline-start;
 height: 500px;
   margin: 20px;
@@ -564,8 +577,18 @@ height: 500px;
 
 
 
-textarea{
+/* textarea{
   font-size: 16px;
+    background: #F5F5F8;
+    border-radius: 10px;
+    width: 374px;
+    height: 243px;
+    padding: 8px;
+} */
+
+#twitter_com{
+background: #F5F5F8;
+font-size: 16px;
     background: #F5F5F8;
     border-radius: 10px;
     width: 374px;

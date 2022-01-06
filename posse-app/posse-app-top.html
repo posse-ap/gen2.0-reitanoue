@@ -134,8 +134,6 @@
               <h1>2020年4月</h1>
             <i class="fas fa-chevron-right" style="color: #A3C1D6"></i>
           </div>
-      <!-- スマホ版で現れるボタン -->
-      <a href="#modal-button" class="responsive__inner__button">記録・投稿</a>
 
     </div>
 
@@ -164,121 +162,134 @@
         <div class="modal-content">
           <div class="modal-content-1">
             <!-- 学習日 -->
-            <h3 class="modal-content-title">学習日</h3>
-            <input type="date" name="study-date" autocomplete="date" class="modal-study-date">
+            <div class="grid">
+              <h3 class="modal-content-title float">学習日</h3>
+              <input type="date" name="study-date" autocomplete="date" class="modal-study-date">
+            </div>
             <!-- 学習コンテンツ -->
-            <h3 class="modal-content-title">学習コンテンツ（複数選択可）</h3>
-            <div class="float">
-              <div class="float">
-                <label class="modal-checkbox" for="nyobi "id="content-checkbox-0">
-                  <div id="clicked_checkbox_0" class="modal-checkbox__circle">
-                    <input type="checkbox" name="study-contents" value="nyobi"><span class="modal-checkbox__checkbox__check"></span>
-                  </div>N予備校
-                </label>
-              </div>
-              <div class="float">
-                <label  class="modal-checkbox" for=".install"id="content-checkbox-1">
-                  <div id="clicked_checkbox_1" class="modal-checkbox__circle">
-                    <input type="checkbox" name="study-contents" value=".install"><span class="modal-checkbox__checkbox__check"></span>
-                  </div>ドットインストール
-                </label>
-              </div>
-              <div class="float">
-                <label class="modal-checkbox" for="posse-task" id="content-checkbox-2">
-                  <div id="clicked_checkbox_2" class="modal-checkbox__circle">
-                    <input type="checkbox" name="study-contents" value="posse-task"><span class="modal-checkbox__checkbox__check"></span>
-                  </div>POSSE課題
-                </label>
-              </div>
-            </div>
-            <!-- 学習言語 -->
-            <h3 class="modal-content-title">学習言語（複数選択可）</h3>
-            <div class="float">
-              <div class="float">
-              <label class="modal-checkbox" for="HTML"id="content-checkbox-3">
-                <div id="clicked_checkbox_3" class="modal-checkbox__circle">
-                  <input type="checkbox" name="study-language" value="HTML"class="stretched-link">
-                  <span class="modal-checkbox__checkbox__check"></span>
-                </div> HTML
-              </label>
-            </div>
-            <div class="float">
-              <label class="modal-checkbox" for="css"id="content-checkbox-4">
-                <div  id="clicked_checkbox_4" class="modal-checkbox__circle">
-                  <input type="checkbox" name="study-language" value="css"class="stretched-link">
-                  <span class="modal-checkbox__checkbox__check"></span>
-                </div>css
-              </label>
-            </div>
-            <div class="float">
-              <label class="modal-checkbox" for="JavaScript" id="content-checkbox-5">
-                <div id="clicked_checkbox_5"class="modal-checkbox__circle">
-                  <input type="checkbox" name="study-language" value="JavaScript "class="stretched-link">
-                  <span class="modal-checkbox__checkbox__check"></span>
-                </div>JavaScript</label>
-            </div>
-            <div class="float">
-              <label class="modal-checkbox" for="PHP" id="content-checkbox-6">
-                <div class="modal-checkbox__circle" id="clicked_checkbox_6">
-                  <input type="checkbox" name="study-language" value="PHP" class="stretched-link">
-                  <span class="modal-checkbox__checkbox__check"></span>
-                </div>PHP</label>
-            </div>
-            <div class="float">
-              <label class="modal-checkbox" for="Laravel" id="content-checkbox-7">
-                <div class="modal-checkbox__circle" id="clicked_checkbox_7">
-                  <input type="checkbox" name="study-language" value="Laravel" class="stretched-link">
-                  <span class="modal-checkbox__checkbox__check"></span>
-            </div>Laravel</label>
-            </div>
-            <div class="float">
-              <label class="modal-checkbox" for="SQL"id="content-checkbox-8">
-                <div class="modal-checkbox__circle" id="clicked_checkbox_8">
-                  <input type="checkbox" name="study-language" value="SQL"class="stretched-link">
-                  <span class="modal-checkbox__checkbox__check"></span>
-                </div>SQL</label>
-            </div>
-            <div class="float">
-              <label class="modal-checkbox" for="SHELL" id="content-checkbox-9">
-                <div class="modal-checkbox__circle" id="clicked_checkbox_9">
-                  <input type="checkbox" name="study-language" value="SHELL"class="stretched-link">
-                  <span class="modal-checkbox__checkbox__check"></span>
-                </div>SHELL</label>
+            <div class="grid">
+              <h3 class="modal-content-title float">学習コンテンツ（複数選択可）</h3>
+                <div class="float">
+                  <div class="float">
+                    <label class="modal-checkbox" for="nyobi "id="content-checkbox-0">
+                      <div id="clicked_checkbox_0" class="modal-checkbox__circle">
+                        <input type="checkbox" name="study-contents" value="nyobi"><span class="modal-checkbox__checkbox__check"></span>
+                      </div>N予備校
+                    </label>
+                  </div>
+                  <div class="float">
+                    <label  class="modal-checkbox" for=".install"id="content-checkbox-1">
+                      <div id="clicked_checkbox_1" class="modal-checkbox__circle">
+                        <input type="checkbox" name="study-contents" value=".install"><span class="modal-checkbox__checkbox__check"></span>
+                      </div>ドットインストール
+                    </label>
+                  </div>
+                  <div class="float">
+                    <label class="modal-checkbox" for="posse-task" id="content-checkbox-2">
+                      <div id="clicked_checkbox_2" class="modal-checkbox__circle">
+                        <input type="checkbox" name="study-contents" value="posse-task"><span class="modal-checkbox__checkbox__check"></span>
+                      </div>POSSE課題
+                    </label>
+                  </div>
                 </div>
-              <div class="float">
-              <label class="modal-checkbox" for="basic-knowledge"id="content-checkbox-10">
-                <div class="modal-checkbox__circle" id="clicked_checkbox_10">
-                  <input type="checkbox" name="study-language" value="basic-knowledge"class="stretched-link">
-                  <span class="modal-checkbox__checkbox__check"></span>
-                </div>情報システム基礎知識（その他）
-              </label>
+            </div>
+
+            <!-- 学習言語 -->
+            <div class="grid">
+              <h3 class="modal-content-title float">学習言語（複数選択可）</h3>
+                      <div class="float">
+                        <div class="float">
+                        <label class="modal-checkbox" for="HTML"id="content-checkbox-3">
+                          <div id="clicked_checkbox_3" class="modal-checkbox__circle">
+                            <input type="checkbox" name="study-language" value="HTML"class="stretched-link">
+                            <span class="modal-checkbox__checkbox__check"></span>
+                          </div> HTML
+                        </label>
+                      </div>
+                      <div class="float">
+                        <label class="modal-checkbox" for="css"id="content-checkbox-4">
+                          <div  id="clicked_checkbox_4" class="modal-checkbox__circle">
+                            <input type="checkbox" name="study-language" value="css"class="stretched-link">
+                            <span class="modal-checkbox__checkbox__check"></span>
+                          </div>css
+                        </label>
+                      </div>
+                      <div class="float">
+                        <label class="modal-checkbox" for="JavaScript" id="content-checkbox-5">
+                          <div id="clicked_checkbox_5"class="modal-checkbox__circle">
+                            <input type="checkbox" name="study-language" value="JavaScript "class="stretched-link">
+                            <span class="modal-checkbox__checkbox__check"></span>
+                          </div>JavaScript</label>
+                      </div>
+                      <div class="float">
+                        <label class="modal-checkbox" for="PHP" id="content-checkbox-6">
+                          <div class="modal-checkbox__circle" id="clicked_checkbox_6">
+                            <input type="checkbox" name="study-language" value="PHP" class="stretched-link">
+                            <span class="modal-checkbox__checkbox__check"></span>
+                          </div>PHP</label>
+                      </div>
+                      <div class="float">
+                        <label class="modal-checkbox" for="Laravel" id="content-checkbox-7">
+                          <div class="modal-checkbox__circle" id="clicked_checkbox_7">
+                            <input type="checkbox" name="study-language" value="Laravel" class="stretched-link">
+                            <span class="modal-checkbox__checkbox__check"></span>
+                      </div>Laravel</label>
+                      </div>
+                      <div class="float">
+                        <label class="modal-checkbox" for="SQL"id="content-checkbox-8">
+                          <div class="modal-checkbox__circle" id="clicked_checkbox_8">
+                            <input type="checkbox" name="study-language" value="SQL"class="stretched-link">
+                            <span class="modal-checkbox__checkbox__check"></span>
+                          </div>SQL</label>
+                      </div>
+                      <div class="float">
+                        <label class="modal-checkbox" for="SHELL" id="content-checkbox-9">
+                          <div class="modal-checkbox__circle" id="clicked_checkbox_9">
+                            <input type="checkbox" name="study-language" value="SHELL"class="stretched-link">
+                            <span class="modal-checkbox__checkbox__check"></span>
+                          </div>SHELL</label>
+                          </div>
+                        <div class="float">
+                        <label class="modal-checkbox" for="basic-knowledge"id="content-checkbox-10">
+                          <div class="modal-checkbox__circle" id="clicked_checkbox_10">
+                            <input type="checkbox" name="study-language" value="basic-knowledge"class="stretched-link">
+                            <span class="modal-checkbox__checkbox__check"></span>
+                          </div>情報システム基礎知識（その他）
+                        </label>
+                      </div>
+                      </div>
             </div>
           </div>
-        </div>
-
           <div class="modal-content-2">
-            <h3 class="modal-content-title"> 学習時間</h3>
-            <input type="number" onkeyup="value = value.length > 5 ? value.slice(0,5): value;" max="99999" name="study-time" autocomplete="time" class="modal-study-time">
+            <div class="grid">
+              <h3 class="modal-content-title float"> 学習時間</h3>
+              <input type="number" onkeyup="value = value.length > 5 ? value.slice(0,5): value;" max="99999" name="study-time" autocomplete="time" class="modal-study-time">
+            </div>
+            <div class="grid">
+              <h3 class="modal-content-title float">Twitter用コメント</h3>
+              <input type="text" name="twitter-comment" autocomplete="text">
+              <textarea id="twitter_com" name="content">
 
-            <h3 class="modal-content-title">Twitter用コメント</h3>
-            <input type="text" name="twitter-comment" autocomplete="text">
-            <textarea id="twitter_com" name="content"></textarea>
-            <label for="tweet">
-              <div style="display:flex; text-align: center; align-items: flex-end; padding: 10px;">
-                <div class="modal-checkbox__circle " id="clicked_checkbox_tweet">
-                  <input type="checkbox" name="share-box" value="true" id="tweet" class="stretched-link">
-                  <span class="modal-checkbox__checkbox__check"></span>
+              </textarea>
+              <label for="tweet">
+                <div style="display:flex; text-align: center; align-items: flex-end; padding: 10px;">
+                  <div class="modal-checkbox__circle " id="clicked_checkbox_tweet">
+                    <input type="checkbox" name="share-box" value="true" id="tweet" class="stretched-link">
+                    <span class="modal-checkbox__checkbox__check"></span>
+                  </div>
+                  Twitterにシェアする
                 </div>
-                Twitterにシェアする
-              </div>
-            </label>
+              </label>
+            </div>
           </div>
         </div>
         <div class="modal-button">
-          <a id="modal-inner-button" href="#modal-done" onclick="post()" style="display: block;" class="btn">記録・投稿</a>
+          <!-- スマホ版で現れるボタン -->
+          <a id="modal-inner-button" href="#modal-done" onclick="post()" style="display: block;" href="#modal-button" class="responsive__inner__button">記録・投稿</a>
+          <a id="modal-inner-button" href="#modal-done" onclick="post()" style="display: block;" class="modal-inner-button">記録・投稿</a>
         </div>
-        <a href="#!" class="modal-close">✕</a></div>
-
+        <a href="#!" class="modal-close">✕</a>
+      </div>
     </div>
 </div>
 
