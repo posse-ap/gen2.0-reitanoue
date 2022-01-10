@@ -1,9 +1,7 @@
-/* 全体 */
-.toppage{
-  text-align: center;
+html{
+  width: 100%;
+  height: 100%;
 }
-
-
 
 
 /* ヘッダー */
@@ -39,7 +37,7 @@
   font-size: 15px;
 }
 
-
+/* ヘッダーの中に現れる記録・投稿ボタン */
 .header__inner__button {
   background: linear-gradient(to right , rgb(32, 91, 255) , skyblue);
   color: #fff; /* 文字色 */
@@ -48,7 +46,6 @@
   border-radius: 30px; /* 角を丸くする */
   box-shadow: 0 0 5px rgb(19, 129, 255);
   box-sizing: content-box;
-  z-index: 1000;
   text-align: center;
   align-items: center;
   width: 80px;
@@ -56,7 +53,7 @@
   right: 40px;
   position: absolute;
   font-family: "Font Awesome 5 Free";
-
+  cursor: pointer;
 }
 
 
@@ -71,7 +68,7 @@
   z-index: 1000;
   text-align: center;
   align-items: center;
-  width: 80px;
+  width: 60%;
   position: absolute;
   display: none;
   font-family: "Font Awesome 5 Free";
@@ -124,12 +121,14 @@
 
 
 /* main */
-html{
+body{
   background:#F5F5F8;
   overflow-x:hidden ;
   overflow-y: hidden;
   text-align: center;
   box-sizing : border-box;
+  width: 100%;
+  height: 100%;
 }
 
 .main{
@@ -146,6 +145,8 @@ html{
   align-items: stretch;
   text-align: center;
   justify-content: center;
+  margin-top:20px;
+  max-width: 100%;
 }
 
 
@@ -254,11 +255,10 @@ html{
 
 #language-graph{
   position: relative !important;
-  width:180% !important;
-  height: 90% !important;;
+  width:100% !important;
+  height: 100% !important;;
   justify-content: center;
   display: block;
-  left: -40%;
 }
 
 
@@ -286,12 +286,11 @@ html{
 
 
 #content-graph{
-   position: relative !important;
-  width:180% !important;
-  height: 90% !important;;
+  position: relative !important;
+  width:100% !important;
+  height: 100% !important;;
   justify-content: center;
   display: block;
-  left: -40%;
 }
 
 .main__inner__2__box__content{
@@ -313,21 +312,18 @@ html{
 }
 
 
-
-
-
-
+/* フッター */
 footer {
     width:100%;
     bottom: 0;
     margin: 0 auto;
-    position: absolute;
 }
 
 .foot-wrapper {
     width: 100%;
     margin: 0 auto;
-    margin-bottom: 10%;
+    display: block;
+
 }
 
 .foot-nav {
@@ -341,104 +337,80 @@ footer {
   margin-right:10px;
 }
 
-/* モーダル */
 
-.modal-wrapper {
-  z-index: 999;
+
+
+
+
+
+/* モーダルCSSここから */
+.modalArea {
+  visibility: hidden; /* displayではなくvisibility */
+  opacity : 0;
   position: fixed;
+  z-index: 10; /* サイトによってここの数値は調整 */
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
-  padding: 40px 10px;
-  text-align: center
-}
-
-.modal-wrapper:not(:target) {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .3s, visibility .3s;
-}
-
-.modal-wrapper:target {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity .4s, visibility .4s;
-}
-
-.modal-wrapper::after {
-  display: inline-block;
+  width: 100%;
   height: 100%;
-  margin-left: -.05em;
-  vertical-align: middle;
-  content: ""
+  transition: .4s;
 }
 
-.modal-wrapper .modal-window {
-  box-sizing: border-box;
-  display: inline-block;
-  z-index: 20;
-  position: relative;
+.modalBg {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.445)
+}
+
+.modalWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
   width: 900px;
   height: 600px;
-  background: #fff;
+  background-color: #fff;
   box-shadow: 0 0 30px rgba(0, 0, 0, .6);
-  vertical-align: middle;
-  border-radius: 20px;
-  overflow-x:hidden ;
-  overflow-y: hidden;
+  border-radius:20px;
+  overflow: hidden;
 }
 
-.modal-wrapper .modal-window .modal-content {
+
+.modalContents{
   overflow-x: hidden;
   overflow-y: hidden;
   text-align: left;
   padding-left: 56px;
   padding-right: 56px;
   margin: 0 auto;
-    width: 100%;
-    max-width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.modal-overlay {
-  z-index: 10;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.445)
-}
 
-.modal-wrapper .modal-close {
-  z-index: 20;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 35px;
-  color: #95979c !important;
-  background: #F5F5F8;
-  border-radius: 100%;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 35px;
+
+
+.modalContentsDone{
+  overflow-x: hidden;
+  overflow-y: hidden;
   text-align: center;
-  text-decoration: none;
-  text-indent: 0;
-
-}
-
-
-.modal-wrapper .modal-close:hover {
-  color: #2b2e38 !important
-}
-
-
-.modal-button{
+  padding-left: 0px;
+  padding-right: 0px;
   margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.modal-inner-button{
+    margin: 0 auto;
     background: linear-gradient(to right , rgb(32, 91, 255) , skyblue);
     color: #fff;
     padding: 12px;
@@ -450,6 +422,7 @@ footer {
     align-items: center;
     text-align: center;
     display: block;
+    cursor: pointer;
 }
 
 
@@ -527,13 +500,9 @@ height: 500px;
     vertical-align: text-top;
     margin-right: 5px;
     display: block;
-
 }
 
 
-.stretched-link::after{
-  position:absolute;top:0;right:0;bottom:0;left:0;z-index:1;pointer-events:auto;content:"";background-color:rgba(0,0,0,0)
-}
 
 
 
@@ -577,28 +546,17 @@ height: 500px;
 
 
 
-/* textarea{
-  font-size: 16px;
-    background: #F5F5F8;
-    border-radius: 10px;
-    width: 374px;
-    height: 243px;
-    padding: 8px;
-} */
-
 #twitter_com{
-background: #F5F5F8;
-font-size: 16px;
-    background: #F5F5F8;
-    border-radius: 10px;
-    width: 374px;
-    height: 243px;
-    padding: 8px;
+  font-size: 16px;
+  background: #F5F5F8;
+  border-radius: 10px;
+  width: 374px;
+  height: 243px;
+  padding: 8px;
 }
 
 
 input[type=checkbox]{
-
   height: 10px;
   width: 10px;
   display: none;
@@ -613,16 +571,33 @@ input[type=checkbox]{
 
 
 
-
-
-
-/* ローディング画面 */
-
-
-.loading{
-  display: none;
+.closeModal {
+  z-index: 20;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 35px;
+  color: #95979c !important;
+  background: #F5F5F8;
+  border-radius: 100%;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 35px;
+  text-align: center;
+  text-decoration: none;
+  text-indent: 0;
 }
 
+.closeModal:hover{
+  color: #2b2e38 !important;
+  cursor: pointer;
+}
+
+.is-show { /* モーダル表示用クラス */
+  visibility: visible;
+  opacity : 1;
+}
+/* モーダルCSSここまで */
 
 
 
@@ -637,91 +612,6 @@ input[type=checkbox]{
 
 
 /* 完了画面 */
-
-.modal-wrapper-done {
-  z-index: 999;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: 40px 10px;
-  text-align: center;
-  align-items: center;
-  display: block;
-  margin: 0 auto;
-}
-
-.modal-wrapper-done:not(:target) {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .3s, visibility .3s;
-}
-
-.modal-wrapper-done:target {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity .4s, visibility .4s;
-}
-
-.modal-wrapper-done::after {
-  display: inline-block;
-  height: 100%;
-  margin-left: -.05em;
-  vertical-align: middle;
-  content: ""
-}
-
-.modal-wrapper-done .modal-window-done {
-box-sizing: border-box;
-  display: inline-block;
-  z-index: 20;
-  position: relative;
-  width: 900px;
-  height: 600px;
-  background: #fff;
-  box-shadow: 0 0 30px rgba(0, 0, 0, .6);
-  vertical-align: middle;
-  border-radius: 20px;
-  overflow-x:hidden ;
-  overflow-y: hidden;
-}
-
-
-
-.modal-overlay-done {
-  z-index: 10;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.445);
-
-}
-
-.modal-content-done{
-  margin: 0 auto;
-    width: 100%;
-    transform: translate(10px, 30px);
-    max-width: 100%;
-    /* display: flex; */
-    align-items: center;
-    justify-content: center;
-
-
-}
-
-
-
-.modal-done{
-  justify-content: center;
-  align-items: center;
-  margin-top: 25%;
-
-
-}
-
 .modal-done-text{
   position: relative;
 }
@@ -730,13 +620,13 @@ box-sizing: border-box;
   color: #bde360;
   text-align: center;
   font-size: 25px;
-  transform: translate(0, -300%);
+  transform: translate(0, -200%);
 }
 
 .modal-done-text h3{
   font-size: 30px;
   position: relative;
-    transform: translate(0, 70%);
+    transform: translate(0, 150%);
 }
 
 .circle{
@@ -745,7 +635,9 @@ box-sizing: border-box;
     width: 100px;
     height: 100px;
     position: absolute;
-    transform: translate(-50px, -50px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
@@ -763,36 +655,54 @@ box-sizing: border-box;
 }
 
 
-.modal-done .fas {
-  size: 9em;
+
+
+
+/* ローディング画面 */
+.loader-wrap{
+  justify-content: center;
+  align-items: center;
+  margin-top: 25%;
 }
 
-.modal-done .fa-check-circle{
-  size: 9em;
-
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
 }
-
-
-
-.modal-wrapper-done .modal-close {
-  z-index: 20;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 35px;
-  color: #95979c !important;
-  background: #F5F5F8;
-  border-radius: 100%;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 35px;
-  text-align: center;
-  text-decoration: none;
-  text-indent: 0
-
+.loader {
+  margin: 60px auto;
+  font-size: 10px;
+  position: relative;
+  text-indent: -9999em;
+  border-top: 1.0em solid rgba(255, 255, 255, 0.2);
+  border-right: 1.0em solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1.0em solid rgba(255, 255, 255, 0.2);
+  border-left: 1.0em solid #1277BF;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
 }
-
-
-.modal-wrapper-done .modal-close:hover {
-  color: #2b2e38 !important
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }

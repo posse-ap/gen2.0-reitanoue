@@ -1,5 +1,20 @@
-"use strict";
+(function () {
+  const modalArea = document.getElementById("modalArea");
+  const openModal = document.getElementById("openModal");
+  const closeModal = document.getElementById("closeModal");
+  const modalBg = document.getElementById("modalBg");
+  const toggle = [openModal, closeModal, modalBg];
 
+  for (let i = 0, len = toggle.length; i < len; i++) {
+    toggle[i].addEventListener(
+      "click",
+      function () {
+        modalArea.classList.toggle("is-show");
+      },
+      false
+    );
+  }
+})();
 
 // チェックボックスの動き
 for (let i = 0; i < 11; i++) {
@@ -14,24 +29,58 @@ for (let i = 0; i < 11; i++) {
 
 //tweetのチェックボックス
 document.getElementById("tweet").addEventListener("click", function () {
-  document.getElementById("clicked_checkbox_tweet").classList.toggle("modal-checkbox__circle-checked"); //チェックボックスを青くする
-  document.getElementById("clicked_checkbox_tweet").classList.toggle("modal-checkbox__circle");
-  const loader = document.getElementById("loading-wrapper");
-  loader.classList.add("completed");
+  document
+    .getElementById("clicked_checkbox_tweet")
+    .classList.toggle("modal-checkbox__circle-checked"); //チェックボックスを青くする
+  document
+    .getElementById("clicked_checkbox_tweet")
+    .classList.toggle("modal-checkbox__circle");
 });
 
-function post() {
-  tweet();
-}
+/*
+ * 記録・投稿ボタン 動き
+ */
+let twitterCheckBox =
+  document.getElementById("tweet"); /* Twitterのチェックボックスid */
+let recordButton =
+  document.getElementById("modal-inner-button"); /* 記録・投稿ボタンid */
+let loadingModal = document.getElementById("loading"); /* ローディング画面id */
+let determinationModal =
+  document.getElementById("modalDone"); /* 記録・投稿完了画面id */
+let closeDeterminationModal =
+  document.getElementById("closeModalDone"); /* 記録・投稿完了画面閉じるid */
 
-//ツイート投稿
-let tweet_content = document.getElementById("tweet");
-function tweet() {
-  let twitter_text = document.getElementById("twitter_com").value;
-  if (tweet_content.checked) {
-    window.open("https://twitter.com/intent/tweet?text=" + twitter_text);
-  }
-}
+document
+  .getElementById("modal-inner-button")
+  .addEventListener("click", function () {
+    if (twitterCheckBox.checked) {
+      console.log("twitter");
+      let twitterContents =
+        document.getElementById(
+          "twitter_com"
+        ).value; /* twitter用コメント欄id */
+      window.open("https://twitter.com/intent/tweet?text=" + twitterContents);
+      loadingModal.style.visibility = "visible";
+      loadingModal.style.opacity = "1";
+      window.setTimeout(function () {
+        loadingModal.style.visibility = "hidden";
+        loadingModal.style.opacity = "0";
+        determinationModal.style.visibility = "visible";
+        determinationModal.style.opacity = "1";
+      }, 3000);
+    } else {
+      loadingModal.style.visibility = "visible";
+      loadingModal.style.opacity = "1";
+      window.setTimeout(function () {
+        loadingModal.style.visibility = "hidden";
+        loadingModal.style.opacity = "0";
+        determinationModal.style.visibility = "visible";
+        determinationModal.style.opacity = "1";
+      }, 3000);
+    }
+  });
 
-
-
+closeDeterminationModal.addEventListener("click", function () {
+  determinationModal.style.visibility = "hidden";
+  determinationModal.style.opacity = "0";
+});
