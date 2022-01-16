@@ -245,7 +245,7 @@ body{
 
 
 .main__inner__2__box__graph{
-  width: 100%;
+  /* width: 100%; */
   margin: 0 auto;
   display: inline-block;
   justify-content: center;
@@ -256,7 +256,7 @@ body{
 #language-graph{
   position: relative !important;
   width:100% !important;
-  height: 100% !important;;
+  height: 100% !important;
   justify-content: center;
   display: block;
 }
@@ -288,7 +288,7 @@ body{
 #content-graph{
   position: relative !important;
   width:100% !important;
-  height: 100% !important;;
+  height: 100% !important;
   justify-content: center;
   display: block;
 }
