@@ -1,6 +1,6 @@
 'use strict';
 //画像配列
-let images = [ 
+let images = [
     "https://d1khcm40x1j0f.cloudfront.net/quiz/34d20397a2a506fe2c1ee636dc011a07.png",
     "https://d1khcm40x1j0f.cloudfront.net/quiz/512b8146e7661821c45dbb8fefedf731.png",
     "https://d1khcm40x1j0f.cloudfront.net/quiz/ad4f8badd896f1a9b527c530ebf8ac7f.png",
@@ -30,8 +30,6 @@ let quizSet = [
 //正解の配列
 let true_answers = ["たかなわ","かめいど","こうじまち","おなりもん","とどろき","しゃくじい","ぞうしき","おかちまち","ししぼね","こぐれ"]
 
-
-
 //シャッフル
 function shuffle(arr) {
     for (let k = arr.length - 1; k > 0; k--) { // i = ランダムに選ぶ終点のインデックス
@@ -49,7 +47,7 @@ for(let i = 0; i < quizSet.length; i++) {
 
         `<div class="quiz-image-container">`+
             `<img class="quiz-image" src="` + images [i] + `" alt="問題の写真">`+
-        `</div>`+      
+        `</div>`+
         `<div class="box1">`+
             `<ul id="ul-${i}" >`;
             for(let x = 0; x < 3; x++){
@@ -58,7 +56,7 @@ for(let i = 0; i < quizSet.length; i++) {
             };
             question_box = question_box+
             `</ul>`+
-        `</div>`+    
+        `</div>`+
         `<div class="quiz-result" id="ans-t-${i}">`+
             `<p class ="quiz-result-title quiz-result-title-succeeded">正解！</p>`+
             `<p class ="quiz-result-explanation">正解は「`+true_answers[i]+`」です！</p>`+
@@ -67,13 +65,13 @@ for(let i = 0; i < quizSet.length; i++) {
             `<p class ="quiz-result-title quiz-result-title-failed">不正解！</p>`+
             `<p class ="quiz-result-explanation">正解は「`+true_answers[i]+`」です！</p>`+
         `</div>`;
-    
-    //html内に入れる    
+
+    //html内に入れる
     document.getElementById('quiz-box').insertAdjacentHTML('beforeend',question_box);
-            
-    
-    
-    
+
+
+
+
     var onclickFunction = (question_number,clicked_number) => {
 
         //クリックした際に全て赤に変更
@@ -98,17 +96,15 @@ for(let i = 0; i < quizSet.length; i++) {
         choice1.style.pointerEvents="none";
         choice2.style.pointerEvents="none";
 
-            //正解を選択したときの解説ブロックを表示         
+            //正解を選択したときの解説ブロックを表示
             if (quizSet[question_number][clicked_number] == true_answers[question_number]){
                 document.getElementById('ans-t-'+question_number).style.display="block";
                 document.getElementById('ul-'+question_number).scrollIntoView({behavior:'smooth',block:'start'});
             //不正解を選択したときの解説ブロックを表示
-            }else{          
+            }else{
                 document.getElementById('ans-f-'+question_number).style.display="block";
                 document.getElementById('ul-'+question_number).scrollIntoView({behavior:'smooth',block:'start'});
-            }  
-    
+            }
+
 }
 };
-
-
