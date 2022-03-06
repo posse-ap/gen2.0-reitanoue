@@ -85,28 +85,4 @@ closeDeterminationModal.addEventListener("click", function () {
   determinationModal.style.opacity = "0";
 });
 
-
-
-
-
-
-
 const formElements = document.forms.contactForm;
-
-formElements.addEventListener( 'submit', e => {
-  e.preventDefault();
-
-  console.log(`ご用件：${formElements.title.value}`);
-  console.log(`お名前：${formElements.name.value}`);
-  console.log(`電話番号：${formElements.tel.value}`);
-  console.log(`メールアドレス：${formElements.email.value}`);
-  console.log(`性別：${formElements.sex.value}`);
-
-  Array.prototype.forEach.call(formElements.job, function (checkbox) {
-    if(checkbox.checked === true){
-      console.log('職業：', checkbox.value);
-    }
-  });
-
-  console.log(`お問い合わせ内容：${formElements.content.value}`);
-})

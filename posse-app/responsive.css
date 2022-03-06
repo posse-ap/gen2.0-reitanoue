@@ -28,7 +28,7 @@
   text-align: center;
   align-items: center;
   width:60%;
-  position: absolute;
+  position: fixed;
   bottom: 1%;
   display: block;
   font-family: "Font Awesome 5 Free";

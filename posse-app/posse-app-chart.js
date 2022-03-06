@@ -30,17 +30,17 @@ var myBarChart = new Chart(ctx0, {
     plugins: {
       legend: false,
     },
-    maintainAspectRatio: false,
 
     scales: {
       display: true,
       x: {
-        display: false,
+        display: true,
         categoryPercentage: 0.6, // ┐省略時の値
         barPercentage: 0.6,
         stacked: true,
         gridLines: {
-          display: true,
+          display: false,
+          drawBorder: false,
         },
         ticks: {
           display: true,
@@ -54,10 +54,10 @@ var myBarChart = new Chart(ctx0, {
         },
       },
       y: {
+        display: true,
         stacked: true,
         legend: false,
         beginAtZero: true,
-        display: false,
         gridLines: {
           drawBorder: false,
           display: false,

@@ -147,6 +147,7 @@ body{
   justify-content: center;
   margin-top:20px;
   max-width: 100%;
+  padding:0 5%;
 }
 
 
@@ -157,7 +158,6 @@ body{
   display: inline-block;
   width: 50%;
   table-layout:fixed;
-  margin-left:5%
 }
 
 .main__inner__1__time{
@@ -225,12 +225,11 @@ body{
 .main__inner__2{
   display: flex;
   width:50%;
-  margin-right:5%;
 }
 
 .main__inner__2__box{
   width:100%;
-
+  padding:10px;
   position: relative;
   overflow: hidden;
   display:block;
@@ -240,7 +239,7 @@ body{
   font-weight: 600;
   font-family: "Font Awesome 5 Free";
   font-size: 1.5em;
-  padding:5%;
+  margin:5%;
 }
 
 
@@ -314,15 +313,15 @@ body{
 
 /* フッター */
 footer {
-    width:100%;
-    bottom: 0;
-    margin: 0 auto;
+  width:100%;
+  height: auto;
+  margin:10px 0;
 }
 
 .foot-wrapper {
     width: 100%;
     margin: 0 auto;
-    display: block;
+    /* display: block; */
 
 }
 
@@ -338,8 +337,12 @@ footer {
 }
 
 
+html {
+  -webkit-overflow-scrolling: touch;
+}
 
-
+body {
+ overflow: scroll;}
 
 
 
