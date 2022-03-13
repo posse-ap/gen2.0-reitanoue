@@ -1,12 +1,11 @@
-html{
+html {
   width: 100%;
   height: 100%;
 }
 
-
 /* ヘッダー */
 
-.header{
+.header {
   background: white;
   width: 100%;
   height: 64px;
@@ -17,21 +16,21 @@ html{
   z-index: 999;
 }
 
-.header__inner{
+.header__inner {
   display: flex;
   align-items: center;
   text-align: center;
   height: 64px;
 }
 
-.header__inner__logo img{
+.header__inner__logo img {
   float: left;
   margin-left: 46px;
   height: 22px;
 }
 
-.header__inner__time h2{
-  color:#97B9D1;
+.header__inner__time h2 {
+  color: #97b9d1;
   font-weight: 100;
   margin-left: 20px;
   font-size: 15px;
@@ -39,7 +38,7 @@ html{
 
 /* ヘッダーの中に現れる記録・投稿ボタン */
 .header__inner__button {
-  background: linear-gradient(to right , rgb(32, 91, 255) , skyblue);
+  background: linear-gradient(to right, rgb(32, 91, 255), skyblue);
   color: #fff; /* 文字色 */
   padding: 12px 58px; /* 上下の余白、左右の余白 */
   text-decoration: none; /* デフォルトで入る下線を消す */
@@ -52,13 +51,12 @@ html{
   top: 10px;
   right: 40px;
   position: absolute;
-  font-family: "Font Awesome 5 Free";
+  font-family: 'Font Awesome 5 Free';
   cursor: pointer;
 }
 
-
-.responsive__inner__button{
-  background: linear-gradient(to right , rgb(32, 91, 255) , skyblue);
+.responsive__inner__button {
+  background: linear-gradient(to right, rgb(32, 91, 255), skyblue);
   color: #fff; /* 文字色 */
   padding: 12px 58px; /* 上下の余白、左右の余白 */
   text-decoration: none; /* デフォルトで入る下線を消す */
@@ -71,20 +69,13 @@ html{
   width: 60%;
   position: absolute;
   display: none;
-  font-family: "Font Awesome 5 Free";
+  font-family: 'Font Awesome 5 Free';
 }
-
-
-
-
-
-
-
 
 /* テンプレート系 */
 
 /* ボックス */
-.section__box{
+.section__box {
   background: white;
   box-shadow: 10px 10px 10px -15px rgb(185, 185, 185);
   border-radius: 10px;
@@ -92,81 +83,65 @@ html{
 }
 
 /* フロート */
-.float{
+.float {
   float: left;
 }
 
-
-
 /* ブロック */
-.block{
+.block {
   display: block;
 }
 
-
 /* グリッド */
-.grid{
-  display:grid;
+.grid {
+  display: grid;
 }
 /* フレックス */
-.flex{
+.flex {
   display: flex;
 }
 
-
-
-
-
-
-
-
 /* main */
-body{
-  background:#F5F5F8;
-  overflow-x:hidden ;
+body {
+  background: #f5f5f8;
+  overflow-x: hidden;
   overflow-y: hidden;
   text-align: center;
-  box-sizing : border-box;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
 }
 
-.main{
-  display:inline-block;
-  margin-top:20px;
+.main {
+  display: inline-block;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 100%;
 }
 
-.main__inner{
+.main__inner {
   display: flex;
   align-items: stretch;
   text-align: center;
   justify-content: center;
-  margin-top:20px;
+  margin-top: 20px;
   max-width: 100%;
-  padding:0 5%;
+  padding: 0 5%;
 }
 
-
-
-
-
-.main__inner__1{
+.main__inner__1 {
   display: inline-block;
   width: 50%;
-  table-layout:fixed;
+  table-layout: fixed;
 }
 
-.main__inner__1__time{
+.main__inner__1__time {
   display: flex;
 }
 
-
-
-.main__inner__1__time__box{
+.main__inner__1__time__box {
   width: 100%;
   height: 136px;
   padding: 5px;
@@ -174,10 +149,9 @@ body{
   text-align: center;
   align-items: center;
   justify-content: center;
-
 }
 
-.main__inner__1__time__box__time__title{
+.main__inner__1__time__box__time__title {
   text-align: center;
   align-items: center;
   font-size: 120%;
@@ -187,199 +161,179 @@ body{
   margin: 10px;
 }
 
-.main__inner__1__time__box__time__result{
+.main__inner__1__time__box__time__result {
   text-align: center;
   align-items: center;
   font-size: 200%;
   font-weight: bold;
-  font-family: 'arial',sans-serif;
+  font-family: 'arial', sans-serif;
   margin: 10px;
   letter-spacing: 0.05em;
-
 }
 
-.main__inner__1__time__box__time__unit{
+.main__inner__1__time__box__time__unit {
   text-align: center;
   align-items: center;
   font-size: 120%;
-  font-weight:inherit;
+  font-weight: inherit;
   font-style: normal;
-  color:#97B9D1;
+  color: #97b9d1;
   margin: 10px;
 }
 
-.main__inner__1__timeGraph{
+.main__inner__1__timeGraph {
   height: 410px;
   display: block;
   position: relative;
   padding: 5%;
 }
 
-#bargraph-area{
+#bargraph-area {
   justify-content: flex-end;
-  width:100% !important;
-  height:100%!important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
-
-.main__inner__2{
+.main__inner__2 {
   display: flex;
-  width:50%;
+  width: 50%;
 }
 
-.main__inner__2__box{
-  width:100%;
-  padding:10px;
+.main__inner__2__box {
+  width: 100%;
+  padding: 10px;
   position: relative;
   overflow: hidden;
-  display:block;
+  display: block;
 }
 
-.main__inner__2__box h2{
+.main__inner__2__box h2 {
   font-weight: 600;
-  font-family: "Font Awesome 5 Free";
+  font-family: 'Font Awesome 5 Free';
   font-size: 1.5em;
-  margin:5%;
+  margin: 5%;
 }
 
-
-.main__inner__2__box__graph{
+.main__inner__2__box__graph {
   /* width: 100%; */
   margin: 0 auto;
   display: inline-block;
   justify-content: center;
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
 }
-
-#language-graph{
-  position: relative !important;
-  width:100% !important;
-  height: 100% !important;
-  justify-content: center;
-  display: block;
-}
-
-
-
-.main__inner__2__box__language{
-  margin: 10px;
-}
-
-.main__inner__2__box__language h4{
-  font-family: Google Sans;
-  font-size: 1em;
-}
-
 
 /* グラフ下部分の丸 */
-.main__inner__2__box__language-circle {
-  height: 1em;
-  width: 1em;
+
+
+.main__inner__2__box__circle {
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
   background-color: #2b2e38;
   margin-right: 5px;
   align-items: center;
+  position: relative;
 }
 
-
-
-#content-graph{
+#language-graph {
   position: relative !important;
-  width:100% !important;
+  width: 100% !important;
   height: 100% !important;
   justify-content: center;
   display: block;
 }
 
-.main__inner__2__box__content{
+.main__inner__2__box__language {
   margin: 10px;
 }
-.main__inner__2__box__content h4{
+
+.main__inner__2__box__language h4 {
   font-family: Google Sans;
   font-size: 1em;
 }
 
-
-.main__inner__2__box__content-circle{
-  height: 1em;
-  width: 1em;
-  border-radius: 50%;
-  background-color: #2b2e38;
-  margin-right: 5px;
-  align-items: center;
+#content-graph {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  justify-content: center;
+  display: block;
 }
 
+.main__inner__2__box__content {
+  margin: 10px;
+}
+.main__inner__2__box__content h4 {
+  font-family: Google Sans;
+  font-size: 1em;
+}
 
 /* フッター */
 footer {
-  width:100%;
+  width: 100%;
   height: auto;
-  margin:10px 0;
+  margin: 10px 0;
 }
 
 .foot-wrapper {
-    width: 100%;
-    margin: 0 auto;
-    /* display: block; */
-
+  width: 100%;
+  margin: 0 auto;
+  /* display: block; */
 }
 
 .foot-nav {
-    display:flex;
-    justify-content: center;
-    font-weight: bold;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
 }
 
-.foot-nav i{
-  margin-left:10px;
-  margin-right:10px;
+.foot-nav i {
+  margin-left: 10px;
+  margin-right: 10px;
 }
-
 
 html {
   -webkit-overflow-scrolling: touch;
 }
 
 body {
- overflow: scroll;}
-
-
+  overflow: scroll;
+}
 
 /* モーダルCSSここから */
 .modalArea {
   visibility: hidden; /* displayではなくvisibility */
-  opacity : 0;
+  opacity: 0;
   position: fixed;
   z-index: 10; /* サイトによってここの数値は調整 */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .modalBg {
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.445)
+  background: rgba(0, 0, 0, 0.445);
 }
 
 .modalWrapper {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform:translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   width: 900px;
   height: 600px;
   background-color: #fff;
-  box-shadow: 0 0 30px rgba(0, 0, 0, .6);
-  border-radius:20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
   overflow: hidden;
 }
 
-
-.modalContents{
+.modalContents {
   overflow-x: hidden;
   overflow-y: hidden;
   text-align: left;
@@ -393,10 +347,7 @@ body {
   justify-content: center;
 }
 
-
-
-
-.modalContentsDone{
+.modalContentsDone {
   overflow-x: hidden;
   overflow-y: hidden;
   text-align: center;
@@ -410,41 +361,37 @@ body {
   justify-content: center;
 }
 
-
-
-.modal-inner-button{
-    margin: 0 auto;
-    background: linear-gradient(to right , rgb(32, 91, 255) , skyblue);
-    color: #fff;
-    padding: 12px;
-    text-decoration: none;
-    border-radius: 30px;
-    width: 70%;
-    box-shadow: 0 0 5px rgb(19 129 255);
-    box-sizing: content-box;
-    align-items: center;
-    text-align: center;
-    display: block;
-    cursor: pointer;
+.modal-inner-button {
+  margin: 0 auto;
+  background: linear-gradient(to right, rgb(32, 91, 255), skyblue);
+  color: #fff;
+  padding: 12px;
+  text-decoration: none;
+  border-radius: 30px;
+  width: 70%;
+  box-shadow: 0 0 5px rgb(19 129 255);
+  box-sizing: content-box;
+  align-items: center;
+  text-align: center;
+  display: block;
+  cursor: pointer;
 }
 
-
-
-.modal-content-1{
+.modal-content-1 {
   width: 50%;
   height: 500px;
   margin: 20px;
-float: inline-start;
+  float: inline-start;
 }
 
-.modal-content-2{
+.modal-content-2 {
   width: 50%;
-float: inline-start;
-height: 500px;
+  float: inline-start;
+  height: 500px;
   margin: 20px;
 }
 
-.modal-content-title{
+.modal-content-title {
   font-size: 15px;
   font-weight: bold;
   padding: 10px;
@@ -452,9 +399,8 @@ height: 500px;
   float: left;
 }
 
-
-.modal-study-date{
-  background: #F5F5F8;
+.modal-study-date {
+  background: #f5f5f8;
   font-size: 16px;
   border-radius: 10px;
   padding: 8px;
@@ -463,9 +409,8 @@ height: 500px;
   width: 374px;
 }
 
-
-.modal-study-time{
-  background: #F5F5F8;
+.modal-study-time {
+  background: #f5f5f8;
   font-size: 16px;
   border-radius: 10px;
   padding: 8px;
@@ -473,7 +418,6 @@ height: 500px;
   height: 58px;
   width: 374px;
 }
-
 
 /* 文字も含めたチェックボックス全体 */
 .modal-checkbox {
@@ -481,7 +425,7 @@ height: 500px;
   position: relative;
   margin: 5px;
   border-radius: 50px;
-  background-color: #F5F5F8;
+  background-color: #f5f5f8;
   cursor: pointer;
   user-select: none;
   color: #2b2e38;
@@ -492,25 +436,21 @@ height: 500px;
 }
 
 /* チェックボックスの丸 */
-.modal-checkbox__circle{
-    background-color: #CCCCCC;
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
-    position: relative;
-    align-items: center;
-    text-align: center;
-    vertical-align: text-top;
-    margin-right: 5px;
-    display: block;
+.modal-checkbox__circle {
+  background-color: #cccccc;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  align-items: center;
+  text-align: center;
+  vertical-align: text-top;
+  margin-right: 5px;
+  display: block;
 }
 
-
-
-
-
 /* チェックボックスのチェック */
-.modal-checkbox__checkbox__check{
+.modal-checkbox__checkbox__check {
   content: '';
   width: 40%;
   height: 30%;
@@ -525,54 +465,43 @@ height: 500px;
 }
 
 /* チェックしたときにボックスの背景が変わるCSS */
-.modal-checkbox-checked{
-  background-color: #E7F5FF;
+.modal-checkbox-checked {
+  background-color: #e7f5ff;
 }
 
 /* クリックした後のチェックボックスのcss */
-.modal-checkbox__circle-checked{
-    background-color: #0F71BD;
-    border-radius: 50%;
-    height: 20px;
-    width: 20px;
-    position: relative;
-    align-items: center;
-    text-align: center;
-    vertical-align: text-top;
-    margin-right: 5px;
-    display: block;
+.modal-checkbox__circle-checked {
+  background-color: #0f71bd;
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  align-items: center;
+  text-align: center;
+  vertical-align: text-top;
+  margin-right: 5px;
+  display: block;
 }
 
-
-
-
-
-
-
-#twitter_com{
+#twitter_com {
   font-size: 16px;
-  background: #F5F5F8;
+  background: #f5f5f8;
   border-radius: 10px;
   width: 374px;
   height: 243px;
   padding: 8px;
 }
 
-
-input[type=checkbox]{
+input[type='checkbox'] {
   height: 10px;
   width: 10px;
   display: none;
 }
 
-
-#graph-area{
+#graph-area {
   margin: auto;
-  transform: translate(0,15%);
+  transform: translate(0, 15%);
 }
-
-
-
 
 .closeModal {
   z-index: 20;
@@ -581,7 +510,7 @@ input[type=checkbox]{
   right: 20px;
   width: 35px;
   color: #95979c !important;
-  background: #F5F5F8;
+  background: #f5f5f8;
   border-radius: 100%;
   font-size: 20px;
   font-weight: bold;
@@ -591,60 +520,48 @@ input[type=checkbox]{
   text-indent: 0;
 }
 
-.closeModal:hover{
+.closeModal:hover {
   color: #2b2e38 !important;
   cursor: pointer;
 }
 
-.is-show { /* モーダル表示用クラス */
+.is-show {
+  /* モーダル表示用クラス */
   visibility: visible;
-  opacity : 1;
+  opacity: 1;
 }
 /* モーダルCSSここまで */
 
-
-
-
-
-
-
-
-
-
-
-
-
 /* 完了画面 */
-.modal-done-text{
+.modal-done-text {
   position: relative;
 }
 
-.modal-done-text h4{
+.modal-done-text h4 {
   color: #bde360;
   text-align: center;
   font-size: 25px;
   transform: translate(0, -200%);
 }
 
-.modal-done-text h3{
+.modal-done-text h3 {
   font-size: 30px;
   position: relative;
-    transform: translate(0, 150%);
+  transform: translate(0, 150%);
 }
 
-.circle{
+.circle {
   background-color: #bde360;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-
-.check{
+.check {
   content: '';
   width: 40%;
   height: 30%;
@@ -657,12 +574,8 @@ input[type=checkbox]{
   border-radius: 2px;
 }
 
-
-
-
-
 /* ローディング画面 */
-.loader-wrap{
+.loader-wrap {
   justify-content: center;
   align-items: center;
   margin-top: 25%;
@@ -679,10 +592,10 @@ input[type=checkbox]{
   font-size: 10px;
   position: relative;
   text-indent: -9999em;
-  border-top: 1.0em solid rgba(255, 255, 255, 0.2);
-  border-right: 1.0em solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1.0em solid rgba(255, 255, 255, 0.2);
-  border-left: 1.0em solid #1277BF;
+  border-top: 0.5em solid skyblue;
+  border-right: 0.5em solid skyblue;
+  border-bottom: 0.5em solid skyblue;
+  border-left: 0.5em solid  rgb(32, 91, 255);
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);

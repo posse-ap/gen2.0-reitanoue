@@ -34,14 +34,13 @@ var myBarChart = new Chart(ctx0, {
     scales: {
       display: true,
       x: {
+        grid: {
+          display: false,
+        },
         display: true,
         categoryPercentage: 0.6, // ┐省略時の値
         barPercentage: 0.6,
         stacked: true,
-        gridLines: {
-          display: false,
-          drawBorder: false,
-        },
         ticks: {
           display: true,
           maxTicksLimit: 20,
@@ -54,6 +53,9 @@ var myBarChart = new Chart(ctx0, {
         },
       },
       y: {
+        grid: {
+          display: false,
+        },
         display: true,
         stacked: true,
         legend: false,
@@ -89,12 +91,12 @@ var languageGraphPlugin1 = {
           // ステップ１　数値を文字列に変換
           var 要素値 = dataset.data[要素];
           var dataString = 要素値.toString();
-          var 百分率 = "(" + 1 * 要素値.toFixed(1).toString() + "%)";
+          var 百分率 = "" + 1 * 要素値.toFixed(1).toString() + "%";
           // ステップ２　文字列の書体
           ctx.fillStyle = "white"; // 色
           var fontSize = 14; // サイズ
-          var fontStyle = "bold"; // 書体 "bold", "italic"
-          var fontFamily = "sans-serif"; // フォントの種類 "sans-serif", "ＭＳ 明朝"
+          var fontStyle = "bold"; // 書体 'bold', 'italic'
+          var fontFamily = "sans-serif"; // フォントの種類 'sans-serif', 'ＭＳ 明朝'
           ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
           // ステップ３　文字列の位置の基準点
           ctx.textAlign = "center"; // 文字列　start, end, left, right, center
@@ -120,14 +122,14 @@ var myDoughnutChart0 = new Chart(ctx1, {
   type: "doughnut", // グラフの種類 pie 円グラフ, doughnut ドーナッツチャート, polarArea 鶏頭図
   data: {
     labels: [
-      // "JavaScript",
-      // "CSS",
-      // "PHP",
-      // "HTML",
-      // "Laravel",
-      // "SQL",
-      // "SHELL",
-      // "情報システム基礎知識（その他）",
+      // 'JavaScript',
+      // 'CSS',
+      // 'PHP',
+      // 'HTML',
+      // 'Laravel',
+      // 'SQL',
+      // 'SHELL',
+      // '情報システム基礎知識（その他）',
     ], // 軸のラベル
     datasets: [
       {
@@ -170,12 +172,12 @@ var languageGraphPlugin2 = {
           // ステップ１　数値を文字列に変換
           var 要素値 = dataset.data[要素];
           var dataString = 要素値.toString();
-          var 百分率 = "(" + 1 * 要素値.toFixed(1).toString() + "%)";
+          var 百分率 = "" + 1 * 要素値.toFixed(1).toString() + "%";
           // ステップ２　文字列の書体
           ctx.fillStyle = "white"; // 色
           var fontSize = 14; // サイズ
-          var fontStyle = "bold"; // 書体 "bold", "italic"
-          var fontFamily = "sans-serif"; // フォントの種類 "sans-serif", "ＭＳ 明朝"
+          var fontStyle = "bold"; // 書体 'bold', 'italic'
+          var fontFamily = "sans-serif"; // フォントの種類 'sans-serif', 'ＭＳ 明朝'
           ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
           // ステップ３　文字列の位置の基準点
           ctx.textAlign = "center"; // 文字列　start, end, left, right, center
@@ -201,7 +203,7 @@ var myDoughnutChart1 = new Chart(ctx2, {
   type: "doughnut",
   data: {
     labels: [
-      // "ドットインストール", "N予備校", "POSSE課題"
+      // 'ドットインストール', 'N予備校', 'POSSE課題'
     ], //データ項目のラベル
     datasets: [
       {

@@ -50,11 +50,29 @@ let determinationModal =
 let closeDeterminationModal =
   document.getElementById("closeModalDone"); /* 記録・投稿完了画面閉じるid */
 
+let languages = [
+  "HTML",
+  "css",
+  "JavaScript",
+  "PHP",
+  "Laravel",
+  "SQL",
+  "SHELL",
+  "basic-knowledge",
+];
+
+for (let n = 0; n < languages.length; n++) {
+  var languageCheck = document.getElementById(languages[n]);
+}
+
 document
   .getElementById("modal-inner-button")
   .addEventListener("click", function () {
     if (twitterCheckBox.checked) {
       console.log("twitter");
+      if (languageCheck.checked === true) {
+        console.log("学習コンテンツ：", checkbox.value);
+      }
       let twitterContents =
         document.getElementById(
           "twitter_com"
@@ -84,5 +102,3 @@ closeDeterminationModal.addEventListener("click", function () {
   determinationModal.style.visibility = "hidden";
   determinationModal.style.opacity = "0";
 });
-
-const formElements = document.forms.contactForm;
