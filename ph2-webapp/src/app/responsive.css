@@ -1,0 +1,288 @@
+
+@media screen and (max-width: 915px) {
+
+  html{
+  box-sizing: border-box;
+  width: 100%;
+  height: 150%;
+}
+
+  .header__inner__logo img{
+  float: left;
+  margin-left: 22px;
+  height: 22px;
+}
+
+  .header__inner__button {
+  display:none;
+}
+
+  .responsive__inner__button{
+  background: linear-gradient(to right , rgb(32, 91, 255) , skyblue);
+  color: #fff; /* 文字色 */
+  padding: 12px 58px; /* 上下の余白、左右の余白 */
+  text-decoration: none; /* デフォルトで入る下線を消す */
+  border-radius: 30px; /* 角を丸くする */
+  box-shadow: 0 0 5px rgb(19, 129, 255);
+  box-sizing: content-box;
+  z-index: 1000;
+  text-align: center;
+  align-items: center;
+  width:60%;
+  position: fixed;
+  bottom: 1%;
+  display: block;
+  font-family: 'Font Awesome 5 Free';
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+
+
+.main__inner{
+  display: block;
+  max-width: 100%;
+  align-items: stretch;
+  margin-top:12px;
+  margin-left: 20px;
+  margin-right: 20px;
+  box-sizing: border-box;
+}
+
+.main__inner__1{
+  display: block;
+  width: 100%;
+  margin-left: 0;
+}
+
+
+.main__inner__1__time__box__time__result{
+  letter-spacing: 0.0em;
+}
+.main__inner__1__time__box{
+  height:50%;
+}
+
+
+
+.main__inner__1__time__box__time__title{
+  text-align: center;
+  align-items: center;
+  font-size: 50%;
+  font-weight: bold;
+  font-style: inherit;
+  color: rgb(19, 91, 185);
+  margin: 0px;
+}
+
+.main__inner__1__time__box__time__result{
+  text-align: center;
+  align-items: center;
+  font-size: 200%;
+  font-weight: bold;
+  font-family: 'arial',sans-serif;
+  margin: 0px;
+  letter-spacing: 0.0em;
+
+}
+
+.main__inner__1__time__box__time__unit{
+  text-align: center;
+  align-items: center;
+  font-size: 50%;
+  font-weight:inherit;
+  font-style: normal;
+  color:#97B9D1;
+  margin: 0px;
+}
+
+.main__inner__1__timeGraph{
+  height: 40% !important;
+}
+
+
+.main__inner__2{
+  display: flex;
+  margin-right:0;
+  width:100%;
+}
+.main__inner__2__box h2{
+  font-weight: 600;
+  font-family: 'Font Awesome 5 Free';
+  font-size: 1em;
+  padding:5%;
+}
+
+
+.main__inner__2__box__language h4{
+  font-family: Google Sans;
+  font-size: 1em;
+}
+.section__box{
+  margin: 8px;
+}
+
+.foot-wrapper {
+   margin-left: 20px;
+   margin-right: 20px;
+   width:100%;
+   justify-content: center;
+   align-items: center;
+   margin: 0 auto;
+   display: block;
+}
+
+
+
+
+/* モーダル */
+
+.modalArea {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0px;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+}
+
+
+.modalWrapper {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin-top:64px;
+}
+
+.modalContents {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+.modal-button{
+  margin: 0 auto;
+    background: linear-gradient(to right , rgb(32, 91, 255) , skyblue);
+    color: #fff;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 30px;
+    width: 70%;
+    box-shadow: 0 0 5px rgb(19 129 255);
+    box-sizing: content-box;
+    align-items: center;
+    text-align: center;
+    display: block;
+    position:absolute;
+    bottom:20px;
+}
+
+
+
+.modal-content-1{
+  width: calc(100% - 20px);
+  height: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.modal-content-2{
+  width: calc(100% - 20px);
+  height: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.modal-content-title{
+  font-size: 15px;
+  font-weight: bold;
+  padding: 0px;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  float: left;
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+
+.modal-study-date{
+  background: #F5F5F8;
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 8px;
+  letter-spacing: 0.1em;
+  height: 40px;
+  width: calc(100% - 20px);
+  float:left;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+
+.modal-study-time{
+  background: #F5F5F8;
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 8px;
+  letter-spacing: 0.1em;
+  height: 40px;
+  width: calc(100% - 20px);
+  float: left;
+  box-sizing: border-box;
+}
+
+
+/* 文字も含めたチェックボックス全体 */
+.modal-checkbox {
+  margin: 4px;
+  padding: 10px;
+}
+
+
+#twitter_com{
+  width: calc(100% - 20px);
+
+}
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 376px)
+{
+.main__inner__2__box__language h4{
+  font-family: Google Sans;
+  font-size: 0.5em;
+}
+
+.main__inner__2__box__content h4{
+  font-family: Google Sans;
+  font-size: 0.5em;
+}
+}
