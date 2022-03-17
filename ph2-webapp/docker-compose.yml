@@ -14,6 +14,9 @@ services:
       - ./src:/var/www/app
     depends_on:
       - php
+    stdin_open: true
+    restart: always
+
 
   php:
     build: ./php/

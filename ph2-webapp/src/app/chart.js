@@ -18,10 +18,11 @@ var myBarChart = new Chart(ctx0, {
         label: "学習時間",
         data: [
           2, 1, 4, 3, 1, 5, 3, 2, 6, 3, 3, 2, 2, 1, 2, 5, 3, 4, 3, 2, 4, 2, 1,
-          4, 0, 7, 3, 4, 1, 1, 3,
+          4, 0, 7, 3, 4, 1, 1, 3
         ],
         backgroundColor: "blue",
         borderWidth: 1,
+        borderRadius
       },
     ],
   },

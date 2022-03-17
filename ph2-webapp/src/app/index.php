@@ -1,3 +1,8 @@
+<?php
+require("./dbconnect.php");
+require("./chart.php");
+?>
+
 <!DOCTYPE html>
 <html lang='ja'>
 
@@ -6,9 +11,9 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <title>POSSEAPP</title>
-  <link rel='stylesheet' href='index.css'>
-  <link rel='stylesheet' href='reset.css'>
-  <link rel='stylesheet' href='responsive.css'>
+  <link rel='stylesheet' href='./index.css'>
+  <link rel='stylesheet' href='./reset.css'>
+  <link rel='stylesheet' href='./responsive.css'>
   <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.4/css/all.css'>
   <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css'>
   <script src='https://cdn.jsdelivr.net/npm/flatpickr'></script>
@@ -336,8 +341,8 @@
 
 
 
-  <script src='index.js'></script>
-  <script src='chart.js'></script>
+  <script src='./index.js'></script>
+  <script src='./chart.js'></script>
 
 </body>
 
