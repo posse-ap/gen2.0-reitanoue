@@ -1,0 +1,52 @@
+.modal-checkbox {
+  display: block;
+  position: relative;
+  margin: 1em 0;
+  padding-left: 28px;
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  user-select: none; /* テキストが選択されてしまうのを防ぐ */
+  /* inputは非表示にする */
+  input {
+    display: none;
+  }
+}
+
+/* □ */
+.modal-checkmark {
+  position: absolute;
+  top: 0; /* 上からの位置 */
+  left: 0;
+  height: 22px; /* 幅 */
+  width: 22px; /* 幅 */
+  border: solid 2px #ccc; /* 線 */
+  border-radius: 4px;
+  box-sizing: border-box;
+  /* ✓ */
+  &:after {
+    content: "";
+    position: absolute;
+    border: solid #ccc;
+    border-width: 0 2px 2px 0;
+    left: 5px;
+    top: 1px;
+    width: 6px;
+    height: 10px;
+    transform: rotate(45deg);
+    opacity: 0; /* 透明にしておく */
+  }
+}
+
+
+/* チェックが入ったとき */
+.modal-checkbox {
+  /* □ */
+  input:checked + .checkmark {
+    background: #0f71bd; /* チェック時の色 */
+    border-color: #0f71bd; /* チェック時の色 */
+  }
+  /* ✓ */
+  input:checked + .checkmark:after {
+    opacity: 1;
+  }
+}
