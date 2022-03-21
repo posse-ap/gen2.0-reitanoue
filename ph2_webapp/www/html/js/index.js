@@ -36,10 +36,9 @@ const func2 = () => {
   }
 };
 
+
 //tweetのチェックボックス
 document.getElementById("tweet").addEventListener("click", function () {
-  // document.getElementById("tweetCheckmark").classList.toggle("modal-checkbox");
-   //チェックボックスを青くする
   document.getElementById("tweetCheckmark").classList.toggle("checked"); //チェックボックスを青くする
 });
 

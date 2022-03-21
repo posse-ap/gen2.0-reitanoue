@@ -3,6 +3,28 @@ require("dbconnect.php");
 require("./chart.php");
 ?>
 
+
+
+<?php
+
+$total_stmt = $db->prepare("SELECT sum(study_hour) FROM study_reports");
+$total_stmt->execute();
+$total = $total_stmt->fetch();
+
+$month_stmt = $db->prepare("SELECT sum(study_hour) FROM study_reports WHERE DATE_FORMAT(study_date, '%Y%m')=DATE_FORMAT(NOW(), '%Y%m')");
+$month_stmt->execute();
+$month = $month_stmt->fetch();
+
+$today_stmt = $db->prepare("SELECT sum(study_hour) FROM study_reports WHERE DATE_FORMAT(study_date, '%Y%m%D')=DATE_FORMAT(NOW(), '%Y%m%D')");
+$today_stmt->execute();
+$today = $today_stmt->fetch();
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang='ja'>
 
@@ -51,17 +73,17 @@ require("./chart.php");
       <ul class='main__inner__1__time'>
         <li class='main__inner__1__time__box section__box'>
           <p class='main__inner__1__time__box__time__title'>Today</p>
-          <p class='main__inner__1__time__box__time__result'>3</p>
+          <p class='main__inner__1__time__box__time__result'><?php echo $today[0] === NULL ? 0: $today[0] ?></p>
           <p class='main__inner__1__time__box__time__unit'>hour</p>
         </li>
         <li class='main__inner__1__time__box section__box'>
           <p class='main__inner__1__time__box__time__title'>Month</p>
-          <p class='main__inner__1__time__box__time__result'>120</p>
+          <p class='main__inner__1__time__box__time__result'><?php echo $month[0] === NULL ? 0 : $month[0] ?></p>
           <p class='main__inner__1__time__box__time__unit'>hour</p>
         </li>
         <li class='main__inner__1__time__box section__box'>
           <p class='main__inner__1__time__box__time__title'>Total</p>
-          <p class='main__inner__1__time__box__time__result'>1348</p>
+          <p class='main__inner__1__time__box__time__result'><?php echo $total[0] === NULL ? 0 : $total[0]?></p>
           <p class='main__inner__1__time__box__time__unit'>hour</p>
         </li>
       </ul>
@@ -76,7 +98,7 @@ require("./chart.php");
       <div class='main__inner__2__box section__box'>
         <h2 class='float'>学習言語</h2>
         <div class='main__inner__2__box__graph'>
-          <div id='languageGraph'></div>
+          <div id='languageGraph' style="width: 80%; height: 400px;"></div>
         </div>
 
       </div>
@@ -121,8 +143,8 @@ require("./chart.php");
             <h3 class='modal-content-title float'>学習コンテンツ（複数選択可）</h3>
             <div class='float'>
               <label for="nYobi" class="modal-checkbox" id="content_1">
-                <i class='fa-solid fa-circle-check checkmark' id="contentCheck_1" style='color:#ccc'></i>
                 <input id="nYobi" type="checkbox" name="studyContent" value="N予備校">
+                <i class='fa-solid fa-circle-check checkmark' id="contentCheck_1"></i>
                 N予備校
               </label>
               <label for="dotInstall" class="modal-checkbox" id="content_2">
