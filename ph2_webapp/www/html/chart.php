@@ -10,7 +10,7 @@
 
   // 学習時間棒グラフ
 
-  var ctx0 = document.getElementById("bargraph-area").getContext("2d");
+  var ctx0 = document.getElementById("bargraph-area").getContext("2d");;
   var myBarChart = new Chart(ctx0, {
     type: "bar",
     //凡例のラベル
@@ -23,8 +23,7 @@
         xAxisID: "x",
         yAxisID: "y",
         label: "学習時間",
-        data: [
-        ],
+        data: [],
         backgroundColor: "#0f71bd",
         borderWidth: 1,
       }, ],

@@ -16,7 +16,18 @@
   }
 })();
 
-// チェックボックスの動き
+
+
+let contentElements = document.getElementsByName("studyContent");
+for (let i = 0; i < contentElements.length; i++) {
+  if (contentElements[i].checked) {
+    document.getElementsByClassName(".checkmark").classList.toggle(".checked");
+  }
+}
+
+
+
+// コンソールに引数を返す動き（コンテンツ）
 const func1 = () => {
   const contentElements = document.getElementsByName("studyContent");
   for (let i = 0; i < contentElements.length; i++) {
@@ -26,7 +37,7 @@ const func1 = () => {
   }
 };
 
-// チェックボックスの動き
+// コンソールに引数を返す動き（言語）
 const func2 = () => {
   const langElements = document.getElementsByName("studyLanguage");
   for (let i = 0; i < langElements.length; i++) {
@@ -36,11 +47,6 @@ const func2 = () => {
   }
 };
 
-
-//tweetのチェックボックス
-document.getElementById("tweet").addEventListener("click", function () {
-  document.getElementById("tweetCheckmark").classList.toggle("checked"); //チェックボックスを青くする
-});
 
 /*
  * 記録・投稿ボタン 動き

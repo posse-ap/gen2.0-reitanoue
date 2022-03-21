@@ -1,1 +1,9 @@
 
+input[type='checkbox'] {
+  display:none;
+}
+
+
+input[type=checkbox]:checked + .checkmark::before{
+  color: #0f71bd;
+}

@@ -438,8 +438,6 @@ body {
   padding: 10px;
 }
 
-
-
 /* チェックしたときにボックスの背景が変わるCSS */
 .checkbox-checked {
   background-color: #e7f5ff;
@@ -464,9 +462,18 @@ body {
   padding: 8px;
 }
 
-input[type='checkbox'] {
-  display: block;
-}
+
+
+
+
+
+
+
+
+
+
+
+
 
 #graph-area {
   margin: auto;

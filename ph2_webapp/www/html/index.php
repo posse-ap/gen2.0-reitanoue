@@ -19,7 +19,6 @@ $today_stmt = $db->prepare("SELECT sum(study_hour) FROM study_reports WHERE DATE
 $today_stmt->execute();
 $today = $today_stmt->fetch();
 
-
 ?>
 
 
@@ -73,7 +72,7 @@ $today = $today_stmt->fetch();
       <ul class='main__inner__1__time'>
         <li class='main__inner__1__time__box section__box'>
           <p class='main__inner__1__time__box__time__title'>Today</p>
-          <p class='main__inner__1__time__box__time__result'><?php echo $today[0] === NULL ? 0: $today[0] ?></p>
+          <p class='main__inner__1__time__box__time__result'><?php echo $today[0] === NULL ? 0 : $today[0] ?></p>
           <p class='main__inner__1__time__box__time__unit'>hour</p>
         </li>
         <li class='main__inner__1__time__box section__box'>
@@ -83,7 +82,7 @@ $today = $today_stmt->fetch();
         </li>
         <li class='main__inner__1__time__box section__box'>
           <p class='main__inner__1__time__box__time__title'>Total</p>
-          <p class='main__inner__1__time__box__time__result'><?php echo $total[0] === NULL ? 0 : $total[0]?></p>
+          <p class='main__inner__1__time__box__time__result'><?php echo $total[0] === NULL ? 0 : $total[0] ?></p>
           <p class='main__inner__1__time__box__time__unit'>hour</p>
         </li>
       </ul>
@@ -143,7 +142,7 @@ $today = $today_stmt->fetch();
             <h3 class='modal-content-title float'>学習コンテンツ（複数選択可）</h3>
             <div class='float'>
               <label for="nYobi" class="modal-checkbox" id="content_1">
-                <input id="nYobi" type="checkbox" name="studyContent" value="N予備校">
+                <input id="nYobi" type="checkbox" name="studyContent" value="N予備校" class="checkbox">
                 <i class='fa-solid fa-circle-check checkmark' id="contentCheck_1"></i>
                 N予備校
               </label>
