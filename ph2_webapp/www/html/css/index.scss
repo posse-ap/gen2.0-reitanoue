@@ -7,3 +7,7 @@ input[type='checkbox'] {
 input[type=checkbox]:checked + .checkmark::before{
   color: #0f71bd;
 }
+
+input[type=checkbox]:checked + .modal-checkbox{
+  background-color: #e7f5ff;
+}

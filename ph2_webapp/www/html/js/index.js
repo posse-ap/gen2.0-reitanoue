@@ -25,6 +25,13 @@ for (let i = 0; i < contentElements.length; i++) {
   }
 }
 
+let langElements = document.getElementsByName("studyLanguage");
+for (let i = 0; i < langElements.length; i++) {
+  if (langElements[i].checked) {
+    document.getElementsByClassName(".checkmark").classList.toggle(".checked");
+  }
+}
+
 
 
 // コンソールに引数を返す動き（コンテンツ）

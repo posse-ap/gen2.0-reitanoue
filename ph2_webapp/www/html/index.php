@@ -1,6 +1,5 @@
 <?php
 require("dbconnect.php");
-require("./chart.php");
 ?>
 
 
@@ -36,7 +35,6 @@ $today = $today_stmt->fetch();
   <link rel="stylesheet" href="./css/index.scss">
   <link rel='stylesheet' href='./css/reset.css'>
   <link rel='stylesheet' href='./css/responsive.css'>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Sharp|Material+Icons+Round|Material+Icons+Two+Tone">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/77dc7f4ff2.js" crossorigin="anonymous"></script>
   <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
@@ -275,7 +273,7 @@ $today = $today_stmt->fetch();
       </div>
     </div>
   </section>
-  <!-- 　完了画面ここまで -->
+  <!-- 完了画面ここまで -->
 
 
 
@@ -284,7 +282,10 @@ $today = $today_stmt->fetch();
 
 
   <script src='./js/index.js' type='text/javascript'></script>
-  <script src="./js/chart.js"></script>
 </body>
+
+<?php
+require("chart.php");
+?>
 
 </html>
