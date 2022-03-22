@@ -57,7 +57,7 @@ CREATE TABLE `study_reports` (
   `study_date` date NOT NULL,
   `language_id` INT NOT NULL,
   `content_id` INT NOT NULL,
-  `study_hour` INT
+  `study_time` INT
 );
 
 INSERT INTO
@@ -65,7 +65,7 @@ INSERT INTO
     `study_date`,
     `language_id`,
     `content_id`,
-    `study_hour`
+    `study_time`
   )
 VALUES
   ('2022-3-05', 1, 1, 1),

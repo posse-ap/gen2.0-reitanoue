@@ -6,15 +6,15 @@ require("dbconnect.php");
 
 <?php
 
-$total_stmt = $db->prepare("SELECT sum(study_hour) FROM study_reports");
+$total_stmt = $db->prepare("SELECT sum(study_time) FROM study_reports");
 $total_stmt->execute();
 $total = $total_stmt->fetch();
 
-$month_stmt = $db->prepare("SELECT sum(study_hour) FROM study_reports WHERE DATE_FORMAT(study_date, '%Y%m')=DATE_FORMAT(NOW(), '%Y%m')");
+$month_stmt = $db->prepare("SELECT sum(study_time) FROM study_reports WHERE DATE_FORMAT(study_date, '%Y%m')=DATE_FORMAT(NOW(), '%Y%m')");
 $month_stmt->execute();
 $month = $month_stmt->fetch();
 
-$today_stmt = $db->prepare("SELECT sum(study_hour) FROM study_reports WHERE DATE_FORMAT(study_date, '%Y%m%D')=DATE_FORMAT(NOW(), '%Y%m%D')");
+$today_stmt = $db->prepare("SELECT sum(study_time) FROM study_reports WHERE DATE_FORMAT(study_date, '%Y%m%D')=DATE_FORMAT(NOW(), '%Y%m%D')");
 $today_stmt->execute();
 $today = $today_stmt->fetch();
 
@@ -32,7 +32,7 @@ $today = $today_stmt->fetch();
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <title>POSSEAPP</title>
   <link rel='stylesheet' href='./css/index.css'>
-  <link rel="stylesheet" href="./css/index.scss">
+  <!-- <link rel="stylesheet" href="./css/index.scss"> -->
   <link rel='stylesheet' href='./css/reset.css'>
   <link rel='stylesheet' href='./css/responsive.css'>
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -116,7 +116,7 @@ $today = $today_stmt->fetch();
         <i class='fas fa-chevron-left' style='color: #026CBA;'></i>
         <h1>2020年4月</h1>
         <i class='fas fa-chevron-right' style='color: #A3C1D6'></i>
-        <button id='openModal' class='responsive__inner__button'>記録・投稿</button>
+        <button id='openModalResponsive' class='responsive__inner__button'>記録・投稿</button>
         <!-- <a id='responsive_record_button' class='responsive__inner__button'>記録・投稿</a> -->
       </div>
     </div>
@@ -141,17 +141,17 @@ $today = $today_stmt->fetch();
             <div class='float'>
               <label for="nYobi" class="modal-checkbox" id="content_1">
                 <input id="nYobi" type="checkbox" name="studyContent" value="N予備校" class="checkbox">
-                <i class='fa-solid fa-circle-check checkmark' id="contentCheck_1"></i>
+                <i class='fa-solid fa-circle-check checkmark' id="contentCheck_0"></i>
                 N予備校
               </label>
               <label for="dotInstall" class="modal-checkbox" id="content_2">
                 <input id="dotInstall" type="checkbox" name="studyContent" value="ドットインストール">
-                <i class='fa-solid fa-circle-check checkmark' id="contentCheck_2"></i>
+                <i class='fa-solid fa-circle-check checkmark' id="contentCheck_1"></i>
                 ドットインストール
               </label>
               <label for="posseHw" class="modal-checkbox" id="content_3">
                 <input id='posseHw' type="checkbox" name="studyContent" value="POSSE課題">
-                <i class='fa-solid fa-circle-check checkmark' id="contentCheck_3"></i>
+                <i class='fa-solid fa-circle-check checkmark' id="contentCheck_2"></i>
                 POSSE課題
               </label>
             </div>
@@ -225,10 +225,11 @@ $today = $today_stmt->fetch();
             <textarea id='twitter_com' name='content'>
             </textarea>
             <div class='flex'>
-              <i class='fa-solid fa-circle-check' style='color: #ccc;' id='tweetCheckmark'>
-              </i>
-              <input type='checkbox' name='share-box' value='true' id='tweet' class='stretched-link'>
-              Twitterにシェアする
+              <label for='tweet'>
+                <input type='checkbox' name='share-box' value='true' id='tweet' class='stretched-link'>
+                <i class='fa-solid fa-circle-check checkmark' id='tweetCheckmark'></i>
+              </label>
+                Twitterにシェアする
             </div>
           </div>
         </div>

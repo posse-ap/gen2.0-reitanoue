@@ -4,7 +4,7 @@
 
 
 
-$bar_stmt = $db->prepare("SELECT study_date,sum(study_hour) as sum_study_hour
+$bar_stmt = $db->prepare("SELECT study_date,sum(study_time) as sum_study_time
   FROM study_reports
   GROUP BY study_date
   HAVING DATE_FORMAT(study_date, '%Y%m')=DATE_FORMAT(NOW(), '%Y%m')");
@@ -12,7 +12,7 @@ $bar_stmt->execute();
 $bars = $bar_stmt->fetchAll();
 
 
-$language_stmt = $db->prepare("SELECT languages.name,languages.color,sum(study_reports.study_hour) as sum_study_hour
+$language_stmt = $db->prepare("SELECT languages.name,languages.color,sum(study_reports.study_time) as sum_study_time
   FROM study_reports
   JOIN languages ON study_reports.language_id = languages.id
   WHERE DATE_FORMAT(study_date, '%Y%m')=DATE_FORMAT(NOW(), '%Y%m')
@@ -21,12 +21,11 @@ $language_stmt = $db->prepare("SELECT languages.name,languages.color,sum(study_r
 $language_stmt->execute();
 $languages = $language_stmt->fetchAll();
 
-$content_stmt = $db->prepare("SELECT contents.name,contents.color,sum(study_reports.study_hour) as sum_study_hour
+$content_stmt = $db->prepare("SELECT contents.name,contents.color,sum(study_reports.study_time) as sum_study_time
   FROM study_reports
   JOIN contents ON study_reports.content_id = contents.id
   WHERE DATE_FORMAT(study_date, '%Y%m')=DATE_FORMAT(NOW(), '%Y%m')
   GROUP BY contents.name,contents.color");
-
 $content_stmt->execute();
 $contents = $content_stmt->fetchAll();
 
@@ -73,7 +72,7 @@ $contents = $content_stmt->fetchAll();
         label: "学習時間",
         data: [
           <?php foreach ($bars as $bar) {
-            echo $bar["sum_study_hour"] . ",";
+            echo $bar["sum_study_time"] . ",";
           } ?>
         ],
         backgroundColor: "#0f71bd",
@@ -177,7 +176,7 @@ $contents = $content_stmt->fetchAll();
   function drawChart0() {
     var dataLang = new google.visualization.arrayToDataTable([
       ["language", "portion"],
-      <?php foreach ($languages as $language) { ?>["<?= $language["name"] ?>", <?= $language["sum_study_hour"] ?>],
+      <?php foreach ($languages as $language) { ?>["<?= $language["name"] ?>", <?= $language["sum_study_time"] ?>],
       <?php } ?>
     ]);
 
@@ -250,7 +249,7 @@ $contents = $content_stmt->fetchAll();
   function drawChart1() {
     var dataContent = new google.visualization.arrayToDataTable([
       ["content", "portion"],
-      <?php foreach ($contents as $content) { ?>["<?= $content["name"] ?>", <?= $content["sum_study_hour"] ?>],
+      <?php foreach ($contents as $content) { ?>["<?= $content["name"] ?>", <?= $content["sum_study_time"] ?>],
       <?php } ?>
     ]);
     var optionsContent = {

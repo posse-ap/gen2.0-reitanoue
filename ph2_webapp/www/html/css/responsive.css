@@ -31,7 +31,7 @@
   width:60%;
   position: fixed;
   bottom: 1%;
-  display: block;
+  display: none;
   font-family: 'Font Awesome 5 Free';
   margin-left: 0px;
   margin-right: 0px;
@@ -270,8 +270,10 @@
 
 
 
-
-
+/*
+input[type='checkbox'] {
+  display:none;
+} */
 
 
 @media screen and (max-width: 376px)

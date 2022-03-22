@@ -1,9 +1,10 @@
 (function () {
   const modalArea = document.getElementById("modalArea");
   const openModal = document.getElementById("openModal");
+  const openModalResponsive = document.getElementById("openModalResponsive");
   const closeModal = document.getElementById("closeModal");
   const modalBg = document.getElementById("modalBg");
-  const toggle = [openModal, closeModal, modalBg];
+  const toggle = [openModal,openModalResponsive, closeModal, modalBg];
 
   for (let x = 0, len = toggle.length; x < len; x++) {
     toggle[x].addEventListener(
@@ -15,22 +16,6 @@
     );
   }
 })();
-
-
-
-let contentElements = document.getElementsByName("studyContent");
-for (let i = 0; i < contentElements.length; i++) {
-  if (contentElements[i].checked) {
-    document.getElementsByClassName(".checkmark").classList.toggle(".checked");
-  }
-}
-
-let langElements = document.getElementsByName("studyLanguage");
-for (let i = 0; i < langElements.length; i++) {
-  if (langElements[i].checked) {
-    document.getElementsByClassName(".checkmark").classList.toggle(".checked");
-  }
-}
 
 
 

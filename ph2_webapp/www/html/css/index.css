@@ -3,7 +3,7 @@ html {
   height: 100%;
 }
 
-body{
+body {
   width: 100%;
 }
 
@@ -55,7 +55,7 @@ body{
   top: 10px;
   right: 40px;
   position: absolute;
-  font-family: 'Font Awesome 5 Free';
+  font-family: "Font Awesome 5 Free";
   cursor: pointer;
 }
 
@@ -73,7 +73,7 @@ body{
   width: 60%;
   position: absolute;
   display: none;
-  font-family: 'Font Awesome 5 Free';
+  font-family: "Font Awesome 5 Free";
 }
 
 /* テンプレート系 */
@@ -170,7 +170,7 @@ body {
   align-items: center;
   font-size: 200%;
   font-weight: bold;
-  font-family: 'arial', sans-serif;
+  font-family: "arial", sans-serif;
   margin: 10px;
   letter-spacing: 0.05em;
 }
@@ -212,7 +212,7 @@ body {
 
 .main__inner__2__box h2 {
   font-weight: 600;
-  font-family: 'Font Awesome 5 Free';
+  font-family: "Font Awesome 5 Free";
   font-size: 1.5em;
   margin: 5%;
 }
@@ -228,7 +228,6 @@ body {
 
 /* グラフ下部分の丸 */
 
-
 .main__inner__2__box__circle {
   width: 1rem;
   height: 1rem;
@@ -238,14 +237,14 @@ body {
   align-items: center;
   position: relative;
 }
-
+/*
 div#languageGraph {
   position: relative !important;
   width: 100% !important;
   height: 200% !important;
   justify-content: center;
   display: block;
-}
+} */
 
 .main__inner__2__box__language {
   margin: 10px;
@@ -255,14 +254,14 @@ div#languageGraph {
   font-family: Google Sans;
   font-size: 1em;
 }
-
+/*
 div #contentGraph {
   position: relative !important;
   width: 100% !important;
   height: 200% !important;
   justify-content: center;
   display: block;
-}
+} */
 
 .main__inner__2__box__content {
   margin: 10px;
@@ -443,15 +442,25 @@ body {
   background-color: #e7f5ff;
 }
 
+input[type="checkbox"] {
+  display: none;
+}
+
 .checkmark {
-  color: #ccc ;
+  color: #ccc;
   margin-right: 5px;
 }
 
-/* クリックした後のチェックボックスのcss */
-.checked {
-  color: #0f71bd ;
+
+input[type=checkbox] {
+  display:none;
 }
+
+
+input[type=checkbox]:checked + .checkmark {
+  color: #0f71bd;
+}
+
 
 #twitter_com {
   font-size: 16px;
@@ -461,19 +470,6 @@ body {
   height: 243px;
   padding: 8px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 #graph-area {
   margin: auto;
@@ -539,7 +535,7 @@ body {
 }
 
 .check {
-  content: '';
+  content: "";
   width: 40%;
   height: 30%;
   border-left: 4px solid white;
@@ -572,7 +568,7 @@ body {
   border-top: 0.5em solid skyblue;
   border-right: 0.5em solid skyblue;
   border-bottom: 0.5em solid skyblue;
-  border-left: 0.5em solid  rgb(32, 91, 255);
+  border-left: 0.5em solid rgb(32, 91, 255);
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
