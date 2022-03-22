@@ -31,7 +31,7 @@
   width:60%;
   position: fixed;
   bottom: 1%;
-  display: none;
+  display: block;
   font-family: 'Font Awesome 5 Free';
   margin-left: 0px;
   margin-right: 0px;

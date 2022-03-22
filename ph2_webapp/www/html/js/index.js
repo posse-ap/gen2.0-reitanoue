@@ -19,6 +19,90 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+ *カレンダー
+ */
+
+/* 以下クリックでモーダル風にカレンダー表示 */
+let sample = document.getElementById("studyDate"); /* flatpickrが発火するid */
+let mainWrapper = document.getElementById('modalContents'); /* モーダルを覆うid */
+let determinationButton = document.getElementById('determination__button'); /* 完了ボタンid */
+let displayCalenderId = document.getElementById('appendTo'); /* カレンダー表示範囲のdivタグのid */
+
+/* カレンダーと決定ボタン表示するクリックイベント */
+function displayCalender(){
+  mainWrapper.style.visibility = 'collapse'; /* モーダル内の要素を見えなくする */
+
+  let fpPlus = flatpickr(sample, {
+    shorthandCurrentMonth: true,
+    nextArrow: '<span class="custom">＞</span>',
+    prevArrow: '<span class="custom">＜</span>',
+    inline:true , /* 常にカレンダーを開いた状態で表示 */
+  });
+  flatpickr('study__date' , fpPlus); /* ここまで flatpickr オプション変更 */
+
+  determinationButton.style.visibility = 'visible';
+  displayCalenderId.style.position = 'absolute';
+  displayCalenderId.style.left = '29rem';
+  displayCalenderId.style.top = '0.1rem';
+}
+sample.addEventListener('click' ,displayCalender);
+
+/* カレンダーと決定ボタン非表示にするクリックイベント */
+function closeCalender(){
+  mainWrapper.style.visibility = 'visible';
+  let fpPlus = flatpickr(sample, {
+    dateFormat: 'Y年n月j日', // フォーマットの変更
+    shorthandCurrentMonth: true,
+    nextArrow: '<span class="custom">></span>',
+    prevArrow: '<span class="custom"><</span>',
+    inline:false  /* ボタンを押したらカレンダー閉じる */
+  });
+  flatpickr('study__date' , fpPlus); /* ここまで flatpickr オプション変更 */
+
+  determinationButton.style.visibility = 'hidden';
+  displayCalenderId.style.position = 'relative';
+  displayCalenderId.style.left = '0rem';
+  displayCalenderId.style.top = '0rem';
+}
+determinationButton.addEventListener('click', closeCalender);
+
+
+
+
+// チェックボックスの動き
+function chbg1(chkID) {
+  Myid = document.getElementById(chkID);
+  if (Myid.checked == true) {
+    Myid.parentNode.style.backgroundColor = "#e7f5ff";
+  } else {
+    Myid.parentNode.style.backgroundColor = "#f5f5f8";
+  }
+}
+function chbg2(chkID) {
+  Myid = document.getElementById(chkID);
+  if (Myid.checked == true) {
+    Myid.parentNode.style.backgroundColor = "#e7f5ff";
+  } else {
+    Myid.parentNode.style.backgroundColor = "#f5f5f8";
+  }
+}
+
+
+
 // コンソールに引数を返す動き（コンテンツ）
 const func1 = () => {
   const contentElements = document.getElementsByName("studyContent");

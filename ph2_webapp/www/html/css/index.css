@@ -344,7 +344,6 @@ body {
   margin: 0 auto;
   width: 100%;
   max-width: 100%;
-  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -437,6 +436,7 @@ body {
   padding: 10px;
 }
 
+
 /* チェックしたときにボックスの背景が変わるCSS */
 .checkbox-checked {
   background-color: #e7f5ff;
@@ -503,6 +503,65 @@ input[type=checkbox]:checked + .checkmark {
   visibility: visible;
   opacity: 1;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* calendar */
+.custom{
+  color: #0f71bc;
+}
+
+
+/* カレンダー画面 */
+.flex__title{
+  display: flex;
+}
+/* #appendTo{
+  margin-left: 20rem;
+} */
+.calender__modal__determination__button{
+  visibility: hidden;
+  background: linear-gradient(to right, #0f71bc, #8bd8f7);
+  color: #fff;
+  padding: 0.5rem 4rem 0.5rem;
+  border-radius: 30rem;
+  border-color: transparent;
+  box-shadow: 0 0 18px #8bd8f7;
+  position: absolute;
+  left: 35.4rem;
+  bottom: 2rem;
+  z-index: 9999;
+}
+.calender__modal__determination__button a{
+  text-decoration: none;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* モーダルCSSここまで */
 
 /* 完了画面 */

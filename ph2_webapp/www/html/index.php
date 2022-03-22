@@ -38,8 +38,9 @@ $today = $today_stmt->fetch();
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/77dc7f4ff2.js" crossorigin="anonymous"></script>
   <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
-  <script src='https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/rangePlugin.js'></script>
   <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 </head>
@@ -127,114 +128,120 @@ $today = $today_stmt->fetch();
   <!-- モーダルエリアここから -->
   <section id='modalArea' class='modalArea'>
     <div id='modalBg' class='modalBg'></div>
-    <div class='modalWrapper'>
-      <div class='modalContents'>
-        <div class='modal-content-1'>
-          <!-- 学習日 -->
-          <div class='grid'>
-            <h3 class='modal-content-title float'>学習日</h3>
-            <input type='date' name='study-date' autocomplete='date' class='modal-study-date'>
-          </div>
-          <!-- 学習コンテンツ -->
-          <div class='grid'>
-            <h3 class='modal-content-title float'>学習コンテンツ（複数選択可）</h3>
-            <div class='float'>
-              <label for="nYobi" class="modal-checkbox" id="content_1">
-                <input id="nYobi" type="checkbox" name="studyContent" value="N予備校" class="checkbox">
-                <i class='fa-solid fa-circle-check checkmark' id="contentCheck_0"></i>
-                N予備校
+    <div class='modalWrapper' id="modalWrapper">
+      <div class='modalContents' id="modalContents">
+        <div class="flex">
+          <div class='modal-content-1'>
+            <!-- 学習日 -->
+            <div class='grid' id="appendTo">
+              <label for="studyDate">
+                <h3 class='modal-content-title float'>学習日</h3>
               </label>
-              <label for="dotInstall" class="modal-checkbox" id="content_2">
-                <input id="dotInstall" type="checkbox" name="studyContent" value="ドットインストール">
-                <i class='fa-solid fa-circle-check checkmark' id="contentCheck_1"></i>
-                ドットインストール
-              </label>
-              <label for="posseHw" class="modal-checkbox" id="content_3">
-                <input id='posseHw' type="checkbox" name="studyContent" value="POSSE課題">
-                <i class='fa-solid fa-circle-check checkmark' id="contentCheck_2"></i>
-                POSSE課題
-              </label>
+              <input type="text" name="study-date" id="studyDate" autocomplete='date' class='modal-study-date'>
+            </div>
+            <!-- 学習コンテンツ -->
+            <div class='grid'>
+              <h3 class='modal-content-title float'>学習コンテンツ（複数選択可）</h3>
+              <div class='float'>
+                <label for="nYobi" class="modal-checkbox" id="content_1">
+                  <input id="nYobi" type="checkbox" name="studyContent" value="N予備校" class="checkbox" onclick="chbg1('nYobi')">
+                  <i class='fa-solid fa-circle-check checkmark' id="contentCheck_0"></i>
+                  N予備校
+                </label>
+                <label for="dotInstall" class="modal-checkbox" id="content_2">
+                  <input id="dotInstall" type="checkbox" name="studyContent" value="ドットインストール" onclick="chbg1('dotInstall')">
+                  <i class='fa-solid fa-circle-check checkmark' id="contentCheck_1"></i>
+                  ドットインストール
+                </label>
+                <label for="posseHw" class="modal-checkbox" id="content_3">
+                  <input id='posseHw' type="checkbox" name="studyContent" value="POSSE課題" onclick="chbg1('posseHw')">
+                  <i class='fa-solid fa-circle-check checkmark' id="contentCheck_2"></i>
+                  POSSE課題
+                </label>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <!-- 学習言語 -->
+            <div class='grid'>
+              <h3 class='modal-content-title float'>学習言語（複数選択可）</h3>
+              <div class='float'>
+                <label for="html" class="modal-checkbox" id="lang_1">
+                  <input id="html" type="checkbox" name="studyLanguage" value="HTML">
+                  <i class='fa-solid fa-circle-check checkmark'></i>
+                  HTML
+                </label>
+                <label for="css" class="modal-checkbox" id="lang_2">
+                  <input id="css" type="checkbox" name="studyLanguage" value="CSS" onclick="chbg2('css')">
+                  <i class='fa-solid fa-circle-check checkmark'></i>
+                  CSS
+                </label>
+                <label for="js" class="modal-checkbox" id="lang_3">
+                  <input id="js" type="checkbox" name="studyLanguage" value="JavaScript" onclick="chbg2('js')">
+                  <i class='fa-solid fa-circle-check checkmark'></i>
+                  JavaScript
+                </label>
+                <label for="php" class="modal-checkbox" id="lang_4">
+                  <input id="php" type="checkbox" name="studyLanguage" value="php" onclick="chbg2('php')">
+                  <i class='fa-solid fa-circle-check checkmark'></i>
+                  PHP
+                </label>
+                <label for="laravel" class="modal-checkbox" id="lang_5">
+                  <input id="laravel" type="checkbox" name="studyLanguage" value="Laravel" onclick="chbg2('laravel')">
+                  <i class='fa-solid fa-circle-check checkmark'></i>
+                  Laravel
+                </label>
+                <label for="sql" class="modal-checkbox" id="lang_6">
+                  <input id="sql" type="checkbox" name="studyLanguage" value="SQL" onclick="chbg2('sql')">
+                  <i class='fa-solid fa-circle-check checkmark'></i>
+                  SQL
+                </label>
+                <label for="shell" class="modal-checkbox" id="lang_7">
+                  <input id="shell" type="checkbox" name="studyLanguage" value="SHELL" onclick="chbg2('shell')">
+                  <i class='fa-solid fa-circle-check checkmark'></i>
+                  SHELL
+                </label>
+                <label for="basicKnowledge" class="modal-checkbox" id="lang_8">
+                  <input id="basicKnowledge" type="checkbox" name="studyLanguage" value="情報システム基礎知識（その他）" onclick="chbg2('basicKnowledge')">
+                  <i class='fa-solid fa-circle-check checkmark'></i>
+                  情報システム基礎知識（その他）
+                </label>
+              </div>
             </div>
           </div>
-
-
-
-
-
-
-
-
-
-
-          <!-- 学習言語 -->
-          <div class='grid'>
-            <h3 class='modal-content-title float'>学習言語（複数選択可）</h3>
-            <div class='float'>
-              <label for="html" class="modal-checkbox" id="lang_1">
-                <input id="html" type="checkbox" name="studyLanguage" value="HTML">
-                <i class='fa-solid fa-circle-check checkmark'></i>
-                HTML
-              </label>
-              <label for="css" class="modal-checkbox" id="lang_2">
-                <input id="css" type="checkbox" name="studyLanguage" value="CSS">
-                <i class='fa-solid fa-circle-check checkmark'></i>
-                CSS
-              </label>
-              <label for="js" class="modal-checkbox" id="lang_3">
-                <input id="js" type="checkbox" name="studyLanguage" value="JavaScript">
-                <i class='fa-solid fa-circle-check checkmark'></i>
-                JavaScript
-              </label>
-              <label for="php" class="modal-checkbox" id="lang_4">
-                <input id="php" type="checkbox" name="studyLanguage" value="php">
-                <i class='fa-solid fa-circle-check checkmark'></i>
-                PHP
-              </label>
-              <label for="laravel" class="modal-checkbox" id="lang_5">
-                <input id="laravel" type="checkbox" name="studyLanguage" value="Laravel">
-                <i class='fa-solid fa-circle-check checkmark'></i>
-                Laravel
-              </label>
-              <label for="sql" class="modal-checkbox" id="lang_6">
-                <input id="sql" type="checkbox" name="studyLanguage" value="SQL">
-                <i class='fa-solid fa-circle-check checkmark'></i>
-                SQL
-              </label>
-              <label for="shell" class="modal-checkbox" id="lang_7">
-                <input id="shell" type="checkbox" name="studyLanguage" value="SHELL">
-                <i class='fa-solid fa-circle-check checkmark'></i>
-                SHELL
-              </label>
-              <label for="basicKnowledge" class="modal-checkbox" id="lang_8">
-                <input id="basicKnowledge" type="checkbox" name="studyLanguage" value="情報システム基礎知識（その他）">
-                <i class='fa-solid fa-circle-check checkmark'></i>
-                情報システム基礎知識（その他）
+          <div class='modal-content-2'>
+            <div class='grid'>
+              <h3 class='modal-content-title float'> 学習時間</h3>
+              <label for='time'>
+                <input type='number' onkeyup='value = value.length > 5 ? value.slice(0,5): value;' max='99999' name='study-time' autocomplete='time' class='modal-study-time' id='time'>
               </label>
             </div>
-          </div>
-        </div>
-        <div class='modal-content-2'>
-          <div class='grid'>
-            <h3 class='modal-content-title float'> 学習時間</h3>
-            <label for='time'>
-              <input type='number' onkeyup='value = value.length > 5 ? value.slice(0,5): value;' max='99999' name='study-time' autocomplete='time' class='modal-study-time' id='time'>
-            </label>
-          </div>
-          <div class='grid'>
-            <h3 class='modal-content-title float'>Twitter用コメント</h3>
-            <textarea id='twitter_com' name='content'>
-            </textarea>
-            <div class='flex'>
-              <label for='tweet'>
-                <input type='checkbox' name='share-box' value='true' id='tweet' class='stretched-link'>
-                <i class='fa-solid fa-circle-check checkmark' id='tweetCheckmark'></i>
-              </label>
+            <div class='grid'>
+              <h3 class='modal-content-title float'>Twitter用コメント</h3>
+              <textarea id='twitter_com' name='content'>
+              </textarea>
+              <div class='flex'>
+                <label for='tweet'>
+                  <input type='checkbox' name='share-box' value='true' id='tweet' class='stretched-link'>
+                  <i class='fa-solid fa-circle-check checkmark' id='tweetCheckmark'></i>
+                </label>
                 Twitterにシェアする
+              </div>
             </div>
           </div>
         </div>
+          <button id='modal-inner-button' class='modal-inner-button' onclick="func1();func2()">記録・投稿</button>
+          <!-- カレンダー画面の中に表示される決定ボタン 下一行-->
+          <button id="determination__button" class="calender__modal__determination__button"><a href="#modalArea">決定</a></button>
       </div>
-      <button id='modal-inner-button' class='modal-inner-button' onclick="func1();func2()">記録・投稿</button>
       <div id='closeModal' class='closeModal'>
         ×
       </div>
@@ -277,6 +284,8 @@ $today = $today_stmt->fetch();
   <!-- 完了画面ここまで -->
 
 
+  <!-- カレンダー -->
+  <div id="calendar"></div>
 
 
 

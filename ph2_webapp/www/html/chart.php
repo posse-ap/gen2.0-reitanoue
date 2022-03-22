@@ -32,16 +32,6 @@ $contents = $content_stmt->fetchAll();
 
 
 
-
-
-
-
-
-
-
-
-
-
 ?>
 <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 <script src="https://kit.fontawesome.com/77dc7f4ff2.js" crossorigin="anonymous"></script>
@@ -62,17 +52,20 @@ $contents = $content_stmt->fetchAll();
     //凡例のラベル
     data: {
       labels: [
-        <?php foreach ($bars as $bar) {
-          echo substr($bar["study_date"], 9, 2) . ",";
-        } ?>
+        '','2','','4','','6','','8','','10','','12','','14','','16','','18','','20','','22','','24','','26','','28','','30',''
       ],
       datasets: [{
         xAxisID: "x",
         yAxisID: "y",
         label: "学習時間",
         data: [
-          <?php foreach ($bars as $bar) {
-            echo $bar["sum_study_time"] . ",";
+          <?php
+          foreach ($bars as $bar) {
+            if(!isset($bar["sum_study_time"])){
+              echo $bar = 0 . "," ;
+            }else{
+              echo $bar["sum_study_time"] . ",";
+            }
           } ?>
         ],
         backgroundColor: "#0f71bd",
@@ -80,7 +73,6 @@ $contents = $content_stmt->fetchAll();
       }, ],
     },
     options: {
-      indexAxis: "x",
       plugins: {
         legend: false,
       },
@@ -91,20 +83,7 @@ $contents = $content_stmt->fetchAll();
           grid: {
             display: false,
           },
-          display: true,
-          categoryPercentage: 0.6, // ┐省略時の値
-          barPercentage: 0.6,
-          stacked: true,
-          ticks: {
-            display: true,
-            maxTicksLimit: 20,
-            maxRotation: 0,
-            minRotation: 0,
-            autoSkip: true,
-            min: 0,
-            max: 31,
-            stepSize: 2,
-          },
+
         },
         y: {
           grid: {
