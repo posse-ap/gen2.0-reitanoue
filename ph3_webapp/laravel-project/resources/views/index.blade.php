@@ -70,7 +70,7 @@
             <div class='main__inner__2__box section__box'>
                 <h2 class='float'>学習言語</h2>
                 <div class='main__inner__2__box__graph'>
-                    <div id='languageGraph' style="width: 80%; height: 400px;"></div>
+                    <canvas id='language-graph-area' ></canvas>
                 </div>
 
                 @foreach ($languages as $language)
@@ -81,13 +81,11 @@
                 @endforeach
             </div>
 
-            </div>
-
             <!-- 学習コンテンツ -->
             <div class='main__inner__2__box section__box'>
                 <h2 class='float'>学習コンテンツ</h2>
                 <div class='main__inner__2__box__graph'>
-                    <div id='contentGraph'></div>
+                    <canvas id='content-graph-area'></canvas>
                 </div>
 
                 @foreach ($contents as $content)
@@ -375,115 +373,83 @@
             },
         });
 
-        //学習言語グラフ
-        // api load
 
-        google.load("visualization", "1.0", {
-            packages: ["corechart"],
-        });
 
-        //callback
-        google.setOnLoadCallback(drawChart0);
 
-        // グラフ用 function
-        function drawChart0() {
-            var dataLang = new google.visualization.arrayToDataTable([
-                ["language", "portion"],
-                //ここにデータ表示
-                @foreach ($languages as $language)
-                    [{{ $language->language }}, {{ $language->sum_hour }}],
-                @endforeach
 
-            ]);
 
-            var optionsLang = {
-                legend: false,
-                title: "",
-                fontName: "sans-serif",
-                width: 250,
-                height: 250,
-                chartArea: {
-                    width: "100%",
-                    height: "100%",
-                },
-                colors: [
-                    //ここにデータ表示
-                    @foreach ($languages as $language)
-                        {{ $language->color }},
-                    @endforeach
+        // 学習言語グラフ
+        var ctx1 = document.getElementById("language-graph-area").getContext("2d");
+        var myBarChart = new Chart(ctx1, {
+            type: "doughnut",
+            //凡例のラベル
+            data: {
+                labels: [
+                    'CSS', 'HTML', 'Javascript', 'Laravel', 'PHP', 'SHELL', 'SQL', 'その他'
                 ],
-
-                legend: {
-                    position: "none",
-                },
-                tooltip: false,
-                pieSliceText: "percentage",
-                //グラフ内文字
-                pieSliceTextStyle: {
-                    fontSize: 10,
-                },
-                pieSliceBorderColor: "transparent",
-                pieHole: 0.5,
-                backgroundColor: "transparent",
-            };
-
-            var chartLang = new google.visualization.PieChart(
-                document.getElementById("languageGraph")
-            );
-            chartLang.draw(dataLang, optionsLang);
-        }
-
-        //コンテンツグラフ
-
-        // api load
-        google.load("visualization", "1.0", {
-            packages: ["corechart"],
-        });
-
-        //callback
-        google.setOnLoadCallback(drawChart1);
-
-        // グラフ用 function
-        function drawChart1() {
-            var dataContent = new google.visualization.arrayToDataTable([
-                ["content", "portion"],
-                //ここにデータ表示
-            ]);
-            var optionsContent = {
-                fontName: "sans-serif",
-                width: 250,
-                height: 250,
-                chartArea: {
-                    width: "100%",
-                    height: "100%",
-                },
-                colors: [
-                    //ここにデータ
+                datasets: [{
+                    label: "学習言語",
+                    data: [
+                        @foreach ($languages as $language)
+                            {{ $language->sum_hour }},
+                        @endforeach
+                    ],
+                    backgroundColor: [
+                "#0f70bd",
+                "#0445ec",
+                "#b29ef3",
+                "#3005c0",
+                "#4a17ef",
+                "#3ccefe",
+                "#20bdde",
+                "#6c46eb",
                 ],
-                legend: {
-                    position: "none",
-                },
-                tooltip: {
+                }, ],
+            },
+            options: {
+                plugins: {
                     legend: false,
-                    textStyle: {
-                        bold: "false",
-                        fontSize: 10,
-                    },
                 },
-                pieSliceText: "percentage",
-                pieSliceTextStyle: {
-                    fontSize: 10,
-                },
-                pieSliceBorderColor: "transparent",
-                pieHole: 0.5,
-                backgroundColor: "transparent",
-            };
 
-            var chartContent = new google.visualization.PieChart(
-                document.getElementById("contentGraph")
-            );
-            chartContent.draw(dataContent, optionsContent);
-        }
+                scales: {
+                    display: true,
+                },
+            },
+        });
+
+        // 学習コンテンツグラフ
+        var ctx2 = document.getElementById("content-graph-area").getContext("2d");
+        var myBarChart = new Chart(ctx2, {
+            type: "doughnut",
+            //凡例のラベル
+            data: {
+                labels: [
+                    'N予備校', 'POSSE課題', 'ドットインストール'
+                ],
+                datasets: [{
+                    label: "学習コンテンツ",
+                    data: [
+                        @foreach ($contents as $content)
+                            {{ $content->sum_hour }},
+                        @endforeach
+                    ],
+                    backgroundColor: [
+                "#0445ec",
+                "#0f70bd",
+                "#20bdde"
+                ],
+                }, ],
+            },
+            options: {
+                plugins: {
+                    legend: false,
+                },
+
+                scales: {
+                    display: true,
+                },
+            },
+        });
     </script>
 </body>
 

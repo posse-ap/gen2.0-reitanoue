@@ -31,8 +31,12 @@ class TopController extends Controller
             ->whereRaw(" DATE_FORMAT(study_date, '%Y%m')=DATE_FORMAT(NOW(), '%Y%m')")
             ->groupBy('languages.language','languages.color')
             ->get();
-        $contents = Content::all();
-        // dd($languages);
+        $contents = StudyHoursReport::join('contents', 'contents.id', '=', 'study_hours_reports.content_id')
+        ->select('contents.content','contents.color',DB::raw('SUM(study_hours_reports.study_hour) AS sum_hour'))
+        ->whereRaw(" DATE_FORMAT(study_date, '%Y%m')=DATE_FORMAT(NOW(), '%Y%m')")
+        ->groupBy('contents.content','contents.color')
+        ->get();
+        // dd($contents);
         return view('index', compact('today','month','total','bars','languages','contents'));
 
     }
