@@ -19,4 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/top', [TopController::class, 'index']);
+Route::get('/home', [TopController::class, 'index'])
+->middleware('auth');
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

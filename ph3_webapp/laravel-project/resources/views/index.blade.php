@@ -404,6 +404,7 @@
                 "#20bdde",
                 "#6c46eb",
                 ],
+                borderColor: 'transparent'
                 }, ],
             },
             options: {
@@ -438,6 +439,7 @@
                 "#0f70bd",
                 "#20bdde"
                 ],
+                borderColor: 'transparent'
                 }, ],
             },
             options: {

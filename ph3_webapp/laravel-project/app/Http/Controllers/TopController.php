@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-use App\Models\User;
-use App\Models\StudyHoursReport;
-use App\Models\Language;
-use App\Models\Content;
+use App\User;
+use App\StudyHoursReport;
+use App\Language;
+use App\Content;
 //ここにモデルを書く
 
 class TopController extends Controller
@@ -25,7 +25,6 @@ class TopController extends Controller
         $total = StudyHoursReport::sum('study_hour');
 
         $bars = StudyHoursReport::select(DB::raw('SUM(study_hour) AS sum_hour') , 'study_date')->groupBy('study_date')->havingRaw(" DATE_FORMAT(study_date, '%Y%m')=DATE_FORMAT(NOW(), '%Y%m')")->get();
-        // $languages = Language::all();
         $languages = StudyHoursReport::join('languages', 'languages.id', '=', 'study_hours_reports.language_id')
             ->select('languages.language','languages.color',DB::raw('SUM(study_hours_reports.study_hour) AS sum_hour'))
             ->whereRaw(" DATE_FORMAT(study_date, '%Y%m')=DATE_FORMAT(NOW(), '%Y%m')")
@@ -36,7 +35,6 @@ class TopController extends Controller
         ->whereRaw(" DATE_FORMAT(study_date, '%Y%m')=DATE_FORMAT(NOW(), '%Y%m')")
         ->groupBy('contents.content','contents.color')
         ->get();
-        // dd($contents);
         return view('index', compact('today','month','total','bars','languages','contents'));
 
     }
