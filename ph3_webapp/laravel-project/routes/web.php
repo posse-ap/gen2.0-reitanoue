@@ -13,7 +13,11 @@
 
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\TopController;
+use App\Mail\Test;
+
+Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,6 +26,11 @@ Route::get('/', function () {
 Route::get('/home', [TopController::class, 'index'])
 ->middleware('auth');
 
-Auth::routes();
+
+Route::get('/test', function () {
+    Mail::to('posse@example.com')->send(new Test);
+    return 'メール送信しました！';
+});
+
 
 // Route::get('/home', 'HomeController@index')->name('home');

@@ -30,8 +30,9 @@
                 <img src='https://posse.anti-pattern.co.jp/img/posseLogo.png' alt='POSSEのロゴ'>
             </div>
             <div class='header__inner__time'>
-                <h2>4th week</h2>
+                <p>4th week</p>
             </div>
+            <p>welcome:{{ $user->email }}</p>
         </div>
         <button id='openModal' class='header__inner__button'>記録・投稿</button>
     </header>
@@ -73,7 +74,7 @@
                     <canvas id='language-graph-area' ></canvas>
                 </div>
 
-                @foreach ($languages as $language)
+                @foreach ($language_titles as $language)
                     <div class='float flex main__inner__2__box__language' style='align-items: center;'>
                         <span class='main__inner__2__box__circle' style='background: {{ $language->color }};'></span>
                         <h4 style='font-family:”Google Sans”'>{{ $language->language }}</h4>
@@ -88,7 +89,7 @@
                     <canvas id='content-graph-area'></canvas>
                 </div>
 
-                @foreach ($contents as $content)
+                @foreach ($content_titles as $content)
                     <div class='float flex main__inner__2__box__content' style='align-items: center;'>
                         <span class='main__inner__2__box__circle' style='background: {{ $content->color }};'></span>
                         <h4 style='font-family:”Google Sans”'>{{ $content->content }}</h4>
@@ -107,6 +108,10 @@
                 <button id='openModalResponsive' class='responsive__inner__button'>記録・投稿</button>
             </div>
         </div>
+        <form action="{{ route('logout') }}" method="post">
+            @csrf
+            <input type="submit" value="ログアウト">
+        </form>
     </footer>
 
 

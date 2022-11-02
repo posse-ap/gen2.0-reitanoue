@@ -16,11 +16,18 @@
     height: 100%;
 }
 
+.header__inner p{
+    color: #2B7FC2;
+    font-weight: 100;
+    margin-left: 20px;
+    font-size: 15px;
+}
+
 .header__inner__logo img {
     height: 22px;
 }
 
-.header__inner__time h2 {
+.header__inner__time p {
     color: #97b9d1;
     font-weight: 100;
     margin-left: 20px;

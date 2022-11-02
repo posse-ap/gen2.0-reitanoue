@@ -41,6 +41,6 @@ class LoginController extends Controller
 
     protected function loggedOut()
     {
-        // return redirect(route('login'));
+        return redirect(route('login'));
     }
 }
