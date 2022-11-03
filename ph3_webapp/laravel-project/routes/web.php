@@ -27,6 +27,12 @@ Route::get('/home', [TopController::class, 'index'])
 ->middleware('auth');
 
 
+Route::post(
+    '/home',
+    'TopController@form'
+);
+
+
 Route::get('/test', function () {
     Mail::to('posse@example.com')->send(new Test);
     return 'メール送信しました！';

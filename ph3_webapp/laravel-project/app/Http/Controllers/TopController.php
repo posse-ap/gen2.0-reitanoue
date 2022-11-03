@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -39,10 +40,27 @@ class TopController extends Controller
 
         $language_titles = Language::all();
         $content_titles = Content::all();
-
+        $today_study_records = StudyHoursReport::whereDate('study_date', date('Y-m-d'))->get();
 
         // 現在認証しているユーザーを取得
         $user = Auth::user();
-        return view('index', compact('today', 'month', 'total', 'bars', 'languages', 'contents', 'language_titles', 'content_titles','user'));
+        return view('index', compact('today', 'month', 'total', 'bars', 'languages', 'contents', 'language_titles', 'content_titles','today_study_records','user'));
     }
+
+
+    public function form(Request $request){
+        $user_id=Auth::id();
+        StudyHoursReport::create(
+            [
+                'user_id' => $user_id,
+                'study_hour' =>$request->study_hour,
+                'study_date' =>$request->study_date,
+                'language_id' =>$request->language,
+                'content_id' =>$request->content
+            ]
+            );
+        return redirect('/home');
+    }
+
+    
 }

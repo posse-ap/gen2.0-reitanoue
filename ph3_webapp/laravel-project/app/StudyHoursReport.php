@@ -8,5 +8,5 @@ class StudyHoursReport extends Model
 {
     //
     protected $table = 'study_hours_reports';
-    protected $fillable = ['study_hour'];
+    protected $fillable = ['user_id','study_hour','study_date','language_id','content_id'];
 }

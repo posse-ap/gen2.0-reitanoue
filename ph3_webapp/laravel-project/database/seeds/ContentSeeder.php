@@ -24,7 +24,7 @@ class ContentSeeder extends Seeder
                 ['content' => 'ドットインストール',
                 'color' => '#20bdde',
                 ],
-            ]    
+            ]
         );
     }
 }

@@ -55,7 +55,7 @@ sample.addEventListener("click", displayCalender);
 function closeCalender() {
     mainWrapper.style.visibility = "visible";
     let fpPlus = flatpickr(sample, {
-        dateFormat: "Y年n月j日", // フォーマットの変更
+        dateFormat: "Y-n-j", // フォーマットの変更
         shorthandCurrentMonth: true,
         nextArrow: '<span class="custom">></span>',
         prevArrow: '<span class="custom"><</span>',
@@ -70,24 +70,6 @@ function closeCalender() {
 }
 determinationButton.addEventListener("click", closeCalender);
 
-// チェックボックスの動き
-function chbg1(chkID) {
-    Myid = document.getElementById(chkID);
-    if (Myid.checked == true) {
-        Myid.parentNode.style.backgroundColor = "#e7f5ff";
-    } else {
-        Myid.parentNode.style.backgroundColor = "#f5f5f8";
-    }
-}
-function chbg2(chkID) {
-    Myid = document.getElementById(chkID);
-    if (Myid.checked == true) {
-        Myid.parentNode.style.backgroundColor = "#e7f5ff";
-    } else {
-        Myid.parentNode.style.backgroundColor = "#f5f5f8";
-    }
-}
-
 
 /*
  * 記録・投稿ボタン 動き
@@ -101,6 +83,7 @@ let determinationModal =
     document.getElementById("modalDone"); /* 記録・投稿完了画面id */
 let closeDeterminationModal =
     document.getElementById("closeModalDone"); /* 記録・投稿完了画面閉じるid */
+
 
 document
     .getElementById("modal-inner-button")
@@ -138,3 +121,4 @@ closeDeterminationModal.addEventListener("click", function () {
     determinationModal.style.visibility = "hidden";
     determinationModal.style.opacity = "0";
 });
+

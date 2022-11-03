@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://kit.fontawesome.com/77dc7f4ff2.js" crossorigin="anonymous"></script>
     <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -99,6 +99,43 @@
             </div>
         </section>
     </section>
+    <div class="section__box todays__record">
+        <h4> {{ now()->format('Y年m月d日') }} の記録</h4>
+        <p class="todays__record__content"> 学習コンテンツ【1:N予備校　2:ドットインストール　3:POSSE課題】</p><br>
+        <p class="todays__record__language"> 学習言語【1:HTML　2:CSS　3:SQL　4:SHELL 5:Javascript 6:PHP 7:Laravel 8:その他】</p>
+        <ul class="flex record__title">
+            <li>No.</li>
+            <li>学習時間</li>
+            <li>学習コンテンツ</li>
+            <li>学習言語</li>
+        </ul>
+        <ul class="flex">
+            <li>
+                @foreach($today_study_records as $today_study_record)
+                <div>{{ $loop->iteration }}</div>
+                @endforeach
+            </li>
+            <li>
+
+                @foreach($today_study_records as $today_study_record)
+                <div>{{ $today_study_record->study_hour }}h</div>
+                @endforeach
+            </li>
+            <li>
+
+                @foreach($today_study_records as $today_study_record)
+                <div>{{ $today_study_record->content_id }}</div>
+                @endforeach
+            </li>
+            <li>
+
+                @foreach($today_study_records as $today_study_record)
+                <div>{{ $today_study_record->language_id }}</div>
+                @endforeach
+            </li>
+            
+        </ul>
+    </div>
 
     <footer>
         <div class='foot-wrapper'>
@@ -111,7 +148,9 @@
         </div>
         <form action="{{ route('logout') }}" method="post">
             @csrf
-            <input type="submit" value="ログアウト">
+            <i class="fa-solid fa-right-from-bracket logout__button">
+            <input type="submit" value="ログアウト" type="hidden">
+            </i>
         </form>
     </footer>
 
@@ -122,8 +161,8 @@
         <div id='modalBg' class='modalBg'></div>
         <div class='modalWrapper' id="modalWrapper">
             <div class='modalContents' id="modalContents">
-                <form action="">
-
+                <form ction="/{{ request()->path() }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="flex modal-flex">
                         <div class='modal-content-1'>
                             <!-- 学習日 -->
@@ -133,45 +172,32 @@
                                         学習日
                                     </label>
                                 </h3>
-                                <input type="text" name="study-date" id="studyDate" autocomplete='date'
+                                <input type="text" name="study_date" id="studyDate" autocomplete='date'
                                     class='modal-study-date'>
                             </div>
                             <!-- 学習コンテンツ -->
                             <div class='grid'>
-                                <h3 class='modal-content-title float'>学習コンテンツ（複数選択可）</h3>
+                                <h3 class='modal-content-title float'>学習コンテンツ</h3>
                                 <div class='float'>
-
-                                    <label for="nYobi" class="modal-checkbox">
-                                        <input id="nYobi" type="checkbox" name="nYobi" value="N予備校"
-                                            class="checkbox" onclick="chbg1('nYobi')">
-                                        <i class='fa-solid fa-circle-check checkmark' id="contentCheck_0"></i>
-                                        N予備校
-                                    </label>
-                                    <label for="dotInstall" class="modal-checkbox">
-                                        <input id="dotInstall" type="checkbox" name="dotInstall" value="ドットインストール"
-                                            onclick="chbg1('dotInstall')">
-                                        <i class='fa-solid fa-circle-check checkmark' id="contentCheck_1"></i>
-                                        ドットインストール
-                                    </label>
-                                    <label for="posseHw" class="modal-checkbox">
-                                        <input id='posseHw' type="checkbox" name="posseHw" value="POSSE課題"
-                                            onclick="chbg1('posseHw')">
-                                        <i class='fa-solid fa-circle-check checkmark' id="contentCheck_2"></i>
-                                        POSSE課題
-                                    </label>
+                                    @foreach ($content_titles as $content)
+                                        <label for="{{ $content->content }}" class="modal-checkbox">
+                                            <input id="{{ $content->content }}" type="radio" name="content"
+                                                value="{{ $content->id }}" required>
+                                            <i class='fa-solid fa-circle-check checkmark'></i>
+                                            {{ $content->content }}
+                                        </label>
+                                    @endforeach
                                 </div>
                             </div>
 
                             <!-- 学習言語 -->
                             <div class='grid'>
-                                <h3 class='modal-content-title float'>学習言語（複数選択可）</h3>
+                                <h3 class='modal-content-title float'>学習言語</h3>
                                 <div class='float'>
                                     @foreach ($language_titles as $language)
-                                        <label for="{{ $language->language }}" class="modal-checkbox"
-                                            id="lang_{{ $language->id }}">
-                                            <input id="{{ $language->language }}" type="checkbox"
-                                                name="{{ $language->language }}" value="{{ $language->language }}"
-                                                onclick="chbg2('{{ $language->language }}')">
+                                        <label for="{{ $language->language }}" class="modal-checkbox">
+                                            <input id="{{ $language->language }}" type="radio" name="language"
+                                                value="{{ $language->id }}" required>
                                             <i class='fa-solid fa-circle-check checkmark'></i>
                                             {{ $language->language }}
                                         </label>
@@ -185,13 +211,13 @@
                                 <label for='time'>
                                     <input type='number'
                                         onkeyup='value = value.length > 5 ? value.slice(0,5): value;' max='99999'
-                                        name='study-time' autocomplete='time' class='modal-study-time'
+                                        name='study_hour' autocomplete='time' class='modal-study-time'
                                         id='time'>
                                 </label>
                             </div>
                             <div class='grid'>
                                 <h3 class='modal-content-title float'>Twitter用コメント</h3>
-                                <textarea id='twitter_com' name='content' maxlength="140" placeholder="140文字以内"></textarea>
+                                <textarea id='twitter_com' maxlength="140" placeholder="140文字以内"></textarea>
                                 <div>
                                     <label for='tweet'>
                                         <input type='checkbox' name='share-box' value='true' id='tweet'
@@ -203,8 +229,7 @@
                             </div>
                         </div>
                     </div>
-                    <input id='modal-inner-button' class='modal-inner-button' onclick="func1();func2()"
-                        type="submit" value="記録・投稿">
+                    <input id='modal-inner-button' class='modal-inner-button' type="submit" value="記録・投稿">
                 </form>
                 <!-- カレンダー画面の中に表示される決定ボタン 下一行-->
                 <button id="determination__button" class="calender__modal__determination__button"><a
@@ -260,8 +285,10 @@
             type: "bar",
             //凡例のラベル
             data: {
-                labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
-                    26, 27, 28, 29, 30
+                labels: [
+                    @for ($i = 1; $i < 32; $i++)
+                        "{{ $i }}",
+                    @endfor
                 ],
                 datasets: [{
                     xAxisID: "x",
@@ -324,12 +351,12 @@
 
         // 学習言語グラフ
         let languageStudy = [
-                        @foreach ($languages as $language)
-                            {{ $language->sum_hour }},
-                        @endforeach
-                    ];
-        let sumLanguageStudy = languageStudy.reduce(function(sum,acc){
-            return sum+acc;
+            @foreach ($languages as $language)
+                {{ $language->sum_hour }},
+            @endforeach
+        ];
+        let sumLanguageStudy = languageStudy.reduce(function(sum, acc) {
+            return sum + acc;
         });
 
 
@@ -351,7 +378,7 @@
                     datalabels: {
                         color: "#ffffff",
                         formatter: function(value, context) {
-                            return value/sumLanguageStudy*100 + "%";
+                            return Math.floor(value / sumLanguageStudy * 100) + "%";
                         }
                     },
                     backgroundColor: [
@@ -370,7 +397,7 @@
             options: {
                 plugins: {
                     legend: false,
-                    labels:{
+                    labels: {
                         render: 'percentage',
                     }
                 },
@@ -381,12 +408,12 @@
 
         // 学習コンテンツグラフ
         let contentStudy = [
-                        @foreach ($contents as $content)
-                            {{ $content->sum_hour }},
-                        @endforeach
-                    ];
-        let sumContentStudy = contentStudy.reduce(function(acc,sum){
-            return acc+sum;
+            @foreach ($contents as $content)
+                {{ $content->sum_hour }},
+            @endforeach
+        ];
+        let sumContentStudy = contentStudy.reduce(function(acc, sum) {
+            return acc + sum;
         });
         var ctx2 = document.getElementById("content-graph-area").getContext("2d");
         var myBarChart = new Chart(ctx2, {
@@ -406,7 +433,7 @@
                     datalabels: {
                         color: "#ffffff",
                         formatter: function(value, context) {
-                            return value/sumContentStudy*100 + "%";
+                            return Math.floor(value / sumContentStudy * 100) + "%";
                         }
                     },
                     backgroundColor: [
@@ -424,8 +451,6 @@
 
             },
         });
-
-
     </script>
 </body>
 

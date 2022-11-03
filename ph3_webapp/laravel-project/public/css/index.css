@@ -266,6 +266,44 @@ body {
     font-size: 1em;
 }
 
+.todays__record {
+    margin:0 20%;
+    padding:1% 1% 1%;
+}
+
+.todays__record h4{
+    font-size: large;
+    font-weight: bold;
+    color:#bde360;
+    margin: 5%;
+}
+.todays__record__content{
+    margin:5px 0;
+    color:#8bd8f7;
+}
+.todays__record__language{
+    margin:5px 0;
+    color:#2B7FC2;
+}
+
+.todays__record ul{
+    margin: 3% 0;
+}
+
+.todays__record li{
+    width: 200px;
+}
+
+.todays__record div{
+    margin-bottom: 5px;;
+}
+
+
+
+.record__title{
+    font-weight: bold;
+}
+
 /* フッター */
 footer {
     width: 100%;
@@ -289,6 +327,18 @@ footer {
 .foot-nav i {
     margin-left: 10px;
     margin-right: 10px;
+}
+.logout__button{
+    position:fixed;
+    bottom: 20px;
+    right: 20px;
+}
+.logout__button:hover{
+    cursor: pointer;
+}
+
+.logout__button input{
+    width:100%;
 }
 
 html {
@@ -418,8 +468,10 @@ body {
 }
 
 /* チェックしたときにボックスの背景が変わるCSS */
-.checkbox-checked {
-    background-color: #e7f5ff;
+
+
+input[type="radio"] {
+    display: none;
 }
 
 input[type="checkbox"] {
@@ -431,8 +483,9 @@ input[type="checkbox"] {
     margin-right: 5px;
 }
 
-input[type="checkbox"] {
-    display: none;
+
+input[type="radio"]:checked + .checkmark {
+    color: #0f71bd;
 }
 
 input[type="checkbox"]:checked + .checkmark {
