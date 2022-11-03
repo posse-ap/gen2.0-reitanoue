@@ -175,6 +175,10 @@
         bottom: 20px;
     }
 
+    .modal-flex{
+        display: block!important;
+    }
+
     .modal-content-1 {
         width: calc(100% - 20px);
         height: 100%;

@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://kit.fontawesome.com/77dc7f4ff2.js" crossorigin="anonymous"></script>
     <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
-    <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
@@ -71,7 +72,7 @@
             <div class='main__inner__2__box section__box'>
                 <h2 class='float'>学習言語</h2>
                 <div class='main__inner__2__box__graph'>
-                    <canvas id='language-graph-area' ></canvas>
+                    <canvas id='language-graph-area'></canvas>
                 </div>
 
                 @foreach ($language_titles as $language)
@@ -121,121 +122,90 @@
         <div id='modalBg' class='modalBg'></div>
         <div class='modalWrapper' id="modalWrapper">
             <div class='modalContents' id="modalContents">
-                <div class="flex">
-                    <div class='modal-content-1'>
-                        <!-- 学習日 -->
-                        <div class='grid' id="appendTo">
-                            <h3 class='modal-content-title float'>
-                                <label for="studyDate">
-                                    学習日
-                                </label>
-                            </h3>
-                            <input type="text" name="study-date" id="studyDate" autocomplete='date'
-                                class='modal-study-date'>
-                        </div>
-                        <!-- 学習コンテンツ -->
-                        <div class='grid'>
-                            <h3 class='modal-content-title float'>学習コンテンツ（複数選択可）</h3>
-                            <div class='float'>
-                                <label for="nYobi" class="modal-checkbox" id="content_1">
-                                    <input id="nYobi" type="checkbox" name="studyContent" value="N予備校"
-                                        class="checkbox" onclick="chbg1('nYobi')">
-                                    <i class='fa-solid fa-circle-check checkmark' id="contentCheck_0"></i>
-                                    N予備校
-                                </label>
-                                <label for="dotInstall" class="modal-checkbox" id="content_2">
-                                    <input id="dotInstall" type="checkbox" name="studyContent" value="ドットインストール"
-                                        onclick="chbg1('dotInstall')">
-                                    <i class='fa-solid fa-circle-check checkmark' id="contentCheck_1"></i>
-                                    ドットインストール
-                                </label>
-                                <label for="posseHw" class="modal-checkbox" id="content_3">
-                                    <input id='posseHw' type="checkbox" name="studyContent" value="POSSE課題"
-                                        onclick="chbg1('posseHw')">
-                                    <i class='fa-solid fa-circle-check checkmark' id="contentCheck_2"></i>
-                                    POSSE課題
-                                </label>
-                            </div>
-                        </div>
+                <form action="">
 
-                        <!-- 学習言語 -->
-                        <div class='grid'>
-                            <h3 class='modal-content-title float'>学習言語（複数選択可）</h3>
-                            <div class='float'>
-                                <label for="html" class="modal-checkbox" id="lang_1">
-                                    <input id="html" type="checkbox" name="studyLanguage" value="HTML">
-                                    <i class='fa-solid fa-circle-check checkmark'></i>
-                                    HTML
+                    <div class="flex modal-flex">
+                        <div class='modal-content-1'>
+                            <!-- 学習日 -->
+                            <div class='grid' id="appendTo">
+                                <h3 class='modal-content-title float'>
+                                    <label for="studyDate">
+                                        学習日
+                                    </label>
+                                </h3>
+                                <input type="text" name="study-date" id="studyDate" autocomplete='date'
+                                    class='modal-study-date'>
+                            </div>
+                            <!-- 学習コンテンツ -->
+                            <div class='grid'>
+                                <h3 class='modal-content-title float'>学習コンテンツ（複数選択可）</h3>
+                                <div class='float'>
+
+                                    <label for="nYobi" class="modal-checkbox">
+                                        <input id="nYobi" type="checkbox" name="nYobi" value="N予備校"
+                                            class="checkbox" onclick="chbg1('nYobi')">
+                                        <i class='fa-solid fa-circle-check checkmark' id="contentCheck_0"></i>
+                                        N予備校
+                                    </label>
+                                    <label for="dotInstall" class="modal-checkbox">
+                                        <input id="dotInstall" type="checkbox" name="dotInstall" value="ドットインストール"
+                                            onclick="chbg1('dotInstall')">
+                                        <i class='fa-solid fa-circle-check checkmark' id="contentCheck_1"></i>
+                                        ドットインストール
+                                    </label>
+                                    <label for="posseHw" class="modal-checkbox">
+                                        <input id='posseHw' type="checkbox" name="posseHw" value="POSSE課題"
+                                            onclick="chbg1('posseHw')">
+                                        <i class='fa-solid fa-circle-check checkmark' id="contentCheck_2"></i>
+                                        POSSE課題
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- 学習言語 -->
+                            <div class='grid'>
+                                <h3 class='modal-content-title float'>学習言語（複数選択可）</h3>
+                                <div class='float'>
+                                    @foreach ($language_titles as $language)
+                                        <label for="{{ $language->language }}" class="modal-checkbox"
+                                            id="lang_{{ $language->id }}">
+                                            <input id="{{ $language->language }}" type="checkbox"
+                                                name="{{ $language->language }}" value="{{ $language->language }}"
+                                                onclick="chbg2('{{ $language->language }}')">
+                                            <i class='fa-solid fa-circle-check checkmark'></i>
+                                            {{ $language->language }}
+                                        </label>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                        <div class='modal-content-2'>
+                            <div class='grid'>
+                                <h3 class='modal-content-title float'> 学習時間</h3>
+                                <label for='time'>
+                                    <input type='number'
+                                        onkeyup='value = value.length > 5 ? value.slice(0,5): value;' max='99999'
+                                        name='study-time' autocomplete='time' class='modal-study-time'
+                                        id='time'>
                                 </label>
-                                <label for="css" class="modal-checkbox" id="lang_2">
-                                    <input id="css" type="checkbox" name="studyLanguage" value="CSS"
-                                        onclick="chbg2('css')">
-                                    <i class='fa-solid fa-circle-check checkmark'></i>
-                                    CSS
-                                </label>
-                                <label for="js" class="modal-checkbox" id="lang_3">
-                                    <input id="js" type="checkbox" name="studyLanguage" value="JavaScript"
-                                        onclick="chbg2('js')">
-                                    <i class='fa-solid fa-circle-check checkmark'></i>
-                                    JavaScript
-                                </label>
-                                <label for="php" class="modal-checkbox" id="lang_4">
-                                    <input id="php" type="checkbox" name="studyLanguage" value="php"
-                                        onclick="chbg2('php')">
-                                    <i class='fa-solid fa-circle-check checkmark'></i>
-                                    PHP
-                                </label>
-                                <label for="laravel" class="modal-checkbox" id="lang_5">
-                                    <input id="laravel" type="checkbox" name="studyLanguage" value="Laravel"
-                                        onclick="chbg2('laravel')">
-                                    <i class='fa-solid fa-circle-check checkmark'></i>
-                                    Laravel
-                                </label>
-                                <label for="sql" class="modal-checkbox" id="lang_6">
-                                    <input id="sql" type="checkbox" name="studyLanguage" value="SQL"
-                                        onclick="chbg2('sql')">
-                                    <i class='fa-solid fa-circle-check checkmark'></i>
-                                    SQL
-                                </label>
-                                <label for="shell" class="modal-checkbox" id="lang_7">
-                                    <input id="shell" type="checkbox" name="studyLanguage" value="SHELL"
-                                        onclick="chbg2('shell')">
-                                    <i class='fa-solid fa-circle-check checkmark'></i>
-                                    SHELL
-                                </label>
-                                <label for="basicKnowledge" class="modal-checkbox" id="lang_8">
-                                    <input id="basicKnowledge" type="checkbox" name="studyLanguage"
-                                        value="情報システム基礎知識（その他）" onclick="chbg2('basicKnowledge')">
-                                    <i class='fa-solid fa-circle-check checkmark'></i>
-                                    情報システム基礎知識（その他）
-                                </label>
+                            </div>
+                            <div class='grid'>
+                                <h3 class='modal-content-title float'>Twitter用コメント</h3>
+                                <textarea id='twitter_com' name='content' maxlength="140" placeholder="140文字以内"></textarea>
+                                <div>
+                                    <label for='tweet'>
+                                        <input type='checkbox' name='share-box' value='true' id='tweet'
+                                            class='stretched-link'>
+                                        <i class='fa-solid fa-circle-check checkmark' id='tweetCheckmark'></i>
+                                    </label>
+                                    Twitterにシェアする
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class='modal-content-2'>
-                        <div class='grid'>
-                            <h3 class='modal-content-title float'> 学習時間</h3>
-                            <label for='time'>
-                                <input type='number' onkeyup='value = value.length > 5 ? value.slice(0,5): value;'
-                                    max='99999' name='study-time' autocomplete='time' class='modal-study-time'
-                                    id='time'>
-                            </label>
-                        </div>
-                        <div class='grid'>
-                            <h3 class='modal-content-title float'>Twitter用コメント</h3>
-                            <textarea id='twitter_com' name='content'></textarea>
-                            <div>
-                                <label for='tweet'>
-                                    <input type='checkbox' name='share-box' value='true' id='tweet'
-                                        class='stretched-link'>
-                                    <i class='fa-solid fa-circle-check checkmark' id='tweetCheckmark'></i>
-                                </label>
-                                Twitterにシェアする
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button id='modal-inner-button' class='modal-inner-button' onclick="func1();func2()">記録・投稿</button>
+                    <input id='modal-inner-button' class='modal-inner-button' onclick="func1();func2()"
+                        type="submit" value="記録・投稿">
+                </form>
                 <!-- カレンダー画面の中に表示される決定ボタン 下一行-->
                 <button id="determination__button" class="calender__modal__determination__button"><a
                         href="#modalArea">決定</a></button>
@@ -280,61 +250,30 @@
 
     <!-- カレンダー -->
     <div id="calendar"></div>
-
     <script src='./js/index.js' type='text/javascript'></script>
-    {{-- <script src='./js/chart.js' type='text/javascript'></script> --}}
     <script>
         "use strict";
-
         // 学習時間棒グラフ
-
+        Chart.register(ChartDataLabels);
         var ctx0 = document.getElementById("bargraph-area").getContext("2d");
         var myBarChart = new Chart(ctx0, {
             type: "bar",
             //凡例のラベル
             data: {
-                labels: [
-                    "",
-                    "2",
-                    "",
-                    "4",
-                    "",
-                    "6",
-                    "",
-                    "8",
-                    "",
-                    "10",
-                    "",
-                    "12",
-                    "",
-                    "14",
-                    "",
-                    "16",
-                    "",
-                    "18",
-                    "",
-                    "20",
-                    "",
-                    "22",
-                    "",
-                    "24",
-                    "",
-                    "26",
-                    "",
-                    "28",
-                    "",
-                    "30",
-                    "",
+                labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
+                    26, 27, 28, 29, 30
                 ],
                 datasets: [{
                     xAxisID: "x",
                     yAxisID: "y",
                     label: "学習時間",
+
                     data: [
                         @foreach ($bars as $bar)
                             {{ $bar->sum_hour }},
                         @endforeach
                     ],
+
                     backgroundColor: "#0f71bd",
                     borderWidth: 1,
                 }, ],
@@ -384,6 +323,16 @@
 
 
         // 学習言語グラフ
+        let languageStudy = [
+                        @foreach ($languages as $language)
+                            {{ $language->sum_hour }},
+                        @endforeach
+                    ];
+        let sumLanguageStudy = languageStudy.reduce(function(sum,acc){
+            return sum+acc;
+        });
+
+
         var ctx1 = document.getElementById("language-graph-area").getContext("2d");
         var myBarChart = new Chart(ctx1, {
             type: "doughnut",
@@ -399,31 +348,46 @@
                             {{ $language->sum_hour }},
                         @endforeach
                     ],
+                    datalabels: {
+                        color: "#ffffff",
+                        formatter: function(value, context) {
+                            return value/sumLanguageStudy*100 + "%";
+                        }
+                    },
                     backgroundColor: [
-                "#0f70bd",
-                "#0445ec",
-                "#b29ef3",
-                "#3005c0",
-                "#4a17ef",
-                "#3ccefe",
-                "#20bdde",
-                "#6c46eb",
-                ],
-                borderColor: 'transparent'
+                        "#0f70bd",
+                        "#0445ec",
+                        "#b29ef3",
+                        "#3005c0",
+                        "#4a17ef",
+                        "#3ccefe",
+                        "#20bdde",
+                        "#6c46eb",
+                    ],
+                    borderColor: 'transparent'
                 }, ],
             },
             options: {
                 plugins: {
                     legend: false,
+                    labels:{
+                        render: 'percentage',
+                    }
                 },
 
-                scales: {
-                    display: true,
-                },
             },
         });
 
+
         // 学習コンテンツグラフ
+        let contentStudy = [
+                        @foreach ($contents as $content)
+                            {{ $content->sum_hour }},
+                        @endforeach
+                    ];
+        let sumContentStudy = contentStudy.reduce(function(acc,sum){
+            return acc+sum;
+        });
         var ctx2 = document.getElementById("content-graph-area").getContext("2d");
         var myBarChart = new Chart(ctx2, {
             type: "doughnut",
@@ -439,12 +403,18 @@
                             {{ $content->sum_hour }},
                         @endforeach
                     ],
+                    datalabels: {
+                        color: "#ffffff",
+                        formatter: function(value, context) {
+                            return value/sumContentStudy*100 + "%";
+                        }
+                    },
                     backgroundColor: [
-                "#0445ec",
-                "#0f70bd",
-                "#20bdde"
-                ],
-                borderColor: 'transparent'
+                        "#0445ec",
+                        "#0f70bd",
+                        "#20bdde"
+                    ],
+                    borderColor: 'transparent'
                 }, ],
             },
             options: {
@@ -452,11 +422,10 @@
                     legend: false,
                 },
 
-                scales: {
-                    display: true,
-                },
             },
         });
+
+
     </script>
 </body>
 

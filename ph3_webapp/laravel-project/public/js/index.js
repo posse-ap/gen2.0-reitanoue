@@ -88,25 +88,6 @@ function chbg2(chkID) {
     }
 }
 
-// コンソールに引数を返す動き（コンテンツ）
-const func1 = () => {
-    const contentElements = document.getElementsByName("studyContent");
-    for (let i = 0; i < contentElements.length; i++) {
-        if (contentElements[i].checked) {
-            console.log(contentElements[i].value);
-        }
-    }
-};
-
-// コンソールに引数を返す動き（言語）
-const func2 = () => {
-    const langElements = document.getElementsByName("studyLanguage");
-    for (let i = 0; i < langElements.length; i++) {
-        if (langElements[i].checked) {
-            console.log(langElements[i].value);
-        }
-    }
-};
 
 /*
  * 記録・投稿ボタン 動き

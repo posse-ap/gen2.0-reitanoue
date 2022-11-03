@@ -36,7 +36,7 @@ class LanguageSeeder extends Seeder
                 ['language' => 'Laravel',
                 'color' => '#3005c0',
                 ],
-                ['language' => 'その他',
+                ['language' => 'others',
                 'color' => '#6c46eb',
                 ],
             ]  
