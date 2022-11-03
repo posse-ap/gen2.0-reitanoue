@@ -40,7 +40,7 @@ class TopController extends Controller
 
         $language_titles = Language::all();
         $content_titles = Content::all();
-        $today_study_records = StudyHoursReport::whereDate('study_date', date('Y-m-d'))->get();
+        $today_study_records = StudyHoursReport::join('languages', 'languages.id', '=', 'study_hours_reports.language_id')->join('contents', 'contents.id', '=', 'study_hours_reports.content_id')->whereDate('study_date', date('Y-m-d'))->get();
 
         // 現在認証しているユーザーを取得
         $user = Auth::user();

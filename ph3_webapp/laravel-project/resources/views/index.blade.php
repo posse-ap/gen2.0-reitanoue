@@ -101,8 +101,6 @@
     </section>
     <div class="section__box todays__record">
         <h4> {{ now()->format('Y年m月d日') }} の記録</h4>
-        <p class="todays__record__content"> 学習コンテンツ【1:N予備校　2:ドットインストール　3:POSSE課題】</p><br>
-        <p class="todays__record__language"> 学習言語【1:HTML　2:CSS　3:SQL　4:SHELL 5:Javascript 6:PHP 7:Laravel 8:その他】</p>
         <ul class="flex record__title">
             <li>No.</li>
             <li>学習時間</li>
@@ -124,13 +122,13 @@
             <li>
 
                 @foreach($today_study_records as $today_study_record)
-                <div>{{ $today_study_record->content_id }}</div>
+                <div>{{ $today_study_record->content }}</div>
                 @endforeach
             </li>
             <li>
 
                 @foreach($today_study_records as $today_study_record)
-                <div>{{ $today_study_record->language_id }}</div>
+                <div>{{ $today_study_record->language }}</div>
                 @endforeach
             </li>
             
