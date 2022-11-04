@@ -31,7 +31,7 @@
                 <img src='https://posse.anti-pattern.co.jp/img/posseLogo.png' alt='POSSEのロゴ'>
             </div>
             <div class='header__inner__time'>
-                <p>4th week</p>
+                <p>{{ now()->weekOfYear }} week</p>
             </div>
             <p>welcome:{{ $user->email }}</p>
         </div>
@@ -72,7 +72,7 @@
             <div class='main__inner__2__box section__box'>
                 <h2 class='float'>学習言語</h2>
                 <div class='main__inner__2__box__graph'>
-                    <canvas id='language-graph-area'></canvas>
+                    <canvas id='language-graph-area' style="width: 80%"></canvas>
                 </div>
 
                 @foreach ($language_titles as $language)
@@ -87,7 +87,7 @@
             <div class='main__inner__2__box section__box'>
                 <h2 class='float'>学習コンテンツ</h2>
                 <div class='main__inner__2__box__graph'>
-                    <canvas id='content-graph-area'></canvas>
+                    <canvas id='content-graph-area' style="width: 80%"></canvas>
                 </div>
 
                 @foreach ($content_titles as $content)

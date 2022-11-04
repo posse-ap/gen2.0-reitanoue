@@ -128,7 +128,7 @@ body {
     justify-content: center;
     margin-top: 20px;
     max-width: 100%;
-    padding: 0 5%;
+    padding: 0 40px;
 }
 
 .main__inner__1 {
@@ -267,7 +267,7 @@ body {
 }
 
 .todays__record {
-    margin:0 20%;
+    margin:10px 50px;
     padding:1% 1% 1%;
 }
 
@@ -275,7 +275,7 @@ body {
     font-size: large;
     font-weight: bold;
     color:#bde360;
-    margin: 5%;
+    margin: 3%;
 }
 .todays__record__content{
     margin:5px 0;
@@ -418,10 +418,13 @@ body {
 
 .modal-content-1 {
     height: 450px;
+    width: 50%;
+
 }
 
 .modal-content-2 {
     height: 450px;
+    width: 50%;
 }
 
 .modal-content-title {
