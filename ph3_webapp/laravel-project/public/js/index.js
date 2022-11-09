@@ -46,8 +46,9 @@ function displayCalender() {
 
     determinationButton.style.visibility = "visible";
     displayCalenderId.style.position = "absolute";
-    displayCalenderId.style.left = "29rem";
-    displayCalenderId.style.top = "0.1rem";
+    displayCalenderId.style.left = "17.5rem";
+    // displayCalenderId.style.transform="translateX(-40%)";
+    // displayCalenderId.style.top = "0.1rem";
 }
 sample.addEventListener("click", displayCalender);
 
@@ -70,7 +71,6 @@ function closeCalender() {
 }
 determinationButton.addEventListener("click", closeCalender);
 
-
 /*
  * 記録・投稿ボタン 動き
  */
@@ -83,42 +83,38 @@ let determinationModal =
     document.getElementById("modalDone"); /* 記録・投稿完了画面id */
 let closeDeterminationModal =
     document.getElementById("closeModalDone"); /* 記録・投稿完了画面閉じるid */
+//.validationForm を指定した最初の form 要素を取得
+const validationForm = document.querySelector(".validationForm");
 
-
-document
-    .getElementById("modal-inner-button")
-    .addEventListener("click", function () {
-        if (twitterCheckBox.checked) {
-            console.log("twitter");
-            let twitterContents =
-                document.getElementById(
-                    "twitter_com"
-                ).value; /* twitter用コメント欄id */
-            window.open(
-                "https://twitter.com/intent/tweet?text=" + twitterContents
-            );
-            loadingModal.style.visibility = "visible";
-            loadingModal.style.opacity = "1";
-            window.setTimeout(function () {
-                loadingModal.style.visibility = "hidden";
-                loadingModal.style.opacity = "0";
-                determinationModal.style.visibility = "visible";
-                determinationModal.style.opacity = "1";
-            }, 3000);
-        } else {
-            loadingModal.style.visibility = "visible";
-            loadingModal.style.opacity = "1";
-            window.setTimeout(function () {
-                loadingModal.style.visibility = "hidden";
-                loadingModal.style.opacity = "0";
-                determinationModal.style.visibility = "visible";
-                determinationModal.style.opacity = "1";
-            }, 3000);
-        }
-    });
+validationForm.addEventListener("submit", function () {
+    if (twitterCheckBox.checked) {
+        console.log("twitter");
+        let twitterContents =
+            document.getElementById(
+                "twitter_com"
+            ).value; /* twitter用コメント欄id */
+        window.open("https://twitter.com/intent/tweet?text=" + twitterContents);
+        loadingModal.style.visibility = "visible";
+        loadingModal.style.opacity = "1";
+        window.setTimeout(function () {
+            loadingModal.style.visibility = "hidden";
+            loadingModal.style.opacity = "0";
+            determinationModal.style.visibility = "visible";
+            determinationModal.style.opacity = "1";
+        }, 3000);
+    } else {
+        loadingModal.style.visibility = "visible";
+        loadingModal.style.opacity = "1";
+        window.setTimeout(function () {
+            loadingModal.style.visibility = "hidden";
+            loadingModal.style.opacity = "0";
+            determinationModal.style.visibility = "visible";
+            determinationModal.style.opacity = "1";
+        }, 3000);
+    }
+});
 
 closeDeterminationModal.addEventListener("click", function () {
     determinationModal.style.visibility = "hidden";
     determinationModal.style.opacity = "0";
 });
-

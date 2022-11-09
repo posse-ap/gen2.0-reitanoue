@@ -60,7 +60,7 @@ class TopController extends Controller
             ]
             );
         return redirect('/home');
-    }
+        }
 
     
 }

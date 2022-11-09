@@ -16,8 +16,8 @@
     height: 100%;
 }
 
-.header__inner p{
-    color: #2B7FC2;
+.header__inner p {
+    color: #2b7fc2;
     font-weight: 100;
     margin-left: 20px;
     font-size: 15px;
@@ -267,40 +267,38 @@ body {
 }
 
 .todays__record {
-    margin:10px 50px;
-    padding:1% 1% 1%;
+    margin: 10px 50px;
+    padding: 1% 1% 1%;
 }
 
-.todays__record h4{
+.todays__record h4 {
     font-size: large;
     font-weight: bold;
-    color:#bde360;
+    color: #bde360;
     margin: 3%;
 }
-.todays__record__content{
-    margin:5px 0;
-    color:#8bd8f7;
+.todays__record__content {
+    margin: 5px 0;
+    color: #8bd8f7;
 }
-.todays__record__language{
-    margin:5px 0;
-    color:#2B7FC2;
+.todays__record__language {
+    margin: 5px 0;
+    color: #2b7fc2;
 }
 
-.todays__record ul{
+.todays__record ul {
     margin: 3% 0;
 }
 
-.todays__record li{
+.todays__record li {
     width: 200px;
 }
 
-.todays__record div{
-    margin-bottom: 5px;;
+.todays__record div {
+    margin-bottom: 5px;
 }
 
-
-
-.record__title{
+.record__title {
     font-weight: bold;
 }
 
@@ -328,17 +326,17 @@ footer {
     margin-left: 10px;
     margin-right: 10px;
 }
-.logout__button{
-    position:fixed;
+.logout__button {
+    position: fixed;
     bottom: 20px;
     right: 20px;
 }
-.logout__button:hover{
+.logout__button:hover {
     cursor: pointer;
 }
 
-.logout__button input{
-    width:100%;
+.logout__button input {
+    width: 100%;
 }
 
 html {
@@ -401,7 +399,7 @@ body {
 }
 
 .modal-inner-button {
-    margin: auto ;
+    margin: auto;
     background: linear-gradient(to right, rgb(32, 91, 255), skyblue);
     color: #fff;
     padding: 12px;
@@ -419,7 +417,6 @@ body {
 .modal-content-1 {
     height: 450px;
     width: 50%;
-
 }
 
 .modal-content-2 {
@@ -472,9 +469,9 @@ body {
 
 /* チェックしたときにボックスの背景が変わるCSS */
 
-
 input[type="radio"] {
-    display: none;
+    opacity: 0;
+    width: 1px;
 }
 
 input[type="checkbox"] {
@@ -485,7 +482,6 @@ input[type="checkbox"] {
     color: #ccc;
     margin-right: 5px;
 }
-
 
 input[type="radio"]:checked + .checkmark {
     color: #0f71bd;
@@ -559,6 +555,7 @@ input[type="checkbox"]:checked + .checkmark {
     box-shadow: 0 0 18px #8bd8f7;
     position: absolute;
     left: 50%;
+    transform: translateX(-50%);
     bottom: 2rem;
     z-index: 9999;
 }

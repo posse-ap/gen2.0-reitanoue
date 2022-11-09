@@ -109,29 +109,29 @@
         </ul>
         <ul class="flex">
             <li>
-                @foreach($today_study_records as $today_study_record)
-                <div>{{ $loop->iteration }}</div>
+                @foreach ($today_study_records as $today_study_record)
+                    <div>{{ $loop->iteration }}</div>
                 @endforeach
             </li>
             <li>
 
-                @foreach($today_study_records as $today_study_record)
-                <div>{{ $today_study_record->study_hour }}h</div>
+                @foreach ($today_study_records as $today_study_record)
+                    <div>{{ $today_study_record->study_hour }}h</div>
                 @endforeach
             </li>
             <li>
 
-                @foreach($today_study_records as $today_study_record)
-                <div>{{ $today_study_record->content }}</div>
+                @foreach ($today_study_records as $today_study_record)
+                    <div>{{ $today_study_record->content }}</div>
                 @endforeach
             </li>
             <li>
 
-                @foreach($today_study_records as $today_study_record)
-                <div>{{ $today_study_record->language }}</div>
+                @foreach ($today_study_records as $today_study_record)
+                    <div>{{ $today_study_record->language }}</div>
                 @endforeach
             </li>
-            
+
         </ul>
     </div>
 
@@ -147,7 +147,7 @@
         <form action="{{ route('logout') }}" method="post">
             @csrf
             <i class="fa-solid fa-right-from-bracket logout__button">
-            <input type="submit" value="ログアウト" type="hidden">
+                <input type="submit" value="ログアウト" type="hidden">
             </i>
         </form>
     </footer>
@@ -159,7 +159,8 @@
         <div id='modalBg' class='modalBg'></div>
         <div class='modalWrapper' id="modalWrapper">
             <div class='modalContents' id="modalContents">
-                <form ction="/{{ request()->path() }}" method="POST" enctype="multipart/form-data">
+                <form ction="/{{ request()->path() }}" method="POST" enctype="multipart/form-data"
+                    class="validationForm">
                     @csrf
                     <div class="flex modal-flex">
                         <div class='modal-content-1'>
@@ -171,7 +172,7 @@
                                     </label>
                                 </h3>
                                 <input type="text" name="study_date" id="studyDate" autocomplete='date'
-                                    class='modal-study-date'>
+                                    class='modal-study-date required' required>
                             </div>
                             <!-- 学習コンテンツ -->
                             <div class='grid'>
@@ -180,7 +181,7 @@
                                     @foreach ($content_titles as $content)
                                         <label for="{{ $content->content }}" class="modal-checkbox">
                                             <input id="{{ $content->content }}" type="radio" name="content"
-                                                value="{{ $content->id }}" required>
+                                                value="{{ $content->id }}" required class="required">
                                             <i class='fa-solid fa-circle-check checkmark'></i>
                                             {{ $content->content }}
                                         </label>
@@ -195,7 +196,7 @@
                                     @foreach ($language_titles as $language)
                                         <label for="{{ $language->language }}" class="modal-checkbox">
                                             <input id="{{ $language->language }}" type="radio" name="language"
-                                                value="{{ $language->id }}" required>
+                                                value="{{ $language->id }}" required class="required">
                                             <i class='fa-solid fa-circle-check checkmark'></i>
                                             {{ $language->language }}
                                         </label>
@@ -210,7 +211,7 @@
                                     <input type='number'
                                         onkeyup='value = value.length > 5 ? value.slice(0,5): value;' max='99999'
                                         name='study_hour' autocomplete='time' class='modal-study-time'
-                                        id='time'>
+                                        id='time' class="required" required>
                                 </label>
                             </div>
                             <div class='grid'>
