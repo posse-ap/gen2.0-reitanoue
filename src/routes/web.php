@@ -84,6 +84,16 @@ Route::post(
     [AdminController::class, 'contentAdd']
 );
 
+// コンテンツ編集
+Route::get(
+    '/admin/content/edit/{id}',
+    [AdminController::class, 'contentEditIndex']
+)->name('admin.content.edit');
+
+Route::post(
+    '/admin/content/edit/{id}',
+    [AdminController::class, 'contentEdit']
+);
 
 
 

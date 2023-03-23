@@ -37,6 +37,22 @@ class AdminController extends Controller
         return redirect('/admin/index');
     }
 
+    //コンテンツ編集
+    public function contentEditIndex($id)
+    {
+        $content = Content::find($id);
+        return view('/admin/content/edit', compact('content'));
+    }
+    public function contentEdit(Request $request, $content)
+    {
+        $content = Content::find($content);
+        // $content->update($request->only(['content']));
+        $content->update([
+            "content" => $request->content
+        ]);
+        return redirect('admin/index');
+    }
+
 
     //ユーザーの編集・削除（登録はデフォルト）
     public function user()
