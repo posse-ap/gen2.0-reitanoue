@@ -22,6 +22,22 @@ class AdminController extends Controller
         $languages = Language::all();
         return view('admin.index', compact('user', 'contents', 'languages'));
     }
+
+    // 学習コンテンツ追加
+    public function contentAddIndex()
+    {
+        return view('admin.content.add');
+    }
+    public function contentAdd(Request $request)
+    {
+        Content::create([
+            'content' => $request->name,
+            'color' => $request->color
+        ]);
+        return redirect('/admin/index');
+    }
+
+
     //ユーザーの編集・削除（登録はデフォルト）
     public function user()
     {
@@ -29,7 +45,7 @@ class AdminController extends Controller
         return view('admin.user.index', compact('users'));
     }
 
-    //削除
+    //ユーザー削除
     public function userDeleteIndex($id)
     {
         $user = User::find($id);
@@ -42,7 +58,7 @@ class AdminController extends Controller
         return redirect('admin/user/index');
     }
 
-    //編集
+    //ユーザー編集
     public function userEditIndex($id)
     {
         $user = User::find($id);
@@ -54,4 +70,5 @@ class AdminController extends Controller
         $user->update($request->only(['name']));
         return redirect('admin/user/index');
     }
+
 }

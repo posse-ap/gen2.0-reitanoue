@@ -18,7 +18,7 @@ class CheckAdmin
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::user()->role !== 1) {
-            return redirect()->route('welcome');p
+            return redirect()->route('welcome');
         }
         return $next($request);
     }

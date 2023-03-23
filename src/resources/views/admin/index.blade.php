@@ -30,32 +30,36 @@
             <table>
                 <tr>
                     <th>言語名</th>
-                    <th>編集・削除ページへ</th>
+                    <th>編集</th>
+                    <th>削除</th>
                 </tr>
                 @foreach ($languages as $language)
                     <tr>
                         <td>{{ $language->language }}</td>
-                        <td><a href="/admin/language/index/{{ $language->id }}"><button>コンテナ名変更 or 削除</button></a></td>
+                        <td><a href="/admin/language/edit/{{ $language->id }}"><button>編集</button></a></td>
+                        <td><a href="/admin/language/delete/{{ $language->id }}"><button>削除</button></a></td>
                     </tr>
                 @endforeach
             </table>
-            <a href="/admin/language/add/index">学習言語追加</a>
+            <a href="/admin/language/add">学習言語追加</a>
         </div>
         <div class="section__box">
             <p> 学習コンテンツ管理</p>
             <table>
                 <tr>
                     <th>コンテンツ名</th>
-                    <th>編集・削除ページへ</th>
+                    <th>編集</th>
+                    <th>削除</th>
                 </tr>
                 @foreach ($contents as $content)
                     <tr>
                         <td>{{ $content->content }}</td>
-                        <td><a href="/admin/content/index/{{ $content->id }}"><button>コンテナ名変更 or 削除</button></a></td>
+                        <td><a href="/admin/content/edit/{{ $content->id }}"><button>編集</button></a></td>
+                        <td><a href="/admin/content/delete/{{ $content->id }}"><button>削除</button></a></td>
                     </tr>
                 @endforeach
             </table>
-            <a href="/admin/content/add/index">学習コンテンツ追加</a>
+            <a href="/admin/content/add">学習コンテンツ追加</a>
         </div>
     </main>
 

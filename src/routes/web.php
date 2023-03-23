@@ -46,7 +46,6 @@ require __DIR__ . '/auth.php';
 
 // ユーザー画面表示
 
-Auth::routes();
 Route::get(
     '/top',
     [TopController::class, 'index']
@@ -74,14 +73,26 @@ Route::get(
 )
 ->middleware('auth','admin');
 
+// コンテンツ追加
+Route::get(
+    '/admin/content/add',
+    [AdminController::class, 'contentAddIndex']
+);
+
+Route::post(
+    '/admin/content/add',
+    [AdminController::class, 'contentAdd']
+);
+
+
+
+
 // ユーザー管理画面表示
 Route::get(
     '/admin/user/index',
     [AdminController::class, 'user']
 )
 ->middleware('auth','admin');;
-
-
 
 // ユーザー削除
 Route::get(
