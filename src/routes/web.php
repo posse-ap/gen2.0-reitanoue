@@ -94,7 +94,16 @@ Route::post(
     '/admin/content/edit/{id}',
     [AdminController::class, 'contentEdit']
 );
+// コンテンツ削除
+Route::get(
+    '/admin/content/delete/{id}',
+    [AdminController::class, 'contentDeleteIndex']
+)->name('admin.content.delete');
 
+Route::post(
+    '/admin/content/delete/{id}',
+    [AdminController::class, 'contentDelete']
+);
 
 
 // ユーザー管理画面表示

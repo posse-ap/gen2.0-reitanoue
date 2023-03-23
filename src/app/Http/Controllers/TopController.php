@@ -60,7 +60,7 @@ class TopController extends Controller
                     'content_id' =>$request->content
                 ]
                 );
-            return redirect('/home');
+            return redirect('/top');
             }
     
         

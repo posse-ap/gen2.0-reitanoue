@@ -46,10 +46,22 @@ class AdminController extends Controller
     public function contentEdit(Request $request, $content)
     {
         $content = Content::find($content);
-        // $content->update($request->only(['content']));
         $content->update([
             "content" => $request->content
         ]);
+        return redirect('admin/index');
+    }
+
+    //コンテンツ削除
+    public function contentDeleteIndex($id)
+    {
+        $content = Content::find($id);
+        return view('/admin/content/delete', compact('content'));
+    }
+    public function contentDelete(Request $request, $id)
+    {
+        $content = Content::find($id);
+        $content->delete();
         return redirect('admin/index');
     }
 
