@@ -18,16 +18,19 @@ class UsersTableSeeder extends Seeder
             [
                 [
                     'name' => '田上黎',
+                    'role' => 1,
                     'email' => 'rei@email.com',
                     'password' => bcrypt('password'),
                 ],
                 [
                     'name' => '小野かんた',
+                    'role' => 2,
                     'email' => 'onokan@email.com',
                     'password' => bcrypt('password'),
                 ],
                 [
                     'name' => 'ぽんた',
+                    'role' => 2,
                     'email' => 'ponta@email.com',
                     'password' => bcrypt('password'),
                 ],

@@ -17,11 +17,12 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
-});
+})
+->name('welcome');
 
 
 Route::get('/test', function () {
@@ -56,7 +57,8 @@ Route::get(
 Route::post(
     '/top',
     [TopController::class, 'form']
-);
+)
+->name('top');
 
 
 
@@ -70,14 +72,14 @@ Route::get(
     '/admin/index',
     [AdminController::class, 'index']
 )
-->middleware('auth');
+->middleware('auth','admin');
 
 // ユーザー管理画面表示
 Route::get(
     '/admin/user/index',
     [AdminController::class, 'user']
 )
-->middleware('auth');;
+->middleware('auth','admin');;
 
 
 
