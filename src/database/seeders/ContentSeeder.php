@@ -5,14 +5,12 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ContentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-    use SoftDeletes;
 
     public function run(): void
     {

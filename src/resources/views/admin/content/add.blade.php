@@ -15,7 +15,7 @@
         <label for="name">
             コンテンツ名
         </label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="content" id="name">
         <br>
         <label for="color">
             カラーコード

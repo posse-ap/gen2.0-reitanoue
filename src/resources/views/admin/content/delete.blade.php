@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1>コンテンツ<{{ $content->content }}>削除</h1>
+    <h1>コンテンツ【{{ $content->content }}】削除</h1>
     <form action="/{{ request()->path() }}" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="submit" value="削除">

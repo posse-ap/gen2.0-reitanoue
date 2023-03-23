@@ -31,7 +31,7 @@ class AdminController extends Controller
     public function contentAdd(Request $request)
     {
         Content::create([
-            'content' => $request->name,
+            'content' => $request->content,
             'color' => $request->color
         ]);
         return redirect('/admin/index');
@@ -62,6 +62,51 @@ class AdminController extends Controller
     {
         $content = Content::find($id);
         $content->delete();
+        return redirect('admin/index');
+    }
+
+
+
+
+    // 学習言語追加
+    public function languageAddIndex()
+    {
+        return view('admin.language.add');
+    }
+    public function languageAdd(Request $request)
+    {
+        Language::create([
+            'language' => $request->language,
+            'color' => $request->color
+        ]);
+        return redirect('/admin/index');
+    }
+
+    //言語編集
+    public function languageEditIndex($id)
+    {
+        $language = Language::find($id);
+        return view('/admin/language/edit', compact('language'));
+    }
+    public function languageEdit(Request $request, $language)
+    {
+        $language = Language::find($language);
+        $language->update([
+            "language" => $request->language
+        ]);
+        return redirect('admin/index');
+    }
+
+    //言語削除
+    public function languageDeleteIndex($id)
+    {
+        $language = Language::find($id);
+        return view('/admin/language/delete', compact('language'));
+    }
+    public function languageDelete(Request $request, $id)
+    {
+        $language = Language::find($id);
+        $language->delete();
         return redirect('admin/index');
     }
 

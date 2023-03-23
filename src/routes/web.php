@@ -105,6 +105,38 @@ Route::post(
     [AdminController::class, 'contentDelete']
 );
 
+// 言語追加
+Route::get(
+    '/admin/language/add',
+    [AdminController::class, 'languageAddIndex']
+);
+
+Route::post(
+    '/admin/language/add',
+    [AdminController::class, 'languageAdd']
+);
+
+// 言語編集
+Route::get(
+    '/admin/language/edit/{id}',
+    [AdminController::class, 'languageEditIndex']
+)->name('admin.language.edit');
+
+Route::post(
+    '/admin/language/edit/{id}',
+    [AdminController::class, 'languageEdit']
+);
+// 言語削除
+Route::get(
+    '/admin/language/delete/{id}',
+    [AdminController::class, 'languageDeleteIndex']
+)->name('admin.language.delete');
+
+Route::post(
+    '/admin/language/delete/{id}',
+    [AdminController::class, 'languageDelete']
+);
+
 
 // ユーザー管理画面表示
 Route::get(
