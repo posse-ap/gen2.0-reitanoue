@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TopController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 
@@ -23,9 +24,6 @@ Route::get('/', function () {
 });
 
 
-
-
-
 Route::get('/test', function () {
     Mail::to('posse@example.com')->send(new Test);
     return 'メール送信しました！';
@@ -43,18 +41,64 @@ Route::middleware('auth')->group(function () {
 
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
+
+// ユーザー画面表示
 
 Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-Route::get('/home', [TopController::class, 'index'])
+Route::get(
+    '/top',
+    [TopController::class, 'index']
+)
 ->middleware('auth');
 
+// 学習記録登録
+Route::post(
+    '/top',
+    [TopController::class, 'form']
+);
+
+
+
+
+
+
+
+
+// 管理画面表示
+Route::get(
+    '/admin/index',
+    [AdminController::class, 'index']
+)
+->middleware('auth');
+
+// ユーザー管理画面表示
+Route::get(
+    '/admin/user/index',
+    [AdminController::class, 'user']
+)
+->middleware('auth');;
+
+
+
+// ユーザー削除
+Route::get(
+    '/admin/user/delete/{id}',
+    [AdminController::class, 'userDeleteIndex']
+)->name('admin.user.delete');
 
 Route::post(
-    '/home',
-    [TopController::class, 'form']
+    '/admin/user/delete/{id}',
+    [AdminController::class, 'userDelete']
+);
+
+// ユーザー編集
+Route::get(
+    '/admin/user/edit/{id}',
+    [AdminController::class, 'userEditIndex']
+)->name('admin.user.edit');
+
+Route::post(
+    '/admin/user/edit/{id}',
+    [AdminController::class, 'userEdit']
 );
