@@ -11,11 +11,15 @@ use App\Models\User;
 use App\Models\Content;
 use App\Models\Language;
 use App\Models\StudyHoursReport;
+use GuzzleHttp\Client;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Http;
+use \Symfony\Component\HttpFoundation\Response;
 
 class TopController extends Controller
 {
     //
-     /**
+    /**
      * 指定ユーザーのプロファイルを表示
      *
      * @param  int  $id
@@ -39,29 +43,74 @@ class TopController extends Controller
             ->groupBy('contents.content', 'contents.color')
             ->get();
 
-            $language_titles = Language::all();
-            $content_titles = Content::all();
-            $today_study_records = StudyHoursReport::join('languages', 'languages.id', '=', 'study_hours_reports.language_id')->join('contents', 'contents.id', '=', 'study_hours_reports.content_id')->whereDate('study_date', date('Y-m-d'))->get();
-    
-            // 現在認証しているユーザーを取得
-            $user = Auth::user();
-            return view('index', compact('today', 'month', 'total', 'bars', 'languages', 'contents', 'language_titles', 'content_titles','today_study_records','user'));
-        }
-    
-    
-        public function form(Request $request){
-            $user_id=Auth::id();
-            StudyHoursReport::create(
-                [
-                    'user_id' => $user_id,
-                    'study_hour' =>$request->study_hour,
-                    'study_date' =>$request->study_date,
-                    'language_id' =>$request->language,
-                    'content_id' =>$request->content
-                ]
-                );
-            return redirect('/top');
-            }
-    
-        
+        $language_titles = Language::all();
+        $content_titles = Content::all();
+        $today_study_records = StudyHoursReport::join('languages', 'languages.id', '=', 'study_hours_reports.language_id')->join('contents', 'contents.id', '=', 'study_hours_reports.content_id')->whereDate('study_date', date('Y-m-d'))->get();
+
+        // 現在認証しているユーザーを取得
+        $user = Auth::user();
+        return view('index', compact('today', 'month', 'total', 'bars', 'languages', 'contents', 'language_titles', 'content_titles', 'today_study_records', 'user'));
     }
+
+
+    public function form(Request $request)
+    {
+        $user_id = Auth::id();
+        StudyHoursReport::create(
+            [
+                'user_id' => $user_id,
+                'study_hour' => $request->study_hour,
+                'study_date' => $request->study_date,
+                'language_id' => $request->language,
+                'content_id' => $request->content
+            ]
+        );
+        return redirect('/top');
+    }
+
+
+
+    // 一覧取得用
+    public function news()
+    {
+        $client = new Client([
+            'base_uri' => 'https://bkrs3waxwg.execute-api.ap-northeast-1.amazonaws.com/default/',
+        ]);
+
+        $method = 'GET';
+        $uri = 'news';   
+        $options = []; //第３引数必要
+        $response = $client->request($method, $uri, $options);
+
+        $lists = json_decode($response->getBody()->getContents(), true);
+
+        return view('news.news',compact('lists'));
+    }
+
+    // id使って呼びだす用
+    public function getNews($id)
+    {
+        $client = new Client([
+            'base_uri' => 'https://bkrs3waxwg.execute-api.ap-northeast-1.amazonaws.com/default/news/',
+        ]);
+
+
+        $method = 'GET';
+        $uri = $id;
+        // dd($uri);
+        $options=[
+            'query' => [
+                'id' => $id,
+            ],
+        ];
+        $response = $client->request($method, $uri, $options);
+
+        $news = json_decode($response->getBody()->getContents(), true);
+
+        // dd($news);
+
+        return view('news.article',compact('news'));
+
+        // return view('news.')
+    }
+}

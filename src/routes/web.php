@@ -59,6 +59,11 @@ Route::post(
 )
 ->name('top');
 
+// news一覧API呼び出し
+Route::get('/news', [TopController::class, 'news'])->name('news');
+
+// news/{id}API呼び出し
+Route::get('/news/{id}', [TopController::class, 'getNews'])->name('getNews');
 
 
 
@@ -166,3 +171,4 @@ Route::post(
     '/admin/user/edit/{id}',
     [AdminController::class, 'userEdit']
 );
+

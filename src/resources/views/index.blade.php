@@ -35,6 +35,7 @@
             </div>
             <p>welcome:{{ $user->email }}</p>
         </div>
+        <a href="/news">news一覧へ</a>
         <button id='openModal' class='header__inner__button'>記録・投稿</button>
     </header>
     <!-- 大枠 -->
@@ -365,7 +366,9 @@
             //凡例のラベル
             data: {
                 labels: [
-                    'CSS', 'HTML', 'Javascript', 'Laravel', 'PHP', 'SHELL', 'SQL', 'その他'
+                    @foreach ($languages as $language)
+                        " {{ $language->language }} ",
+                        @endforeach
                 ],
                 datasets: [{
                     label: "学習言語",
@@ -381,14 +384,9 @@
                         }
                     },
                     backgroundColor: [
-                        "#0f70bd",
-                        "#0445ec",
-                        "#b29ef3",
-                        "#3005c0",
-                        "#4a17ef",
-                        "#3ccefe",
-                        "#20bdde",
-                        "#6c46eb",
+                        @foreach ($languages as $language)
+                        " {{ $language->color }} ",
+                        @endforeach
                     ],
                     borderColor: 'transparent'
                 }, ],
@@ -420,7 +418,9 @@
             //凡例のラベル
             data: {
                 labels: [
-                    'N予備校', 'POSSE課題', 'ドットインストール'
+                    @foreach ($contents as $content)
+                        " {{ $content->content }} ",
+                        @endforeach
                 ],
                 datasets: [{
                     label: "学習コンテンツ",
@@ -436,9 +436,9 @@
                         }
                     },
                     backgroundColor: [
-                        "#0445ec",
-                        "#0f70bd",
-                        "#20bdde"
+                        @foreach ($contents as $content)
+                        " {{ $content->color }} ",
+                        @endforeach
                     ],
                     borderColor: 'transparent'
                 }, ],
