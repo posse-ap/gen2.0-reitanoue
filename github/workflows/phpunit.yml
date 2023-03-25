@@ -1,7 +1,5 @@
 name: PHPUnitの実行
-on:  push
-  branches:
-    - ph4_test
+on: [ push ]
 jobs:
   phpunit:
     runs-on: ubuntu-latest
@@ -12,4 +10,3 @@ jobs:
 
       - name: ハローワールド
         run: echo "Hello world"
-
